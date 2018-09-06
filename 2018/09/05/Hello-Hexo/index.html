@@ -7,18 +7,18 @@
   
   <title>Hello,Hexo | ZRoger的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hello这里是我的博客，新的开始">
+  <meta name="description" content="Hello,HexoHi,米娜桑。这里是ZRoger的博客。由GitHub Page和Hexo构成。所以在这文章篇中，我记录了关于Hexo的一些东西。 Hexo什么是Hexo 来自官方的回答：Hexo是一个快速，简洁且高效的博客框架。Hexo使用Markdown(或者其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态页面。 so,我们可以在GitHub Page上使用Hexo来构建属于自">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello,Hexo">
 <meta property="og:url" content="http://yoursite.com/2018/09/05/Hello-Hexo/index.html">
 <meta property="og:site_name" content="ZRoger的博客">
-<meta property="og:description" content="Hello这里是我的博客，新的开始">
+<meta property="og:description" content="Hello,HexoHi,米娜桑。这里是ZRoger的博客。由GitHub Page和Hexo构成。所以在这文章篇中，我记录了关于Hexo的一些东西。 Hexo什么是Hexo 来自官方的回答：Hexo是一个快速，简洁且高效的博客框架。Hexo使用Markdown(或者其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态页面。 so,我们可以在GitHub Page上使用Hexo来构建属于自">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-09-05T14:56:22.656Z">
+<meta property="og:updated_time" content="2018-09-06T14:47:28.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello,Hexo">
-<meta name="twitter:description" content="Hello这里是我的博客，新的开始">
+<meta name="twitter:description" content="Hello,HexoHi,米娜桑。这里是ZRoger的博客。由GitHub Page和Hexo构成。所以在这文章篇中，我记录了关于Hexo的一些东西。 Hexo什么是Hexo 来自官方的回答：Hexo是一个快速，简洁且高效的博客框架。Hexo使用Markdown(或者其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态页面。 so,我们可以在GitHub Page上使用Hexo来构建属于自">
   
     <link rel="alternate" href="/atom.xml" title="ZRoger的博客" type="application/atom+xml">
   
@@ -91,12 +91,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello"></a>Hello</h1><p>这里是我的博客，新的开始</p>
+        <h1 id="Hello-Hexo"><a href="#Hello-Hexo" class="headerlink" title="Hello,Hexo"></a>Hello,Hexo</h1><p>Hi,米娜桑。这里是ZRoger的博客。由<code>GitHub Page</code>和<code>Hexo</code>构成。<br>所以在这文章篇中，我记录了关于<code>Hexo</code>的一些东西。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><em>什么是Hexo</em></p>
+<p>来自<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方</a>的回答：<code>Hexo</code>是一个快速，简洁且高效的博客框架。Hexo使用Markdown(或者其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态页面。</p>
+<p>so,我们可以在<code>GitHub Page</code>上使用<code>Hexo</code>来构建属于自己的静态博客。这看起非常有趣。</p>
+<p><em>在电脑上安装Hexo</em></p>
+<blockquote>
+<p><em>注意</em><br>这里记录的window系统下的过程。其他系统暂时没有办法涉及，以后有机会再补上。</p>
+</blockquote>
+<p>1.首先在你的电脑上准备好<code>Node.js</code>和<code>Git</code>，别忘了还有<code>GitHub</code>账号。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>2.然后在使用<code>git bash</code>安装<code>hexo-cli</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>3.在github上创建对应的用户名仓库，比如像我这样<code>ZRoger95.github.io</code><br>4.在本地创建文件夹<code>blog</code>,然后在git bash中输入hexo init进行初始化。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>5.安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p><em>github关联Hexo</em></p>
+<p>6.将Hexo与GitHub Page关联（在之前，不要忘记设置git中的user name和email）。检查.ssh文件夹，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
+<p>7.连续回车3次，生成密钥和公钥。将id_rsa.pub填到github账户上。然后使用添加密钥到ssh-agent:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure>
+<p>8.添加生成的SSH key到ssh-agent中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>9.测试一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>10.修改blog文件夹下面的_config.yml文件，添加远程仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git </span><br><span class="line">  repository: 你的仓库的ssh</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p><em>新建一篇文章</em></p>
+<p>11.在git bash中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post 文章名字</span><br></pre></td></tr></table></figure>
+<p>12.在生成以及部署文章之前，需要再安装一个扩展:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>13.生成和部署文章,然后就可以访问一下地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/Hello-Hexo/" data-id="cjlp9nf5z0000mcnanxjc8ld5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/Hello-Hexo/" data-id="cjlqoym950000conafrzky7yw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,6 +137,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/09/06/other/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          other
+        
+      </div>
+    </a>
   
   
     <a href="/2018/09/05/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -143,6 +185,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/09/06/other/">other</a>
+          </li>
         
           <li>
             <a href="/2018/09/05/Hello-Hexo/">Hello,Hexo</a>
