@@ -97,64 +97,6 @@
 
 
   
-    <article id="post-oracle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/09/oracle/" class="article-date">
-  <time datetime="2018-10-09T15:00:47.010Z" itemprop="datePublished">2018-10-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于Oracle-12c的一些笔记"><a href="#关于Oracle-12c的一些笔记" class="headerlink" title="关于Oracle-12c的一些笔记"></a>关于Oracle-12c的一些笔记</h1><p>这里是Oracle官网的下载页面：</p>
-<p><img src=".\oracle\oracle-download-page.png" alt="oracle-download-page"></p>
-<p>我下载的是<code>Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition</code>，安装在<code>Windows Sever 2012 rc</code>服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后者多的是一些可设置的选项，服务器上选择当然是服务器类啦，之后的安装选择经典安装，其他需求暂时没有。然后在安装<em>12c</em>的时候注意取消<strong>创建为容器数据库</strong>，不然在之后创建用户时候，需要加前缀<code>c##</code>，因为这是<em>12c</em>的新特性——<code>CDP</code>和<code>BDP</code></p>
-<ol>
-<li><p><a href="https://www.jb51.net/article/112019.htm" target="_blank" rel="noopener">windows Sever 2012与Oracle 12c 安装教程</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">window 与 Oracle 12c</a></p>
-</li>
-</ol>
-<p>以下是笔者在安装的时候，没有取消<strong>创建为容器数据库</strong>的情况。</p>
-<p>在<em>12c</em>这版本中，按照以前的方法直接创建用户会提示公共用户名或角色错误</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus / as sysdba</span><br></pre></td></tr></table></figure>
-<p>进入后，创建用户：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user 用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure>
-<p><em>提示错误：公共用户名或角色错误</em> </p>
-<p>正确的应该是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user c##用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure>
-<p>这样就可以了。</p>
-<p>之后便是为用户授权：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grant create session to C##用户名;  </span><br><span class="line">grant create table to   C##用户名;  </span><br><span class="line">grant create tablespace to   C##用户名;  </span><br><span class="line">grant create view to   C##用户名;</span><br></pre></td></tr></table></figure>
-<p>之后，就可以用<code>ql/sql</code>进行连接了。</p>
-<p>但是，这个时候，你不想要这个前缀怎么办，同时不想重新安装<em>12c</em>。那么就使用<code>Database Configuration Assistant</code>再创建一个新的数据库出来。然后取消<strong>容器数据库</strong>就可以了。</p>
-<p>其他方面，创建新的表空间给新的用户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create tablespace 表空间名字 datafile &apos;地址/文件名.dbf&apos; size 1500M autoextend on next 50m maxsize unlimited;</span><br></pre></td></tr></table></figure>
-<p>然后授权</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user 用户名 quota unlimited on 表空间名字;</span><br></pre></td></tr></table></figure>
-<p>其他参考资料：</p>
-<ol>
-<li><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">orcal 安装教程</a> </li>
-<li><a href="https://blog.csdn.net/sunxiaoju/article/details/78870680" target="_blank" rel="noopener">安装后续工作</a> </li>
-<li><a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">oracle下载地址</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/oracle/" data-id="cjnblxntj0002wwnaqwz8c0vl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-leetcode" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/08/leetcode/" class="article-date">
@@ -316,7 +258,6 @@ return [0, 1].
       
         <p>这里将记录关于<code>Hexo</code>一些东西。</p>
 <p>使用<code>hexo init</code>初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：</p>
-<img src="/2018/09/08/hello-Hexo-2/hexo_folders.png" title="静态博客项目文件结构">
 <p><img src=".\hello-Hexo-2\hexo_folders.png" alt=""></p>
 <p>.deploy_git是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。</p>
 <p>接着说一下配置文件：_config.yml</p>
@@ -487,6 +428,75 @@ return [0, 1].
 
 
   
+    <article id="post-oracle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/oracle/" class="article-date">
+  <time datetime="2018-09-05T14:54:16.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/oracle/">oracle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于Oracle-12c的一些笔记"><a href="#关于Oracle-12c的一些笔记" class="headerlink" title="关于Oracle-12c的一些笔记"></a>关于Oracle-12c的一些笔记</h1><p>这里是Oracle官网的下载页面：</p>
+<p><img src=".\oracle\oracle-download-page.png" alt="oracle-download-page"></p>
+<p><img src=".\img\hexo_folders.png" alt="test"></p>
+<p>我下载的是<code>Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition</code>，安装在<code>Windows Sever 2012 rc</code>服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后者多的是一些可设置的选项，服务器上选择当然是服务器类啦，之后的安装选择经典安装，其他需求暂时没有。然后在安装<em>12c</em>的时候注意取消<strong>创建为容器数据库</strong>，不然在之后创建用户时候，需要加前缀<code>c##</code>，因为这是<em>12c</em>的新特性——<code>CDP</code>和<code>BDP</code></p>
+<ol>
+<li><p><a href="https://www.jb51.net/article/112019.htm" target="_blank" rel="noopener">windows Sever 2012与Oracle 12c 安装教程</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">window 与 Oracle 12c</a></p>
+</li>
+</ol>
+<p>以下是笔者在安装的时候，没有取消<strong>创建为容器数据库</strong>的情况。</p>
+<p>在<em>12c</em>这版本中，按照以前的方法直接创建用户会提示公共用户名或角色错误</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus / as sysdba</span><br></pre></td></tr></table></figure>
+<p>进入后，创建用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user 用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure>
+<p><em>提示错误：公共用户名或角色错误</em> </p>
+<p>正确的应该是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user c##用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure>
+<p>这样就可以了。</p>
+<p>之后便是为用户授权：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grant create session to C##用户名;  </span><br><span class="line">grant create table to   C##用户名;  </span><br><span class="line">grant create tablespace to   C##用户名;  </span><br><span class="line">grant create view to   C##用户名;</span><br></pre></td></tr></table></figure>
+<p>之后，就可以用<code>ql/sql</code>进行连接了。</p>
+<p>但是，这个时候，你不想要这个前缀怎么办，同时不想重新安装<em>12c</em>。那么就使用<code>Database Configuration Assistant</code>再创建一个新的数据库出来。然后取消<strong>容器数据库</strong>就可以了。</p>
+<p>其他方面，创建新的表空间给新的用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create tablespace 表空间名字 datafile &apos;地址/文件名.dbf&apos; size 1500M autoextend on next 50m maxsize unlimited;</span><br></pre></td></tr></table></figure>
+<p>然后授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user 用户名 quota unlimited on 表空间名字;</span><br></pre></td></tr></table></figure>
+<p>其他参考资料：</p>
+<ol>
+<li><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">orcal 安装教程</a> </li>
+<li><a href="https://blog.csdn.net/sunxiaoju/article/details/78870680" target="_blank" rel="noopener">安装后续工作</a> </li>
+<li><a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">oracle下载地址</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/05/oracle/" data-id="cjnblxntj0002wwnaqwz8c0vl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/05/hello-world/" class="article-date">
@@ -567,10 +577,6 @@ return [0, 1].
           </li>
         
           <li>
-            <a href="/2018/10/09/oracle/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2018/10/08/leetcode/">(no title)</a>
           </li>
         
@@ -580,6 +586,10 @@ return [0, 1].
         
           <li>
             <a href="/2018/09/08/hello-Hexo-2/">你好,Hexo （第二篇）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/06/other/">other</a>
           </li>
         
       </ul>
