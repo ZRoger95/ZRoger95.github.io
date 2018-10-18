@@ -12,6 +12,17 @@
 
 
 
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
 
 
 
@@ -74,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="ZRoger, Blog" />
+  <meta name="keywords" content="oracle," />
 
 
 
@@ -87,21 +98,20 @@
 
 
 
-<meta name="description" content="这里将记录关于Hexo一些东西。 使用hexo init初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：    .deploy_git是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。 接着说一下配置文件：_config.yml">
-<meta name="keywords" content="blog">
+<meta name="description" content="关于Oracle-12c的一些笔记这里是Oracle官网的下载页面：  我下载的是Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition，安装在Windows Sever 2012 rc服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后">
+<meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好,Hexo （第二篇）">
-<meta property="og:url" content="http://ZRoger95.github.io/hello-Hexo-2/index.html">
+<meta property="og:title" content="oracle">
+<meta property="og:url" content="http://ZRoger95.github.io/2018/10/16/oracle/index.html">
 <meta property="og:site_name" content="ZRoger的博客">
-<meta property="og:description" content="这里将记录关于Hexo一些东西。 使用hexo init初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：    .deploy_git是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。 接着说一下配置文件：_config.yml">
+<meta property="og:description" content="关于Oracle-12c的一些笔记这里是Oracle官网的下载页面：  我下载的是Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition，安装在Windows Sever 2012 rc服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zroger95.github.io/hello-Hexo-2/hello-Hexo-2/hexo_folders.png">
-<meta property="og:image" content="http://zroger95.github.io/hello-Hexo-2/hello-Hexo-2/oracle-download-page.png">
-<meta property="og:updated_time" content="2018-10-16T11:37:43.666Z">
+<meta property="og:image" content="http://zroger95.github.io/2018/10/16/oracle/oracle-download-page.png">
+<meta property="og:updated_time" content="2018-10-18T11:41:34.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好,Hexo （第二篇）">
-<meta name="twitter:description" content="这里将记录关于Hexo一些东西。 使用hexo init初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：    .deploy_git是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。 接着说一下配置文件：_config.yml">
-<meta name="twitter:image" content="http://zroger95.github.io/hello-Hexo-2/hello-Hexo-2/hexo_folders.png">
+<meta name="twitter:title" content="oracle">
+<meta name="twitter:description" content="关于Oracle-12c的一些笔记这里是Oracle官网的下载页面：  我下载的是Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition，安装在Windows Sever 2012 rc服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后">
+<meta name="twitter:image" content="http://zroger95.github.io/2018/10/16/oracle/oracle-download-page.png">
 
 
 
@@ -131,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://ZRoger95.github.io/hello-Hexo-2/"/>
+  <link rel="canonical" href="http://ZRoger95.github.io/2018/10/16/oracle/"/>
 
 
 
 
 
-  <title>你好,Hexo （第二篇） | ZRoger的博客</title>
+  <title>oracle | ZRoger的博客</title>
   
 
 
@@ -168,7 +178,8 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-    <a href="https://github.com/ZRoger95"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+    <a href="https://github.com/ZRoger95" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -305,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ZRoger95.github.io/hello-Hexo-2/">
+    <link itemprop="mainEntityOfPage" href="http://ZRoger95.github.io/2018/10/16/oracle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -322,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你好,Hexo （第二篇）</h1>
+          <h1 class="post-title" itemprop="name headline">oracle</h1>
         
 
         <div class="post-meta">
@@ -334,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-08T20:37:22+08:00">
-                2018-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T19:00:26+08:00">
+                2018-10-16
               </time>
             
 
@@ -366,7 +377,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  99
+                  520
                 </span>
               
 
@@ -403,19 +414,79 @@
       
 
       
-        <p>这里将记录关于<code>Hexo</code>一些东西。</p>
-<p>使用<code>hexo init</code>初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：</p>
-
-<p><img src="/hello-Hexo-2/./hello-Hexo-2\hexo_folders.png" alt=""></p>
-<p><img src="/hello-Hexo-2/./hello-Hexo-2\oracle-download-page.png" alt=""></p>
-<p>.deploy_git是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。</p>
-<p>接着说一下配置文件：_config.yml</p>
+        <h1 id="关于Oracle-12c的一些笔记"><a href="#关于Oracle-12c的一些笔记" class="headerlink" title="关于Oracle-12c的一些笔记"></a>关于Oracle-12c的一些笔记</h1><p>这里是Oracle官网的下载页面：</p>
+<p><img src="/2018/10/16/oracle/oracle-download-page.png" alt="oracle-download-page"></p>
+<p>我下载的是<code>Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition</code>，安装在<code>Windows Sever 2012 rc</code>服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后者多的是一些可设置的选项，服务器上选择当然是服务器类啦，之后的安装选择经典安装，其他需求暂时没有。然后在安装<em>12c</em>的时候注意取消<strong>创建为容器数据库</strong>，不然在之后创建用户时候，需要加前缀<code>c##</code>，因为这是<em>12c</em>的新特性——<code>CDP</code>和<code>BDP</code></p>
+<ol>
+<li><p><a href="https://www.jb51.net/article/112019.htm" target="_blank" rel="noopener">windows Sever 2012与Oracle 12c 安装教程</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">window 与 Oracle 12c</a></p>
+</li>
+</ol>
+<p>以下是笔者在安装的时候，没有取消<strong>创建为容器数据库</strong>的情况。</p>
+<p>在<em>12c</em>这版本中，按照以前的方法直接创建用户会提示公共用户名或角色错误</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus / as sysdba</span><br></pre></td></tr></table></figure>
+<p>进入后，创建用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user 用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure>
+<p><em>提示错误：公共用户名或角色错误</em> </p>
+<p>正确的应该是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user c##用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure>
+<p>这样就可以了。</p>
+<p>之后便是为用户授权：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grant create session to C##用户名;  </span><br><span class="line">grant create table to C##用户名;  </span><br><span class="line">grant create tablespace to C##用户名;  </span><br><span class="line">grant create view to C##用户名;</span><br></pre></td></tr></table></figure>
+<p>之后，就可以用<code>ql/sql</code>进行连接了。</p>
+<p>但是，这个时候，你不想要这个前缀怎么办，同时不想重新安装<em>12c</em>。那么就使用<code>Database Configuration Assistant</code>再创建一个新的数据库出来。然后取消<strong>容器数据库</strong>就可以了。</p>
+<p>其他方面，创建新的表空间给新的用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create tablespace 表空间名字 datafile &apos;地址/文件名.dbf&apos; size 1500M autoextend on next 50m maxsize unlimited;</span><br></pre></td></tr></table></figure>
+<p>然后授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user 用户名 quota unlimited on 表空间名字;</span><br></pre></td></tr></table></figure>
+<p>其他参考资料：</p>
+<ol>
+<li><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">orcal 安装教程</a> </li>
+<li><a href="https://blog.csdn.net/sunxiaoju/article/details/78870680" target="_blank" rel="noopener">安装后续工作</a> </li>
+<li><a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">oracle下载地址</a></li>
+</ol>
 
       
     </div>
     
     
     
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/16/oracle/">oracle</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ZRoger 的个人博客">ZRoger</a></p>
+  <p><span>发布时间:</span>2018年10月16日 - 19:10</p>
+  <p><span>最后更新:</span>2018年10月18日 - 19:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/16/oracle/" title="oracle">http://ZRoger95.github.io/2018/10/16/oracle/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://ZRoger95.github.io/2018/10/16/oracle/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
 
     
 
@@ -424,6 +495,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oracle/" rel="tag"><i class="fa fa-tag"></i> oracle</a>
+          
+        </div>
       
 
       
@@ -434,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Hello-Hexo/" rel="next" title="你好,Hexo（第一篇）">
-                <i class="fa fa-chevron-left"></i> 你好,Hexo（第一篇）
+              <a href="/2018/10/15/gdg/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -444,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/单例模式/" rel="prev" title="单例模式">
-                单例模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/18/vue/" rel="prev" title="vue">
+                vue <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -459,6 +536,17 @@
   
   
   
+  
+  <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------The End-------------</div>
+    
+</div>
+    
+  </div>
+
   </article>
 
 
@@ -498,8 +586,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -518,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -593,6 +690,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Oracle-12c的一些笔记"><span class="nav-number">1.</span> <span class="nav-text">关于Oracle-12c的一些笔记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
