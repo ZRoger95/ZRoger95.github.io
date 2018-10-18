@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ZRoger的博客</title>
+  
+  <subtitle>雨水淋湿过的翅膀，才有穿越暴风雨的力量。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://ZRoger95.github.io/"/>
+  <updated>2018-10-17T13:45:07.608Z</updated>
+  <id>http://ZRoger95.github.io/</id>
+  
+  <author>
+    <name>ZRoger</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>oracle</title>
+    <link href="http://ZRoger95.github.io/oracle/"/>
+    <id>http://ZRoger95.github.io/oracle/</id>
+    <published>2018-10-16T11:00:26.000Z</published>
+    <updated>2018-10-17T13:45:07.608Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于Oracle-12c的一些笔记"><a href="#关于Oracle-12c的一些笔记" class="headerlink" title="关于Oracle-12c的一些笔记"></a>关于Oracle-12c的一些笔记</h1><p>这里是Oracle官网的下载页面：</p><p><img src="/oracle/oracle-download-page.png" alt="oracle-download-page"></p><p>我下载的是<code>Oracle Database 12c Release 1 (12.1.0.2.0) - Enterprise Edition</code>，安装在<code>Windows Sever 2012 rc</code>服务器上还有自己的笔记本上做实验。这次之间遇到许多的问题，记录下来。下面是一些安装的教程，安装的过程可以参考，关于是桌面类和服务器类的区别，后者多的是一些可设置的选项，服务器上选择当然是服务器类啦，之后的安装选择经典安装，其他需求暂时没有。然后在安装<em>12c</em>的时候注意取消<strong>创建为容器数据库</strong>，不然在之后创建用户时候，需要加前缀<code>c##</code>，因为这是<em>12c</em>的新特性——<code>CDP</code>和<code>BDP</code></p><ol><li><p><a href="https://www.jb51.net/article/112019.htm" target="_blank" rel="noopener">windows Sever 2012与Oracle 12c 安装教程</a></p></li><li><p><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">window 与 Oracle 12c</a></p></li></ol><p>以下是笔者在安装的时候，没有取消<strong>创建为容器数据库</strong>的情况。</p><p>在<em>12c</em>这版本中，按照以前的方法直接创建用户会提示公共用户名或角色错误</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus / as sysdba</span><br></pre></td></tr></table></figure><p>进入后，创建用户：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user 用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure><p><em>提示错误：公共用户名或角色错误</em> </p><p>正确的应该是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user c##用户名 identified by 密码 ;</span><br></pre></td></tr></table></figure><p>这样就可以了。</p><p>之后便是为用户授权：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grant create session to C##用户名;  </span><br><span class="line">grant create table to C##用户名;  </span><br><span class="line">grant create tablespace to C##用户名;  </span><br><span class="line">grant create view to C##用户名;</span><br></pre></td></tr></table></figure><p>之后，就可以用<code>ql/sql</code>进行连接了。</p><p>但是，这个时候，你不想要这个前缀怎么办，同时不想重新安装<em>12c</em>。那么就使用<code>Database Configuration Assistant</code>再创建一个新的数据库出来。然后取消<strong>容器数据库</strong>就可以了。</p><p>其他方面，创建新的表空间给新的用户</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create tablespace 表空间名字 datafile &apos;地址/文件名.dbf&apos; size 1500M autoextend on next 50m maxsize unlimited;</span><br></pre></td></tr></table></figure><p>然后授权</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user 用户名 quota unlimited on 表空间名字;</span><br></pre></td></tr></table></figure><p>其他参考资料：</p><ol><li><a href="https://www.cnblogs.com/soraka/p/5855724.html" target="_blank" rel="noopener">orcal 安装教程</a> </li><li><a href="https://blog.csdn.net/sunxiaoju/article/details/78870680" target="_blank" rel="noopener">安装后续工作</a> </li><li><a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">oracle下载地址</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;关于Oracle-12c的一些笔记&quot;&gt;&lt;a href=&quot;#关于Oracle-12c的一些笔记&quot; class=&quot;headerlink&quot; title=&quot;关于Oracle-12c的一些笔记&quot;&gt;&lt;/a&gt;关于Oracle-12c的一些笔记&lt;/h1&gt;&lt;p&gt;这里是Oracle官
+      
+    
+    </summary>
+    
+    
+      <category term="oracle" scheme="http://ZRoger95.github.io/tags/oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://ZRoger95.github.io/gdg/"/>
+    <id>http://ZRoger95.github.io/gdg/</id>
+    <published>2018-10-15T04:52:24.458Z</published>
+    <updated>2018-10-15T04:52:46.521Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/gdg/C:/Users\ZRoger\AppData\Local\Temp\1539407081271.png" alt="1539407081271"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/gdg/C:/Users\ZRoger\AppData\Local\Temp\1539407081271.png&quot; alt=&quot;1539407081271&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://ZRoger95.github.io/leetcode/"/>
+    <id>http://ZRoger95.github.io/leetcode/</id>
+    <published>2018-10-08T14:05:56.209Z</published>
+    <updated>2018-10-15T04:38:47.344Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-2个总和"><a href="#1-2个总和" class="headerlink" title="1. 2个总和"></a>1. 2个总和</h1><p>问题：给一组整数，返回数组中2个元素相加等于特定值的下标</p><p>示例：</p><pre><code>Given nums = [2, 7, 11, 15], target = 9,Because nums[0] + nums[1] = 2 + 7 = 9,return [0, 1].</code></pre><h1 id="添加两个数字"><a href="#添加两个数字" class="headerlink" title="添加两个数字"></a>添加两个数字</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1-2个总和&quot;&gt;&lt;a href=&quot;#1-2个总和&quot; class=&quot;headerlink&quot; title=&quot;1. 2个总和&quot;&gt;&lt;/a&gt;1. 2个总和&lt;/h1&gt;&lt;p&gt;问题：给一组整数，返回数组中2个元素相加等于特定值的下标&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;pre&gt;&lt;co
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="http://ZRoger95.github.io/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://ZRoger95.github.io/单例模式/</id>
+    <published>2018-10-08T13:31:16.000Z</published>
+    <updated>2018-10-08T14:04:49.018Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于单例模式"><a href="#关于单例模式" class="headerlink" title="关于单例模式"></a>关于单例模式</h1><p>为什么需要单例模式。</p><p>对于系统中的某些类来说，只有一个实例很重要。比如：一个系统只能有一个计时工具或者ID生成器，总不可能同时生成2个相同的ID，对吧。</p><p>特点：</p><ol><li>只能有一个实例</li><li>自行创建</li><li>向整个系统提供整个实例</li></ol><p>单例模式</p><pre><code>public class Singleton {    private static Singleton uniqueInstance;    private Singleton() {    }    public static Singleton getUniqueInstance() {        if (uniqueInstance == null) {            uniqueInstance = new Singleton();        }        return uniqueInstance;    }}</code></pre><p>在多线程的环境下是不安全，在执行<code>uniqueInstance = new Singleton();</code>时，会多次实例化。</p><p>1.1 改 将其改为线程安全，可以通过直接实例化解决</p><pre><code>private static Singleton unqueInstance = new Singleton();</code></pre><p>缺点是丢失了延迟实例化带来的节约资源的好处。</p><p>1.2 改 添加锁，在一个时间点只能有一个线程进入该方法。</p><pre><code>public static synchronized Singleton getUniqueInstance() {    if (uniqueInstance == null) {        uniqueInstance = new Singleton();    }    return uniqueInstance;}</code></pre><p>缺点是性能问题，容易造成阻塞。</p><p>1.3 改 双重校验锁</p><pre><code>public class Singleton {    private volatile static Singleton uniqueInstance;    private Singleton() {    }    public static Singleton getUniqueInstance() {        if (uniqueInstance == null) {            synchronized (Singleton.class) {                if (uniqueInstance == null) {                    uniqueInstance = new Singleton();                }            }        }        return uniqueInstance;    }}</code></pre><p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html" target="_blank" rel="noopener">volatile关键字解析</a></p><p>其他，静态内部类实现</p><pre><code>public class Singleton {    private Singleton() {    }    private static class SingletonHolder {        private static final Singleton INSTANCE = new Singleton();    }    public static Singleton getUniqueInstance() {        return SingletonHolder.INSTANCE;    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;关于单例模式&quot;&gt;&lt;a href=&quot;#关于单例模式&quot; class=&quot;headerlink&quot; title=&quot;关于单例模式&quot;&gt;&lt;/a&gt;关于单例模式&lt;/h1&gt;&lt;p&gt;为什么需要单例模式。&lt;/p&gt;
+&lt;p&gt;对于系统中的某些类来说，只有一个实例很重要。比如：一个系统只能有一个计时
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>你好,Hexo （第二篇）</title>
+    <link href="http://ZRoger95.github.io/hello-Hexo-2/"/>
+    <id>http://ZRoger95.github.io/hello-Hexo-2/</id>
+    <published>2018-09-08T12:37:22.000Z</published>
+    <updated>2018-10-16T11:37:43.666Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里将记录关于<code>Hexo</code>一些东西。</p><p>使用<code>hexo init</code>初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：</p><p><img src="/hello-Hexo-2/./hello-Hexo-2\hexo_folders.png" alt=""></p><p><img src="/hello-Hexo-2/./hello-Hexo-2\oracle-download-page.png" alt=""></p><p>.deploy_git是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。</p><p>接着说一下配置文件：_config.yml</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这里将记录关于&lt;code&gt;Hexo&lt;/code&gt;一些东西。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;hexo init&lt;/code&gt;初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/hello-Hexo-2/./hello-Hexo-2\
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>你好,Hexo（第一篇）</title>
+    <link href="http://ZRoger95.github.io/Hello-Hexo/"/>
+    <id>http://ZRoger95.github.io/Hello-Hexo/</id>
+    <published>2018-09-05T14:54:16.000Z</published>
+    <updated>2018-10-16T11:37:45.367Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hi,米娜桑。这里是ZRoger的博客。由<code>GitHub Page</code>和<code>Hexo</code>构成。<br>所以在这篇文章中，我记录了关于一些<code>Hexo</code>的东西。</p><h2 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2><p><em>什么是Hexo</em>：</p><p>让我们看下<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方</a>的回答：<code>Hexo</code>是一个快速，简洁且高效的博客框架。<code>Hexo</code>使用<code>Markdown</code>(或者其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态页面。</p><p>我觉得它还是比较受欢迎，当你想记录生活中的事情，无论是琐碎的日志，技术分享，或者其他。都可以使用<code>Hexo</code>创建你的静态博客。但是在文章管理方面并不是很好，但我觉得还是可以一试的。</p><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><blockquote><p><em>注意</em><br>目前只记录了在<code>window</code>系统下的过程。其他系统暂时没有办法涉及，以后有机会再补上。</p></blockquote><ol><li>首先需要安装好<code>Node.js</code>和<code>Git</code>，<code>Node.js</code>用于安装<code>Hexo</code>，而<code>Git</code>则用于连接我们的远程仓库，别忘了创建自己的<code>GitHub</code>账号。</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure><ol start="2"><li>使用<code>git bash</code>全局安装<code>hexo-cli</code>，为创建博客做准备。</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure><ol start="3"><li><p>在<code>GitHub</code>上创建对应的用户名仓库，格式：<code>github用户名.github.io</code></p></li><li><p>在本地创建文件夹<code>blog</code>,打开该文件夹后，输入<code>hexo init</code>进行初始化。</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure><ol start="5"><li>安装所需依赖</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p><em>GitHub与Hexo</em></p><ol start="6"><li>将<code>Hexo</code>与<code>GitHub Page</code>关联。</li></ol><p>先检查<code>Git</code>中是否有设置<code>user name</code>和<code>email</code>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.gitconfig</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br></pre></td></tr></table></figure><p>如果没有信息，输入命令进行设置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"你的名字"</span></span><br><span class="line">$ git config --global user.eamil <span class="string">"你的邮箱"</span></span><br></pre></td></tr></table></figure><p>之后，再检查本地中是否存在<code>/.ssh</code>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure><p>接着生成密钥，用于关联到你的<code>GitHub</code>账号中：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"你的邮箱"</span></span><br></pre></td></tr></table></figure><ol start="7"><li>在连续回车3次，就生成密钥和公钥。将<code>id_rsa.pub</code>填到<code>GitHub</code>账户上。然后使用添加密钥到<code>ssh-agent</code>:</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure><p>添加生成的<code>ssh key</code>到<code>ssh-agent</code>中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure><blockquote><p>关<code>ssh-agent</code><br>是一个密钥管理器，将私钥交给<code>ssh-agent</code>保管后，其他程序需要身份验证的时候，就可以将验证的申请交给<code>ssh-agent</code>来完成。这里是解决每次<code>Hexo</code>部署新文章的时候，不需要重复输入登录名和密码。配置<code>ssh-key</code>让<code>Git</code>到<code>GitHub</code>切换自如，不用再验证身份。</p></blockquote><ol start="8"><li>测试一下</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><ol start="9"><li>修改<code>blog</code>文件夹下面的<code>_config.yml</code>文件，添加远程仓库</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git </span><br><span class="line">  repository: 你的仓库的ssh</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><h3 id="生成和部署文章"><a href="#生成和部署文章" class="headerlink" title="生成和部署文章"></a>生成和部署文章</h3><p><em>新建一篇文章</em></p><ol start="10"><li>在<code>git bash</code>中输入：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post 文章名字</span><br></pre></td></tr></table></figure><ol start="11"><li>在生成以及部署文章之前，需要再安装一个扩展，不然很有可能你的文章会部署失败:</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><ol start="12"><li>生成静态文件，然后在本地上先看下效果</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure><p>启动Hexo服务器，默认的端口<code>4000</code>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><ol start="13"><li>部署文章到服务器上，查看的地址格式：<code>github用户名.github.io</code></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>当然也可以简单点，直接生成并更新文章到<code>GitHub</code>上：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure><h2 id="小结一下"><a href="#小结一下" class="headerlink" title="小结一下"></a>小结一下</h2><p>大概的流程是这样的，<code>Hexo</code>将编辑好的<code>md</code>文件生成静态<code>Web</code>文件，当然还有其他的文件，再上传到<code>GitHub</code>上，添加<code>ssh-agent</code>，方便每次部署你的文章。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Hi,米娜桑。这里是ZRoger的博客。由&lt;code&gt;GitHub Page&lt;/code&gt;和&lt;code&gt;Hexo&lt;/code&gt;构成。&lt;br&gt;所以在这篇文章中，我记录了关于一些&lt;code&gt;Hexo&lt;/code&gt;的东西。&lt;/p&gt;
+&lt;h2 id=&quot;关于Hexo&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://ZRoger95.github.io/hello-world/"/>
+    <id>http://ZRoger95.github.io/hello-world/</id>
+    <published>2018-09-05T14:38:36.499Z</published>
+    <updated>2018-09-06T14:53:05.252Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start2222"><a href="#Quick-Start2222" class="headerlink" title="Quick Start2222"></a>Quick Start2222</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
