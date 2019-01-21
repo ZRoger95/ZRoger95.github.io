@@ -377,7 +377,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  538
+                  614
                 </span>
               
 
@@ -420,7 +420,7 @@
 <p> 这里将记录关于<code>Hexo</code>一些东西。</p>
 </blockquote>
 <h2 id="Hexo生成blog后的文件结构"><a href="#Hexo生成blog后的文件结构" class="headerlink" title="Hexo生成blog后的文件结构"></a>Hexo生成blog后的文件结构</h2><p>使用<code>hexo init</code>初始化文件夹，并在安装好所需的依赖后。看下文件夹的结构：</p>
-<p><img src="/post/hexo_folders.png" alt="hexo_folders"></p>
+<p><img src="/post/17e96663/hexo_folders.png" alt="hexo_folders"></p>
 <ol>
 <li><p><code>.deploy_git</code>：是上传到<code>GitHub</code>中，如果你想添加一些额外东西的话，可以到下面的<code>public</code>文件夹中进行添加，然后在使用<code>hexo d -g</code>部署到<code>GitHub</code>中。</p>
 </li>
@@ -439,12 +439,16 @@
 <h3 id="站点配置文件：-config-yml"><a href="#站点配置文件：-config-yml" class="headerlink" title="站点配置文件：_config.yml"></a>站点配置文件：_config.yml</h3><h4 id="网站设置"><a href="#网站设置" class="headerlink" title="网站设置"></a>网站设置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 网站标题</span><br><span class="line">subtitle: 网站副标题</span><br><span class="line">description: 网站描述，这里的作用是便于搜索引擎找到你的博客</span><br><span class="line">author: 作者</span><br><span class="line">language: 网站使用的语言</span><br><span class="line">timezone: 时区，默认是电脑使用的时区</span><br></pre></td></tr></table></figure>
 <h4 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">url: 网址</span><br><span class="line">root: 网站根目录，默认为： /</span><br><span class="line">permalink: 文章的永久链接格式，默认为： :year/:month/:day/:title/</span><br><span class="line">permalink_defaults: 永久链接中各部分的默认值</span><br></pre></td></tr></table></figure>
 <p>注：若是把博客网站放在子目录中，比如：<code>http://yoursite.com/blog</code>，则需要将<code>root</code>改为<code>/blog/</code></p>
-<h5 id="关于生成的链接"><a href="#关于生成的链接" class="headerlink" title="关于生成的链接"></a>关于生成的链接</h5><p>​    按照默认的生成规则，文字链接的格式是时间+文章名这样的形式。如果你的文章名是中文的话，就会造成一定程度上面的困扰，也不利于<code>SEO</code>。所以在这里推荐一个插件，修改生成规则，减少链接的层级。它就是<code>hexo-abbrlink</code>。安装命令如下：</p>
+<h5 id="关于生成的链接"><a href="#关于生成的链接" class="headerlink" title="关于生成的链接"></a>关于生成的链接</h5><p>​    按照默认的生成规则，文字链接的格式是时间+文章名这样的形式。如果你的文章名是中文的话，就会造成一定程度上面的困扰，也不利于<code>SEO</code>。所以在这里推荐一个插件，修改生成规则，减少链接的层级。它就是<code>hexo-abbrlink</code>。这个插件对<code>hexo-asset-image</code>有影响，所以还是原来文章图片过多的话，还是慎用。安装命令如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
 <p>之后修改站点配置文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: post/:abbrlink.html </span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32 # 算法</span><br><span class="line">  rep: dec # 进制</span><br></pre></td></tr></table></figure>
 <p>重新部署后，文章链接就是如下形式的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000/post/17e96663.html</span><br><span class="line">http://localhost:4000/post/17e96663.html</span><br></pre></td></tr></table></figure>
+<p>关于<code>hexo-asset-image</code>，原本引用图片的命令是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![代替文字](图片名.jpg)</span><br></pre></td></tr></table></figure>
+<p>现在需要加入生成后<code>abbrlink</code>字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![代替文字](abbrlink/图片名.jpg)</span><br></pre></td></tr></table></figure>
 <p>如果你对这个插件比较感兴趣，可以去看下<a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">hexo-abbrlink的官网</a>。</p>
 
           
