@@ -1879,7 +1879,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8bffff;
+  background: #ff1cff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3160,6 +3160,8 @@ a.fancybox {
 @media screen and (min-width: 1200px) {
   body {
     background-image: url("/images/background/bees.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     background-position: 50% 50%;
     opacity: 0.97;
