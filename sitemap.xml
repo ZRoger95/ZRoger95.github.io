@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zroger95.github.io/posts/Go_1.html</loc>
+    
+    <lastmod>2019-09-15T15:44:19.946Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/flutter-02.html</loc>
+    
+    <lastmod>2019-08-27T11:17:02.259Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zroger95.github.io/posts/Flutter-01.html</loc>
     
-    <lastmod>2019-06-09T07:20:53.868Z</lastmod>
+    <lastmod>2019-06-09T07:22:41.927Z</lastmod>
     
   </url>
   
