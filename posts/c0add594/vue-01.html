@@ -1,6 +1,0 @@
-<hr>
-<h2 id="abbrlink-‘0’"><a href="#abbrlink-‘0’" class="headerlink" title="abbrlink: ‘0’"></a>abbrlink: ‘0’</h2><h1 id="vue-项目的部署流程"><a href="#vue-项目的部署流程" class="headerlink" title="vue 项目的部署流程"></a>vue 项目的部署流程</h1><p>第一种：</p>
-<p>使用 gitlab ci 部署，先 docker multi stage 编译出 nginx+dist 的部署镜像，再触发 k8s 的滚动更新。</p>
-<p>第二种：用的 pm2 自动部署，配置操作挺简单的，就是没法无缝更新，替换的时候会有十几秒无法访问</p>
-<p>第三种：  laravel + vue 的项目，用的这个</p>
-<p><a href="https://deployer.org/">https://deployer.org</a>  </p>

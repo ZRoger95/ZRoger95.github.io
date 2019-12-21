@@ -1,0 +1,79 @@
+<hr>
+<p>title: vue<br>copyright: true<br>tags:</p>
+<ul>
+<li>vue<br>abbrlink: c0add594<br>date: 2018-10-18 19:40:58</li>
+</ul>
+<hr>
+<h1 id="Vue笔记"><a href="#Vue笔记" class="headerlink" title="Vue笔记"></a>Vue笔记</h1><p>6.1 表单与v-model</p>
+<input type="text">
+
+<p>在<code>&lt;template&gt;</code>中只能有最外面一层的div，然后在里面进行嵌套。</p>
+<p><code>v-model</code>让表单类元素双向绑定数据，在输入框输入的同时，会实时将内容渲染到视图中。</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">template</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>表单与v-model<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"请输入..."</span> /&gt;</span>
+            <span class="tag">&lt;<span class="name">p</span>&gt;</span>输入的内容是：{{ message }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">template</span>&gt;</span>
+
+<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> {</span>
+<span class="javascript">        name: <span class="string">"form"</span>, <span class="comment">// 组件名字</span></span>
+<span class="undefined">        data(){</span>
+<span class="javascript">            <span class="keyword">return</span> {</span>
+<span class="javascript">                message : <span class="string">""</span></span>
+<span class="undefined">            }</span>
+<span class="undefined">        }</span>
+<span class="undefined">    }</span>
+<span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>文本域<code>textarea</code>也可以，在使用<code>v-model</code>绑定数据后，对于在<code>&lt;textarea&gt;&lt;/textarea&gt;</code>中插入的值，不会再生效了。</p>
+<p>若是希望总是更新，可以使用<code>@input</code>代替<code>v-model</code></p>
+<input type="radio">
+
+<p>单选按钮在单独使用时，不需要<code>v-model</code>,直接使用<code>v-bind</code>绑定一个布尔类型的值，为真时选中，反正，不选。</p>
+<p>比如：按钮开关，状态的切换，风格改变</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">template</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">:checked</span>=<span class="string">"singlePicked"</span>/&gt;</span>
+    <span class="tag">&lt;<span class="name">label</span>&gt;</span>单选按钮<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">template</span>&gt;</span>
+
+<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> {</span>
+<span class="javascript">        name: <span class="string">"form"</span>, <span class="comment">// 组件名字</span></span>
+<span class="undefined">        data(){</span>
+<span class="javascript">            <span class="keyword">return</span> {</span>
+<span class="javascript">                singlePicked : <span class="literal">true</span></span>
+<span class="undefined">            }</span>
+<span class="undefined">        }</span>
+<span class="undefined">    }</span>
+<span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>如果是组合按钮的时候，还是要用到<code>v-model</code></p>
+<pre><code>&lt;template&gt;
+    &lt;div&gt;
+        &lt;p&gt;单选按钮组合&lt;/p&gt;
+        &lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;中文&quot; id=&quot;chinese&quot; /&gt;
+        &lt;label for=&quot;chinese&quot;&gt;中文&lt;/label&gt;&lt;br/&gt;
+        &lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;英语&quot; id=&quot;english&quot;/&gt;
+        &lt;label for=&quot;english&quot;&gt;英语&lt;/label&gt;&lt;br/&gt;
+        &lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;日语&quot; id=&quot;japanese&quot;/&gt;
+        &lt;label for=&quot;japanese&quot;&gt;日语&lt;/label&gt;&lt;br/&gt;
+        &lt;p&gt;当前选择是:{{ picked }}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        name: &quot;form&quot;, // 组件名字
+        data(){
+            return {
+                picked : &quot;中文&quot;
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
