@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zroger95.github.io/posts/Go_1.html</loc>
-    <lastmod>2019-09-15</lastmod>
+    <loc>https://zroger95.github.io/posts/JavaScript&Calculation.html</loc>
+    <lastmod>2020-04-05</lastmod>
   </url>  <url>
-    <loc>https://zroger95.github.io/posts/Flutter-01.html</loc>
-    <lastmod>2019-08-27</lastmod>
+    <loc>https://zroger95.github.io/posts/Go&Plan%209.html</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Go_2.html</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Dec-18-blog-01.html</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Remove-Duplicates-from-Sorted-Array.html</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Go_1.html</loc>
+    <lastmod>2020-04-05</lastmod>
   </url>  <url>
     <loc>https://zroger95.github.io/posts/flutter-02.html</loc>
-    <lastmod>2019-08-27</lastmod>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Flutter-01.html</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Hello-Hexo-2.html</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/Next&ThirdPartyServices.html</loc>
+    <lastmod>2020-04-05</lastmod>
   </url>  <url>
     <loc>https://zroger95.github.io/posts/Mar-19-blog-01.html</loc>
     <lastmod>2019-03-03</lastmod>
@@ -20,12 +41,6 @@
     <lastmod>2019-01-28</lastmod>
   </url>  <url>
     <loc>https://zroger95.github.io/posts/Hello-Hexo.html</loc>
-    <lastmod>2019-01-27</lastmod>
-  </url>  <url>
-    <loc>https://zroger95.github.io/posts/Hello-Hexo-2.html</loc>
-    <lastmod>2019-01-27</lastmod>
-  </url>  <url>
-    <loc>https://zroger95.github.io/posts/Dec-18-blog-01.html</loc>
     <lastmod>2019-01-27</lastmod>
   </url>
 </urlset>

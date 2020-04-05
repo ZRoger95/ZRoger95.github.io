@@ -4,7 +4,43 @@
 <li>vue<br>abbrlink: c0add594<br>date: 2018-10-18 19:40:58</li>
 </ul>
 <hr>
-<h1 id="Vue笔记"><a href="#Vue笔记" class="headerlink" title="Vue笔记"></a>Vue笔记</h1><p>6.1 表单与v-model</p>
+<h1 id="ZTable-开发日记"><a href="#ZTable-开发日记" class="headerlink" title="ZTable 开发日记"></a>ZTable 开发日记</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ZTable 主要用于记录个人的一些记录要求，主要有：日志博客，代办、行程规划安排、个人消费记录、电子书籍管理、快速导航管理，前端常用工具集（转码转义、代码格式化、正则比较等等），同步数据，消息提醒。</p>
+<p>参考项目 <code>vue-element-admin</code></p>
+<h2 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h2><pre><code class="sh">├── build                      <span class="comment"># 构建相关</span>
+├── mock                       <span class="comment"># 项目mock 模拟数据</span>
+├── plop-templates             <span class="comment"># 基本模板</span>
+├── public                     <span class="comment"># 静态资源</span>
+│   │── favicon.ico            <span class="comment"># favicon图标</span>
+│   └── index.html             <span class="comment"># html模板</span>
+├── src                        <span class="comment"># 源代码</span>
+│   ├── api                    <span class="comment"># 所有请求</span>
+│   ├── assets                 <span class="comment"># 主题 字体等静态资源</span>
+│   ├── components             <span class="comment"># 全局公用组件</span>
+│   ├── directive              <span class="comment"># 全局指令</span>
+│   ├── filters                <span class="comment"># 全局 filter</span>
+│   ├── icons                  <span class="comment"># 项目所有 svg icons</span>
+│   ├── lang                   <span class="comment"># 国际化 language</span>
+│   ├── layout                 <span class="comment"># 全局 layout</span>
+│   ├── router                 <span class="comment"># 路由</span>
+│   ├── store                  <span class="comment"># 全局 store管理</span>
+│   ├── styles                 <span class="comment"># 全局样式</span>
+│   ├── utils                  <span class="comment"># 全局公用方法</span>
+│   ├── vendor                 <span class="comment"># 公用vendor</span>
+│   ├── views                  <span class="comment"># views 所有页面</span>
+│   ├── App.vue                <span class="comment"># 入口页面</span>
+│   ├── main.ts                <span class="comment"># 入口文件 加载组件 初始化等</span>
+│   └── permission.js          <span class="comment"># 权限管理</span>
+├── tests                      <span class="comment"># 测试</span>
+├── .env.xxx                   <span class="comment"># 环境变量配置</span>
+├── .eslintrc.js               <span class="comment"># eslint 配置项</span>
+├── babel.config.js            <span class="comment"># babel-loader 配置</span>
+├── .travis.yml                <span class="comment"># 自动化CI配置</span>
+├── vue.config.js              <span class="comment"># vue-cli 配置</span>
+├── postcss.config.js          <span class="comment"># postcss 配置</span>
+└── package.json               <span class="comment"># package.json</span>
+</code></pre>
+<h3 id="api-和-view"><a href="#api-和-view" class="headerlink" title="api 和 view"></a>api 和 view</h3><p>随着业务的迭代，模块还会会越来越多，将views 和 api 两个模块一一对应，从而方便维护p</p>
+<p>6.1 表单与v-model</p>
 <input type="text">
 
 <p>在<code>&lt;template&gt;</code>中只能有最外面一层的div，然后在里面进行嵌套。</p>

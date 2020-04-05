@@ -2,23 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zroger95.github.io/posts/Go_1.html</loc>
+    <loc>https://zroger95.github.io/posts/JavaScript&Calculation.html</loc>
     
-    <lastmod>2019-09-15T15:48:19.852Z</lastmod>
+    <lastmod>2020-04-05T09:01:30.097Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zroger95.github.io/posts/Flutter-01.html</loc>
+    <loc>https://zroger95.github.io/posts/Go&Plan%209.html</loc>
     
-    <lastmod>2019-08-27T11:17:05.266Z</lastmod>
+    <lastmod>2020-04-05T08:56:55.303Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Go_2.html</loc>
+    
+    <lastmod>2020-04-05T08:56:41.659Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Dec-18-blog-01.html</loc>
+    
+    <lastmod>2020-04-05T08:49:58.011Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Remove-Duplicates-from-Sorted-Array.html</loc>
+    
+    <lastmod>2020-04-05T08:49:28.697Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Go_1.html</loc>
+    
+    <lastmod>2020-04-05T08:46:26.816Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zroger95.github.io/posts/flutter-02.html</loc>
     
-    <lastmod>2019-08-27T11:17:02.259Z</lastmod>
+    <lastmod>2020-04-05T08:33:36.227Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Flutter-01.html</loc>
+    
+    <lastmod>2020-04-05T08:31:27.650Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-04-05T08:25:04.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/about/index.html</loc>
+    
+    <lastmod>2020-04-05T08:24:07.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Hello-Hexo-2.html</loc>
+    
+    <lastmod>2020-04-05T07:49:42.007Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Next&ThirdPartyServices.html</loc>
+    
+    <lastmod>2020-04-05T07:47:44.515Z</lastmod>
     
   </url>
   
@@ -47,34 +110,6 @@
     <loc>https://zroger95.github.io/posts/Hello-Hexo.html</loc>
     
     <lastmod>2019-01-27T14:40:15.653Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/posts/Hello-Hexo-2.html</loc>
-    
-    <lastmod>2019-01-27T13:21:07.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/posts/Dec-18-blog-01.html</loc>
-    
-    <lastmod>2019-01-27T11:59:57.971Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-01-23T14:28:43.422Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/about/index.html</loc>
-    
-    <lastmod>2019-01-23T13:50:12.926Z</lastmod>
     
   </url>
   
