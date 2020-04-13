@@ -1879,7 +1879,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b6ff9a;
+  background: #3dff52;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3157,13 +3157,13 @@ a.fancybox {
   text-decoration: none !important;
   border: 2px solid #222 !important;
 }
+.site-meta {
+  background: url("../images/background/49_m.jpg");
+  background-size: cover;
+}
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("/images/background/bees.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 50% 50%;
+    background-image: url("/images/background/rswedish.jpg");
     opacity: 0.97;
   }
   #footer a {
