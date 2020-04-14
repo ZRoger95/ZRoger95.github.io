@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zroger95.github.io/posts/typescript-interfaces.html</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
+    <loc>https://zroger95.github.io/posts/typescript-variable-declarations.html</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
     <loc>https://zroger95.github.io/posts/typescript-basic-types.html</loc>
-    <lastmod>2020-04-08</lastmod>
+    <lastmod>2020-04-13</lastmod>
   </url>  <url>
     <loc>https://zroger95.github.io/posts/JavaScript&Calculation.html</loc>
     <lastmod>2020-04-05</lastmod>

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zroger95.github.io/posts/typescript-interfaces.html</loc>
+    
+    <lastmod>2020-04-14T14:50:12.706Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/typescript-variable-declarations.html</loc>
+    
+    <lastmod>2020-04-14T14:31:54.211Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zroger95.github.io/posts/typescript-basic-types.html</loc>
     
-    <lastmod>2020-04-08T14:50:42.127Z</lastmod>
+    <lastmod>2020-04-13T14:46:37.973Z</lastmod>
     
   </url>
   
