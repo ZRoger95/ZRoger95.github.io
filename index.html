@@ -455,22 +455,6 @@
       
         
           <h1 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>总结工作到现在的使用<code>Java Web</code>框架的变化 ( <code>2017</code> ~ <code>2020</code> )</p>
-<ol>
-<li><p>最开始接触 <code>Java Web</code> 的时候，那时候用的框架是 <code>SSH</code> 既 <code>Struts2</code> + <code>Spring</code> + <code>Hibernate</code>。围绕着<code>struts</code>作为系统的基础架构，负责 <strong>MVC</strong> 的分离，<code>struts</code> 负责模型部分，<code>hibernate</code> 负责数据交互（持久层），<code>spring</code> 负责管理配置。</p>
-</li>
-<li><p>之后一个阶段，抛弃了<code>struts2</code>，转成了 <code>SSM</code>  :  <code>Spring-MVC</code> + <code>Spring</code> + <code>MyBatis</code>，或者是 <code>SSH</code>  :  <code>Spring-MVC</code>+<code>Spring</code>+<code>Hibernate</code>。</p>
-</li>
-</ol>
-<blockquote>
-<p> 不同点在于对控制视图（<code>Views</code>）和模型的交互规制不同，<code>Struts2</code> 是 <code>Action</code> ，<code>SpringMVC</code> 是方法级别，便于实现<code>RESTful</code>风格（<em>前后端分离</em>）。 主要在于 <code>MVC</code> 的实现方式，以及 <code>ORM</code> 持久方面的不同。<code>SSM</code>优点在注解开发上，且<code>ORM</code>实现更加灵活。<code>SSH</code>注重配置开发。</p>
-</blockquote>
-<ol start="3">
-<li>最后到了现在的<code>Spring Cloud</code> + <code>Spring Boot</code> + <code>Mybatis</code>。也不是所有的场景都需要分布式的微服务框架。如果场景单一，使用<code>Spring Boot</code> + <code>Mybatis</code> 或者 <code>Spring Boot</code> + <code>Hibernate</code> 来开发并维护单应用的项目。随着用户量逐渐增多，每日请求也开始变多，并发的问题，频繁更新所带来的问题等等。需要多维度解决如上发生的问题，<ol>
-<li>比如<strong>电商</strong>的场景，将<em>用户登录</em>，<em>订单</em>，<em>售后</em>，<em>秒杀</em>这些抽离出来，即使其中一个服务出现了问题，也不会影响到其他服务。</li>
-<li>比如项目是一些产品的组合，有的客户需要<code>A+B</code>，有的客户需要<code>A+B+C</code>，在开发时，根据产品的粒度，区分开<code>A</code>，<code>B</code>，<code>C</code>三种产品，这些是业务层的服务。它们还用共同用了<strong>无业务类型</strong>的微服务，如：身份验证（auth），邮件短信平台，文件存储服务等等 </li>
-</ol>
-</li>
-</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/Spring Cloud - 01.html" rel="contents">
@@ -1522,38 +1506,15 @@
 
       
         
-          
-            <h1 id="Plan-9"><a href="#Plan-9" class="headerlink" title="Plan 9"></a>Plan 9</h1><p><img src="https://pic1.zhimg.com/80/9f8102da606acb83969812978cdd4538_hd.jpg" alt=""></p>
-<h2 id="Plan-9&#x662F;&#x4EC0;&#x4E48;"><a href="#Plan-9&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="Plan 9&#x662F;&#x4EC0;&#x4E48;"></a>Plan 9&#x662F;&#x4EC0;&#x4E48;</h2><p>&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF08;&#x5927;&#x89C4;&#x6A21;&#x96C6;&#x7FA4;&#xFF09;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x4E00;&#x79CD;&#x6982;&#x5FF5;&#xFF0C;&#x6765;&#x81EA;&#x8D1D;&#x5C14;&#x5B9E;&#x9A8C;&#x5BA4;&#xFF0C;&#x7531;<em>Ken Thompson</em>&#x3001;<em>Dennis Ritchied</em>&#x7B49;&#x5927;&#x795E;&#x5F00;&#x53D1;&#x3002;</p>
-<p>&#x662F;&#x4E00;&#x4E2A;<code>Unix</code>&#x7CFB;&#x7EDF;&#xFF0C;&#x60F3;&#x771F;&#x6B63;&#x7684;&#x5B9E;&#x73B0;<strong>&#x4E00;&#x5207;&#x7686;&#x6587;&#x4EF6;</strong>&#x8FD9;&#x4E2A;&#x60F3;&#x6CD5;&#x3002;Google&#x4E2D;&#x7684;&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x8D44;&#x6599;&#xFF0C;&#x4ECE;&#x5404;&#x79CD;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x5230;RPC&#x670D;&#x52A1;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x7C7B;&#x4F3C;&#x7684;/gfs/&#x2026;/bigtable/&#x2026;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x65B9;&#x5F0F;&#x5728;&#x5168;&#x90E8;Google&#x96C6;&#x7FA4;&#x4E2D;&#x7684;&#x552F;&#x4E00;&#x5BFB;&#x5740;&#xFF0C;&#x5F88;&#x5927;&#x90E8;&#x5206;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x7EDF;&#x4E00;&#x4F7F;&#x7528;FIle API&#x7CFB;&#x7EDF;&#x8BBF;&#x95EE;&#x3002;&#xFF08;<code>/proc</code>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6982;&#x5FF5;&#x8FD8;&#x6709;<code>UTF-8</code>&#xFF09;&#xFF08;<code>/net/tcp</code>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF09;</p>
-<p>&#x8FD9;&#x4E2A;&#x53EF;&#x80FD;&#x662F;&#x5B83;&#x7684;&#x5B98;&#x7F51;&#xFF1A;<a href="http://9p.io/plan9/" target="_blank" rel="noopener">http://9p.io/plan9/</a></p>
-<h2 id="Plan-9&#x4E0E;Go"><a href="#Plan-9&#x4E0E;Go" class="headerlink" title="Plan 9&#x4E0E;Go"></a>Plan 9&#x4E0E;Go</h2><p><code>Go</code>&#x8BED;&#x8A00;&#x7684;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;&#x5230;&#x4E86;<code>Plan 9</code>&#x7684;&#x6C47;&#x7F16;&#x5668;&#xFF0C;&#x4E0E;<code>AT&amp;T</code>&#x548C;<code>Intel</code>&#x7684;&#x6C47;&#x7F16;&#x5668;&#x4E0D;&#x540C;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;<code>C</code>&#x8BED;&#x8A00;&#x5185;&#x5D4C;&#x6C47;&#x7F16;&#x7684;&#x8BED;&#x6CD5;&#x3002;&#x4E86;&#x89E3;<code>Go</code>&#x7684;&#x6C47;&#x7F16;&#x662F;&#x4E3A;&#x4E86;&#x5B66;&#x4E60;<code>Go</code>&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</p>
-<p>&#x8D44;&#x6599;&#xFF1A;</p>
-<p><a href="https://zhuanlan.zhihu.com/p/56750445" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/56750445</a></p>
-<p><a href="https://golang.google.cn/doc/asm" target="_blank" rel="noopener">https://golang.google.cn/doc/asm</a></p>
-<p><a href="https://mp.weixin.qq.com/s/B577CdUkWCp_XgUc1VVvSQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/B577CdUkWCp_XgUc1VVvSQ</a></p>
-<p><a href="http://doc.cat-v.org/plan_9/4th_edition/papers/asm" target="_blank" rel="noopener">http://doc.cat-v.org/plan_9/4th_edition/papers/asm</a></p>
-<p>&#x67F4;&#x6811;&#x6749;&#x7684; Go&#x8BED;&#x8A00;&#x9AD8;&#x7EA7;&#x7F16;&#x7A0B;</p>
-<script>
-        document.querySelectorAll('#github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
+          <h1 id="Plan-9"><a href="#Plan-9" class="headerlink" title="Plan 9"></a>Plan 9</h1><p><img src="https://pic1.zhimg.com/80/9f8102da606acb83969812978cdd4538_hd.jpg" alt=""></p>
+<h2 id="Plan-9是什么"><a href="#Plan-9是什么" class="headerlink" title="Plan 9是什么"></a>Plan 9是什么</h2><p>它是一个网络操作系统（大规模集群）或者说是一种概念，来自贝尔实验室，由<em>Ken Thompson</em>、<em>Dennis Ritchied</em>等大神开发。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go&Plan 9.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1716,147 +1677,14 @@
 
       
         
-          
-            <h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><h3 id="&#x58F0;&#x660E;&#x53D8;&#x91CF;"><a href="#&#x58F0;&#x660E;&#x53D8;&#x91CF;" class="headerlink" title="&#x58F0;&#x660E;&#x53D8;&#x91CF;"></a>&#x58F0;&#x660E;&#x53D8;&#x91CF;</h3><p><code>var</code>&#x7528;&#x6CD5;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &#x53D8;&#x91CF;&#x540D; [&#x7C7B;&#x578B;] [=] [&#x521D;&#x59CB;&#x503C;]</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number1 <span class="keyword">int</span> = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">var</span> number2 <span class="keyword">int</span> = <span class="number">2</span> ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x7C7B;&#x578B;&#x63A8;&#x5BFC; &#xFF08;&#x7C7B;&#x4F3C;JavaScript&#xFF09;</span></span><br><span class="line"><span class="keyword">var</span> number3 = <span class="number">1</span> ; </span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A;</span></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	number4 = <span class="number">1</span> ;</span><br><span class="line">    number5 = <span class="number">2</span> ;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x6216;&#x8005;&#x4E0D;&#x7528;var(&#x7C7B;&#x578B;&#x63A8;&#x5BFC;)</span></span><br><span class="line">a := <span class="number">1</span> ;</span><br><span class="line">b := <span class="number">2</span> ;</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="&#x7C7B;&#x578B;&#x63A8;&#x5BFC;"><a href="#&#x7C7B;&#x578B;&#x63A8;&#x5BFC;" class="headerlink" title="&#x7C7B;&#x578B;&#x63A8;&#x5BFC;"></a>&#x7C7B;&#x578B;&#x63A8;&#x5BFC;</h3><p>&#x5982;&#x679C;&#x5728;&#x516C;&#x5F00;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;(&#x7ED3;&#x6784;)&#x4E2D;&#xFF0C;&#x7EC4;&#x5408;&#x4E86;&#x53EA;&#x5BF9;&#x81EA;&#x5DF1;&#x53EF;&#x89C1;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E14;&#x6B64;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x516C;&#x5F00;&#x7684;&#x3002;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5728;&#x83B7;&#x53D6;&#x8FD9;&#x4E2A;&#x79C1;&#x6709;&#x7684;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;<code>:=</code>&#x53BB;&#x83B7;&#x53D6;&#xFF0C;&#x56E0;&#x4E3A;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x901A;&#x8FC7;<code>:=</code>&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x81EA;&#x52A8;&#x63A8;&#x65AD;&#x3002;</p>
-<h3 id="&#x5982;&#x4F55;&#x7528;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x4EA4;&#x6362;&#x6574;&#x6570;-i-&#x548C;-j-&#x7684;&#x503C;"><a href="#&#x5982;&#x4F55;&#x7528;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x4EA4;&#x6362;&#x6574;&#x6570;-i-&#x548C;-j-&#x7684;&#x503C;" class="headerlink" title="&#x5982;&#x4F55;&#x7528;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x4EA4;&#x6362;&#x6574;&#x6570; i &#x548C; j &#x7684;&#x503C;"></a>&#x5982;&#x4F55;&#x7528;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x4EA4;&#x6362;&#x6574;&#x6570; i &#x548C; j &#x7684;&#x503C;</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i,j=j,i;</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="&#x5E38;&#x91CF;&#x5B9A;&#x4E49;"><a href="#&#x5E38;&#x91CF;&#x5B9A;&#x4E49;" class="headerlink" title="&#x5E38;&#x91CF;&#x5B9A;&#x4E49;"></a>&#x5E38;&#x91CF;&#x5B9A;&#x4E49;</h3><p>&#x5FEB;&#x901F;&#x8BBE;&#x7F6E;&#x8FDE;&#x7EED;&#x503C;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x4E00;&#x5468;&#x4E03;&#x5929;</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	Monday = <span class="literal">iota</span> + <span class="number">1</span> </span><br><span class="line">    Tuesday</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    Sunday</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5BF9;bit&#x8FDE;&#x7EED;&#x8D4B;&#x503C;(&#x4F4D;&#x8FD0;&#x7B97;)</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	Open = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span></span><br><span class="line">    Close</span><br><span class="line">    Pending</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5173;&#x4E8E;iota</span></span><br><span class="line"><span class="comment">// iota&#x662F;&#x8868;&#x793A;&#x65E0;&#x7C7B;&#x578B;&#x6574;&#x6570;&#x5E8F;&#x6570;&#x7684;&#x9884;&#x5148;&#x58F0;&#x660E;&#x7684;&#x6807;&#x8BC6;&#x7B26;</span></span><br><span class="line"><span class="comment">// a&#x4E2D;&#x5F53;&#x524D;const&#x89C4;&#x8303;&#x7684;&#x7F16;&#x53F7;&#xFF08;&#x901A;&#x5E38;&#x7528;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x6765;&#xFF09;const&#x58F0;&#x660E;</span></span><br><span class="line"><span class="comment">// &#x5B83;&#x662F;&#x96F6;&#x7D22;&#x5F15;&#x7684;&#x3002;</span></span><br><span class="line"><span class="comment">// Untyped int.</span></span><br><span class="line"><span class="keyword">const</span> <span class="literal">iota</span> = <span class="number">0</span> ;</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a href="#&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="headerlink" title="&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;"></a>&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2><table>
-<thead>
-<tr>
-<th>&#x7C7B;&#x578B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bool</td>
-</tr>
-<tr>
-<td>string</td>
-</tr>
-<tr>
-<td>int int8 int16 int32 int64</td>
-</tr>
-<tr>
-<td>uint uint8 uint16 uint32 uint64 uintptr // &#x65E0;&#x7B26;&#x53F7;&#x6574;&#x5F62;</td>
-</tr>
-<tr>
-<td>byte // alias for unit8 &#x65E0;&#x7B26;&#x53F7;8&#x4F4D;&#x6574;&#x5F62;&#x7684;&#x522B;&#x540D;</td>
-</tr>
-<tr>
-<td>rune // alias for int32,represents a Unicode code point // &#x4EE3;&#x8868;Unicode&#x7684;&#x7F16;&#x7801;&#x503C;&#xFF0C;&#x4E0E;&#x5B57;&#x7B26;&#x76F8;&#x5173;</td>
-</tr>
-<tr>
-<td>float32 float64</td>
-</tr>
-<tr>
-<td>complex64 complex128 // &#x590D;&#x6570;&#x7C7B;&#x578B;</td>
-</tr>
-</tbody>
-</table>
-<p> &#x4E0A;&#x9762;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x6807;&#x8BC6;&#x4E86;&#x7C7B;&#x578B;&#x7684;&#x4F4D;&#x6570;&#xFF0C;&#x4E3A;&#x4E86;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#x8FD0;&#x884C;&#xFF08;32/64&#x4F4D;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF09;&#x3002;</p>
-<h3 id="&#x5173;&#x4E8E;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E0A;&#x7684;&#x4E00;&#x4E9B;&#x5DEE;&#x5F02;"><a href="#&#x5173;&#x4E8E;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E0A;&#x7684;&#x4E00;&#x4E9B;&#x5DEE;&#x5F02;" class="headerlink" title="&#x5173;&#x4E8E;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E0A;&#x7684;&#x4E00;&#x4E9B;&#x5DEE;&#x5F02;"></a>&#x5173;&#x4E8E;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E0A;&#x7684;&#x4E00;&#x4E9B;&#x5DEE;&#x5F02;</h3><ul>
-<li><code>Go</code>&#x4E0D;&#x5141;&#x8BB8;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</li>
-<li>&#x522B;&#x540D;&#x548C;&#x539F;&#x6709;&#x7C7B;&#x578B;&#x4E5F;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</li>
-</ul>
-<p>&#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num1 := <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">var</span> num2 <span class="keyword">int64</span>  ; </span><br><span class="line">num2 = num1 ; <span class="comment">// &#x5176;&#x5B9E;&#x8FD9;&#x91CC;&#x7684;&#x65F6;&#x5019;&#xFF0C;ide&#x5C31;&#x63D0;&#x793A;&#x4E86;</span></span><br><span class="line">t.Log(num1,num2);</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x63D0;&#x793A;&#x9519;&#x8BEF;&#xFF1A;</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cannot use num1 (<span class="built_in">type</span> int) as <span class="built_in">type</span> int64 <span class="keyword">in</span> assignment</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num1 := <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">var</span> num2 <span class="keyword">int64</span> ;</span><br><span class="line">num2 = <span class="keyword">int64</span>(num1);</span><br><span class="line">t.Log(num1,num2);</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7ED3;&#x679C;&#xFF1A;</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7B2C;&#x4E8C;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> MyInt <span class="keyword">int64</span> ; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestHello</span><span class="params">(t *testing.T)</span></span> {</span><br><span class="line">    </span><br><span class="line">    num1 := <span class="number">1</span> ;</span><br><span class="line">	<span class="keyword">var</span> num2 <span class="keyword">int64</span>  ;</span><br><span class="line">	num2 = <span class="keyword">int64</span>(num1);</span><br><span class="line">	<span class="keyword">var</span> num3 MyInt ;</span><br><span class="line">	num3 = num2; <span class="comment">// &#x5176;&#x5B9E;&#x8FD9;&#x91CC;&#x7684;&#x65F6;&#x5019;&#xFF0C;ide&#x5C31;&#x63D0;&#x793A;&#x4E86;</span></span><br><span class="line">	t.Log(num1,num2,num3);</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7ED3;&#x679C;&#xFF1A;</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cannot use num2 (<span class="built_in">type</span> int64) as <span class="built_in">type</span> MyInt <span class="keyword">in</span> assignment</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="&#x7C7B;&#x578B;&#x7684;&#x9884;&#x8BA2;&#x503C;"><a href="#&#x7C7B;&#x578B;&#x7684;&#x9884;&#x8BA2;&#x503C;" class="headerlink" title="&#x7C7B;&#x578B;&#x7684;&#x9884;&#x8BA2;&#x503C;"></a>&#x7C7B;&#x578B;&#x7684;&#x9884;&#x8BA2;&#x503C;</h3><p>&#x8BB0;&#x5F97;&#x4EE5;&#x524D;&#x5728;&#x5B66;&#x4E60;C&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x503C;&#x6216;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x5C0F;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x5E38;&#x559C;&#x6B22;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> MAXNUM = <span class="number">999999</span> ; <span class="comment">// -2^31~2^31-1</span></span><br></pre></td></tr></tbody></table></figure>
-<p>&#x90A3;&#x4E48;&#x5728;&#x8FD9;&#x91CC;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.Log(math.MaxInt64);</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7ED3;&#x679C;&#x662F;&#xFF1A;</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9223372036854775807</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x5176;&#x4ED6;&#x8FD8;&#x6709;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">math.MaxFloat64 ;</span><br><span class="line">math.MaxUnit32 ;</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="&#x6307;&#x9488;"><a href="#&#x6307;&#x9488;" class="headerlink" title="&#x6307;&#x9488;"></a>&#x6307;&#x9488;</h3><p><code>Go</code>&#x4E0D;&#x652F;&#x6301;&#x6307;&#x9488;&#x8FD0;&#x7B97;&#xFF0C;&#x4E5F;&#x6709;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x3002;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestHello</span><span class="params">(t *testing.T)</span></span> {</span><br><span class="line">	a := <span class="number">1</span>;</span><br><span class="line">	aPtr := &amp;a;</span><br><span class="line">	t.Log(a, aPtr);</span><br><span class="line">	t.Logf(<span class="string">&quot;%T %T&quot;</span>, a, aPtr);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7ED3;&#x679C;&#xFF1A;</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 0xc00000c2c8</span><br><span class="line">int *int</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x8BD5;&#x4E00;&#x4E0B;&#x6307;&#x9488;&#x8FD0;&#x7B97;&#xFF1A;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestHello</span><span class="params">(t *testing.T)</span></span> {</span><br><span class="line">	a := <span class="number">1</span>;</span><br><span class="line">	aPtr := &amp;a;</span><br><span class="line">	t.Log(a, aPtr);</span><br><span class="line">+   aPtr = aPtr + <span class="number">1</span> ;</span><br><span class="line">	t.Logf(<span class="string">&quot;%T %T&quot;</span>, a, aPtr);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7ED3;&#x679C;&#xFF1A;</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">invalid operation: aPtr + 1 (mismatched types *int and int)</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x5728;<code>Java</code>&#x4E2D;<code>String</code>&#x662F;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x6307;&#x9488;&#x7C7B;&#x578B;&#xFF1F;</p>
-<p>&#x5728;<code>Go</code>&#x4E2D;<code>string</code>&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#x7C7B;&#x578B;&#xFF08;&#x6CE8;&#x610F;&#x5927;&#x5C0F;&#x5199;&#xFF09;</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s <span class="keyword">string</span> ; <span class="comment">// &#x9ED8;&#x8BA4;&#x53D8;&#x6210;&#x4E86;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x800C;&#x4E0D;&#x662F;nil </span></span><br><span class="line">t.Log(<span class="string">&quot;*&quot;</span>+s+<span class="string">&quot;*&quot;</span>);</span><br><span class="line">t.Log(<span class="built_in">len</span>(s));</span><br><span class="line"><span class="comment">// &#x8FDB;&#x884C;&#x5224;&#x65AD;</span></span><br><span class="line"><span class="keyword">if</span> s == <span class="string">&quot;&quot;</span> {</span><br><span class="line">    ....</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Go-&#x4E2D;&#x6574;&#x578B;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#x5728;-Java-&#x4E2D;&#x662F;&#x5426;&#x652F;&#x6301;&#xFF1F;"><a href="#Go-&#x4E2D;&#x6574;&#x578B;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#x5728;-Java-&#x4E2D;&#x662F;&#x5426;&#x652F;&#x6301;&#xFF1F;" class="headerlink" title="Go &#x4E2D;&#x6574;&#x578B;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#x5728; Java &#x4E2D;&#x662F;&#x5426;&#x652F;&#x6301;&#xFF1F;"></a>Go &#x4E2D;&#x6574;&#x578B;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#x5728; Java &#x4E2D;&#x662F;&#x5426;&#x652F;&#x6301;&#xFF1F;</h2><ul>
-<li>&#x5728;<code>Java</code>&#x4E2D;&#x4E0D;&#x652F;&#x6301;<code>unsigned</code>&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x5BF9;<code>unsigned</code>&#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362;&#xFF0C;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x7684;</li>
-<li>Java&#x4E0D;&#x652F;&#x6301;complex&#x7C7B;&#x578B;</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Go</th>
-<th>Java</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int8</td>
-<td>byte</td>
-</tr>
-<tr>
-<td>int16</td>
-<td>short</td>
-</tr>
-<tr>
-<td>int32</td>
-<td>int (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x65E0;&#x5173;)</td>
-</tr>
-<tr>
-<td>int64</td>
-<td>long (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x65E0;&#x5173;)</td>
-</tr>
-<tr>
-<td>float32</td>
-<td>float</td>
-</tr>
-<tr>
-<td>float64</td>
-<td>double</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x6D4B;&#x8BD5;"><a href="#&#x6D4B;&#x8BD5;" class="headerlink" title="&#x6D4B;&#x8BD5;"></a>&#x6D4B;&#x8BD5;</h2><p>&#x7C7B;&#x4F3C;<code>Java</code>&#x4E2D;<code>Junit</code>&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x90A3;&#x4E48;&#x5728;<code>Go</code>&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
-<ul>
-<li>&#x4EE5;<code>_test</code>&#x7ED3;&#x5C3E;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<code>hello_test.go</code></li>
-<li>&#x65B9;&#x6CD5;&#x540D;&#x4EE5;<code>Test</code>&#x5F00;&#x5934;&#xFF1A;<code>func TestHello(t *testing.T){}</code>&#xFF0C;&#x65B9;&#x6CD5;&#x540D;&#x5927;&#x5199;&#x4FBF;&#x4E8E;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;</li>
-</ul>
-<script>
-        document.querySelectorAll('#github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
+          <h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_2.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
