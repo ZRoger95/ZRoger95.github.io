@@ -1,0 +1,43 @@
+<hr>
+<p>title: ‘Vue中的代码规范’<br>abbrlink: ‘vue-code-rule’<br>tags:</p>
+<ul>
+<li>Vue</li>
+<li>Eslint</li>
+<li>prettier<br>copyright: true<br>date: 2019-9-18 22:26:34</li>
+</ul>
+<hr>
+<h1 id="Eslint与Prettier"><a href="#Eslint与Prettier" class="headerlink" title="Eslint与Prettier"></a>Eslint与Prettier</h1><p>为什么要使用<code>eslint</code>+<code>prettier</code>。</p>
+<p>目的是为了规范代码，统一风格，便于后续人员维护。</p>
+<p>在项目生成的时候，关于代码格式化的选择：</p>
+<pre><code>? Pick a linter / formatter config:
+  TSLint
+  ESLint with error prevention only
+  ESLint + Airbnb config
+  ESLint + Standard config
+&gt; ESLint + Prettier
+</code></pre><p><code>lint</code>选择<code>ESLint + Prettier</code>，配置方式选择<code>In dedicated config files</code>，根目录下会自动生成一个<code>.eslintrc.js</code>文件。</p>
+<pre><code class="javascript"><span class="built_in">module</span>.exports = {
+  root: <span class="literal">true</span>,
+  env: {
+    node: <span class="literal">true</span>
+  },
+  extends: [<span class="string">"plugin:vue/essential"</span>, <span class="string">"@vue/prettier"</span>, <span class="string">"@vue/typescript"</span>],
+  rules: {
+    <span class="string">"no-console"</span>: process.env.NODE_ENV === <span class="string">"production"</span> ? <span class="string">"error"</span> : <span class="string">"off"</span>,
+    <span class="string">"no-debugger"</span>: process.env.NODE_ENV === <span class="string">"production"</span> ? <span class="string">"error"</span> : <span class="string">"off"</span>
+  },
+  parserOptions: {
+    parser: <span class="string">"@typescript-eslint/parser"</span>
+  },
+  overrides: [
+    {
+      files: [<span class="string">"**/__tests__/*.{j,t}s?(x)"</span>],
+      env: {
+        mocha: <span class="literal">true</span>
+      }
+    }
+  ]
+};
+</code></pre>
+<p><code>extends</code>：<code>plugin:vue/essential</code>作用是加载<code>eslint-plugin-vue</code>插件，默认启用<code>essential</code>级别的规制，该插件可在<code>node_modules</code>中找下，如果没有的话，需要手动添加。</p>
+<p><code>eslint-plugin-vue</code>把所有规则分为四个类别，依次为：<code>base, essential, strongly-recommended, recommended</code>，后面的每个类别都是对前一个类别的拓展。除了这四个类别外，还有两个未归类的规则，所有的类别及规则都可以在<a href="https://vuejs.github.io/eslint-plugin-vue/rules/">这里查看</a>。</p>

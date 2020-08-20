@@ -1,0 +1,115 @@
+<hr>
+<p>title: vue<br>copyright: true<br>tags:</p>
+<ul>
+<li>vue<br>abbrlink: c0add594<br>date: 2018-10-18 19:40:58</li>
+</ul>
+<hr>
+<h1 id="ZTable-开发日记"><a href="#ZTable-开发日记" class="headerlink" title="ZTable 开发日记"></a>ZTable 开发日记</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ZTable 主要用于记录个人的一些记录要求，主要有：日志博客，代办、行程规划安排、个人消费记录、电子书籍管理、快速导航管理，前端常用工具集（转码转义、代码格式化、正则比较等等），同步数据，消息提醒。</p>
+<p>参考项目 <code>vue-element-admin</code></p>
+<h2 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h2><pre><code class="sh">├── build                      <span class="comment"># 构建相关</span>
+├── mock                       <span class="comment"># 项目mock 模拟数据</span>
+├── plop-templates             <span class="comment"># 基本模板</span>
+├── public                     <span class="comment"># 静态资源</span>
+│   │── favicon.ico            <span class="comment"># favicon图标</span>
+│   └── index.html             <span class="comment"># html模板</span>
+├── src                        <span class="comment"># 源代码</span>
+│   ├── api                    <span class="comment"># 所有请求</span>
+│   ├── assets                 <span class="comment"># 主题 字体等静态资源</span>
+│   ├── components             <span class="comment"># 全局公用组件</span>
+│   ├── directive              <span class="comment"># 全局指令</span>
+│   ├── filters                <span class="comment"># 全局 filter</span>
+│   ├── icons                  <span class="comment"># 项目所有 svg icons</span>
+│   ├── lang                   <span class="comment"># 国际化 language</span>
+│   ├── layout                 <span class="comment"># 全局 layout</span>
+│   ├── router                 <span class="comment"># 路由</span>
+│   ├── store                  <span class="comment"># 全局 store管理</span>
+│   ├── styles                 <span class="comment"># 全局样式</span>
+│   ├── utils                  <span class="comment"># 全局公用方法</span>
+│   ├── vendor                 <span class="comment"># 公用vendor</span>
+│   ├── views                  <span class="comment"># views 所有页面</span>
+│   ├── App.vue                <span class="comment"># 入口页面</span>
+│   ├── main.ts                <span class="comment"># 入口文件 加载组件 初始化等</span>
+│   └── permission.js          <span class="comment"># 权限管理</span>
+├── tests                      <span class="comment"># 测试</span>
+├── .env.xxx                   <span class="comment"># 环境变量配置</span>
+├── .eslintrc.js               <span class="comment"># eslint 配置项</span>
+├── babel.config.js            <span class="comment"># babel-loader 配置</span>
+├── .travis.yml                <span class="comment"># 自动化CI配置</span>
+├── vue.config.js              <span class="comment"># vue-cli 配置</span>
+├── postcss.config.js          <span class="comment"># postcss 配置</span>
+└── package.json               <span class="comment"># package.json</span>
+</code></pre>
+<h3 id="api-和-view"><a href="#api-和-view" class="headerlink" title="api 和 view"></a>api 和 view</h3><p>随着业务的迭代，模块还会会越来越多，将views 和 api 两个模块一一对应，从而方便维护p</p>
+<p>6.1 表单与v-model</p>
+<input type="text">
+
+<p>在<code>&lt;template&gt;</code>中只能有最外面一层的div，然后在里面进行嵌套。</p>
+<p><code>v-model</code>让表单类元素双向绑定数据，在输入框输入的同时，会实时将内容渲染到视图中。</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">template</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>表单与v-model<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"请输入..."</span> /&gt;</span>
+            <span class="tag">&lt;<span class="name">p</span>&gt;</span>输入的内容是：{{ message }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">template</span>&gt;</span>
+
+<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> {</span>
+<span class="javascript">        name: <span class="string">"form"</span>, <span class="comment">// 组件名字</span></span>
+<span class="undefined">        data(){</span>
+<span class="javascript">            <span class="keyword">return</span> {</span>
+<span class="javascript">                message : <span class="string">""</span></span>
+<span class="undefined">            }</span>
+<span class="undefined">        }</span>
+<span class="undefined">    }</span>
+<span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>文本域<code>textarea</code>也可以，在使用<code>v-model</code>绑定数据后，对于在<code>&lt;textarea&gt;&lt;/textarea&gt;</code>中插入的值，不会再生效了。</p>
+<p>若是希望总是更新，可以使用<code>@input</code>代替<code>v-model</code></p>
+<input type="radio">
+
+<p>单选按钮在单独使用时，不需要<code>v-model</code>,直接使用<code>v-bind</code>绑定一个布尔类型的值，为真时选中，反正，不选。</p>
+<p>比如：按钮开关，状态的切换，风格改变</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">template</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">:checked</span>=<span class="string">"singlePicked"</span>/&gt;</span>
+    <span class="tag">&lt;<span class="name">label</span>&gt;</span>单选按钮<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">template</span>&gt;</span>
+
+<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> {</span>
+<span class="javascript">        name: <span class="string">"form"</span>, <span class="comment">// 组件名字</span></span>
+<span class="undefined">        data(){</span>
+<span class="javascript">            <span class="keyword">return</span> {</span>
+<span class="javascript">                singlePicked : <span class="literal">true</span></span>
+<span class="undefined">            }</span>
+<span class="undefined">        }</span>
+<span class="undefined">    }</span>
+<span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>如果是组合按钮的时候，还是要用到<code>v-model</code></p>
+<pre><code>&lt;template&gt;
+    &lt;div&gt;
+        &lt;p&gt;单选按钮组合&lt;/p&gt;
+        &lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;中文&quot; id=&quot;chinese&quot; /&gt;
+        &lt;label for=&quot;chinese&quot;&gt;中文&lt;/label&gt;&lt;br/&gt;
+        &lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;英语&quot; id=&quot;english&quot;/&gt;
+        &lt;label for=&quot;english&quot;&gt;英语&lt;/label&gt;&lt;br/&gt;
+        &lt;input type=&quot;radio&quot; v-model=&quot;picked&quot; value=&quot;日语&quot; id=&quot;japanese&quot;/&gt;
+        &lt;label for=&quot;japanese&quot;&gt;日语&lt;/label&gt;&lt;br/&gt;
+        &lt;p&gt;当前选择是:{{ picked }}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        name: &quot;form&quot;, // 组件名字
+        data(){
+            return {
+                picked : &quot;中文&quot;
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
