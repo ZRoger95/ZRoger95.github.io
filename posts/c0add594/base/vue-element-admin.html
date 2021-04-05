@@ -1,0 +1,171 @@
+<hr>
+<h2 id="abbrlink-‘0’"><a href="#abbrlink-‘0’" class="headerlink" title="abbrlink: ‘0’"></a>abbrlink: ‘0’</h2><h1 id="vue-element-admin"><a href="#vue-element-admin" class="headerlink" title="vue-element-admin"></a>vue-element-admin</h1><p>项目作者：PanJiaChen </p>
+<p>项目地址：<a href="https://github.com/PanJiaChen/vue-element-admin">https://github.com/PanJiaChen/vue-element-admin</a></p>
+<p>简述：基于Vue和Element的前端管理系统方案</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="选择原因"><a href="#选择原因" class="headerlink" title="选择原因"></a>选择原因</h3><p>现在组内没有人接触Vue，由我负责搭建整个产品的Vue前端工程，在3月底上线第一个版本。所以选择了其他组都在用的<code>vue-element-admin</code>方案，进行二次开发。</p>
+<p>理由：</p>
+<ul>
+<li>已经有其他组在使用，也成功上线，但是并没有集成好我这一组业务需要的东西，业务对比其他组较为复杂一些，业务也有差不多10年的积累，所以需要自己研究进行封装一些组件</li>
+<li>选择<code>vue-element-admin</code>，不选择<code>vue-element-template</code>，理由是因为系统业务较为大，需要扩展其他方面的东西 。</li>
+<li>想准备2个版本，一个版本支持<code>TypeScript</code>（自己研究），一个不支持<code>TypeScript</code>（主要是其他组没有选用<code>TypeScript</code>，保持一致）</li>
+</ul>
+<h3 id="前端技术栈"><a href="#前端技术栈" class="headerlink" title="前端技术栈"></a>前端技术栈</h3><p><a href="https://panjiachen.github.io/vue-element-admin-site/zh/guide/">Vue-Element-Admin</a> 的技术栈基于 <a href="http://es6.ruanyifeng.com/">ES2015+</a>、<a href="https://cn.vuejs.org/index.html">vue</a>、<a href="https://vuex.vuejs.org/zh-cn/">vuex</a>、<a href="https://router.vuejs.org/zh-cn/">vue-router</a> 、<a href="https://github.com/vuejs/vue-cli">vue-cli</a> 、<a href="https://github.com/axios/axios">axios</a> 和 <a href="https://github.com/ElemeFE/element">element-ui</a></p>
+<h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><h4 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a><a href="https://code.visualstudio.com/">VS Code</a></h4><p>这是一款免费，开源，自由、轻量级的编辑器，当然某些情况 下（装了很多插件）又看作是<code>IDE</code>。与<code>WebStorm</code>不一样，不能开箱即用，需要额外安装一些插件来匹配你需要的开发环境，所以拥有丰富的插件库。</p>
+<p>简易指南：</p>
+<ul>
+<li>了解常用快捷键</li>
+<li>安装常用插件</li>
+</ul>
+<h4 id="JetBrains-WebStorm"><a href="#JetBrains-WebStorm" class="headerlink" title="JetBrains WebStorm"></a><a href="https://www.jetbrains.com/webstorm/">JetBrains WebStorm</a></h4><p>这是一款开发前端的利器（需要收费），自动代码完成，动态代码分析，重构分析以及VCS集成。</p>
+<p>简单指南：</p>
+<ul>
+<li>常用快捷键</li>
+<li>常用插件</li>
+</ul>
+<p>建议：</p>
+<p>两款差异，VS Code较为轻便一些，不需占用过多的内存，WebStorm强大且全面。如果电脑内存够多，可以先选用WebStorm，少的话，选用VS Code</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><h4 id="1-Nvm"><a href="#1-Nvm" class="headerlink" title="1. Nvm"></a>1. Nvm</h4><p>先安装<code>Nvm</code>，主要用于管理<code>Node.js</code>的版本</p>
+<h4 id="2-Node-amp-Npm"><a href="#2-Node-amp-Npm" class="headerlink" title="2. Node &amp; Npm"></a>2. Node &amp; Npm</h4><p>使用<code>Nvm</code>安装<code>Node.Js</code>，<code>Npm</code>会随着<code>Node.js</code>的安装而安装的。</p>
+<p>配置阿里的<code>cnpm</code></p>
+<h4 id="3-Git"><a href="#3-Git" class="headerlink" title="3. Git"></a>3. Git</h4><h5 id="其他-Yarn"><a href="#其他-Yarn" class="headerlink" title="其他 Yarn"></a>其他 Yarn</h5><p>可以进行了解，全局安装模块时使用<code>Npm</code>，项目安装模块时使用<code>Yarn</code></p>
+<h2 id="安装和启动"><a href="#安装和启动" class="headerlink" title="安装和启动"></a>安装和启动</h2><h3 id="下载-amp-安装依赖"><a href="#下载-amp-安装依赖" class="headerlink" title="下载&amp;安装依赖"></a>下载&amp;安装依赖</h3><p>将<code>vue-element-admin</code>项目<code>git clone</code>到本地后，安装相应的依赖</p>
+<pre><code># 克隆项目到本地
+git clone https://github.com/PanJiaChen/vue-element-admin.git custom-project-name
+
+# 安装依赖
+npm install 
+
+## 如果使用npm install安装依赖失败,可以尝试使用cnpm
+cnpm install
+</code></pre><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre><code># 启动项目
+npm run dev
+</code></pre><p>启动时可能遇到的问题，重复启动二次项目，解决方法：</p>
+<ol>
+<li><p>修改<code>vue.config.js</code>中关于<code>devServer</code>的属性</p>
+<pre><code class="lang-diff">devServer: {
+    port: port,
++   open: false,
+-   open: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    }
+</code></pre>
+</li>
+<li><p>修改<code>package.json</code>关于启动的命令</p>
+<pre><code class="lang-diff">&quot;scripts&quot;: {
++    &quot;dev&quot;: &quot;vue-cli-service serve --open&quot;,
+-    &quot;dev&quot;: &quot;vue-cli-service serve&quot;,
+</code></pre>
+</li>
+</ol>
+<h1 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><blockquote>
+<p>当前所使用版本是4.0，i18n分支</p>
+</blockquote>
+<pre><code>
+
+</code></pre><h3 id="模块文件夹一一对应"><a href="#模块文件夹一一对应" class="headerlink" title="模块文件夹一一对应"></a>模块文件夹一一对应</h3><p>随着业务迭代，模块会越来越多，需要根据业务来划分 views ，两个文件夹之间的模块一一对应，从而方便维护。其次相应的在router和mock中也需要如此</p>
+<h3 id="组件-components"><a href="#组件-components" class="headerlink" title="组件 components"></a>组件 components</h3><p>一般放全局的一些组件，如上传文件，富文本，Excel等等，而页面级的组件还是放在各自的views文件下，方便维护管理。</p>
+<h3 id="状态-store"><a href="#状态-store" class="headerlink" title="状态 store"></a>状态 store</h3><p>使用Vuex来存放用户登录的Token，用户信息等，页面的数据由页面中的data维护。</p>
+<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><blockquote>
+<p>当前使用为 webpack 4 </p>
+</blockquote>
+<h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><p>当项目逐渐变大之后，文件与文件直接的引用关系会复杂，这个时候需要使用到<strong>alias</strong></p>
+<h2 id="ESlint"><a href="#ESlint" class="headerlink" title="ESlint"></a>ESlint</h2><p>使用Eslint检查代码规范，避免基本语法错误，保证代码可读性，可以在<code>.eslintrc.js</code>编写代码规范。</p>
+<p>在VSCode中设置保存自动修复</p>
+<pre><code class="lang-json">&quot;editor.codeActionsOnSave&quot;: {
+    &quot;source.fixAll.eslint&quot;: true
+}
+</code></pre>
+<h2 id="封装axios"><a href="#封装axios" class="headerlink" title="封装axios"></a>封装axios</h2><p>位置：src/uitl/request.js</p>
+<p>待研究： 执行多个并发请求，拦截器 </p>
+<h2 id="多环境"><a href="#多环境" class="headerlink" title="多环境"></a>多环境</h2><p>主要分为3中环境：</p>
+<ul>
+<li>开发环境：开发阶段，本地开发版本</li>
+<li>测试环境：测试阶段，上线前版本，除了一些bug修复，基本不会和上线版本有很大差别</li>
+<li>生产环境：上线阶段，正式对外的版本，一般会进行优化，关掉错误报告</li>
+</ul>
+<p>某一个环境：<code>自定义配置</code>+<code>公共配置</code></p>
+<p>在vue-cli 3.x中，由<code>.env</code>来设置系统的环境配置</p>
+<pre><code>.env                # 在所有的环境中被载入
+.env.local          # 在所有的环境中被载入，但会被 git 忽略
+.env.[mode]         # 只在指定的模式中被载入
+.env.[mode].local   # 只在指定的模式中被载入，但会被 git 忽略
+</code></pre><h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>相同配置权限的优先级：</p>
+<pre><code>.env.[mode].local &gt; .env.[mode] &gt; .env.local &gt; .env
+</code></pre><h3 id="自定义本地配置"><a href="#自定义本地配置" class="headerlink" title="自定义本地配置"></a>自定义本地配置</h3><p>看下<code>vue-element-admin</code>中的配置：</p>
+<pre><code>.env.development # 开发环境
+.env.production  # 正式环境
+.env.staging     # 测试/预先发布环境
+</code></pre><p>如果是在想在本地上对<code>development</code>进行修改，但是不干扰代码同步问题，可以<strong>copy</strong>一份<code>development</code>然后加上<code>.local</code>然后进行自定义配置</p>
+<h3 id="配置其他模式环境"><a href="#配置其他模式环境" class="headerlink" title="配置其他模式环境"></a>配置其他模式环境</h3><p>在本地启动项目时：</p>
+<pre><code>npm run dev
+</code></pre><p>是在调用webpack-server的服务，<code>dev</code>设置在<code>package.json</code>中，由于<code>vue-cli-service serve</code>默认设置的环境是<code>development</code>（既<code>NODE_ENV = &#39;development&#39;</code>），会去找<code>.env.development</code>配置文件</p>
+<pre><code>&quot;dev&quot;: &quot;vue-cli-service serve&quot;
+</code></pre><p>而<code>vue-cli-service build</code>则默认去调用<code>production</code>中的配置信息</p>
+<p>现在我们想要一个预发布的环境<strong>staging</strong>，新建一个<code>.env.staging</code>，然后在package.json中新增配置：</p>
+<pre><code>&quot;build:stage&quot;: &quot;vue-cli-service build --mode staging&quot;
+</code></pre><p><code>--mode stage</code> 其实就是修改了 <strong>webpack 4</strong> 中的 <strong>mode</strong> 配置项为 <code>staging</code>，同时其会读取对应 <code>.env.[model]</code>文件下的配置，如果没找到对应配置文件，其会使用默认环境。</p>
+<p>相同配置项权重大的覆盖小的，不同配置项它们会进行合并操作，类似于 Javascript 中的 Object.assign 的用法</p>
+<h3 id="process-env"><a href="#process-env" class="headerlink" title="process.env"></a>process.env</h3><p>在vue.config.js和main.js中输出是不同的，通过webpack和vue-cli的封装后，main.js中输出，仅支持<code>VUE_APP_</code>开头的变量，而<code>NODE_ENV</code>和<code>BASE_URL</code>这两个特殊变量也会一起输出。</p>
+<p>其他扩展：</p>
+<p>如果以后IPES拥有移动端页面，在调试时，可以使用vConsole进行辅助测试</p>
+<h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><p>使用Mock Data进行模拟</p>
+<h2 id="router-view"><a href="#router-view" class="headerlink" title="router-view"></a>router-view</h2><p>不同的路由相同的组件</p>
+<pre><code>&lt;router-view :key=&quot;key&quot;&gt;&lt;/router-view&gt;
+
+computed: {
+    key() {
+        return this.$route.name !== undefined? this.$route.name + +new Date(): this.$route + +new Date()
+    }
+ }
+
+作者：花裤衩
+链接：https://juejin.im/post/59097cd7a22b9d0065fb61d2
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre><p>webpack-bundle-analyzer</p>
+<h3 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h3><pre><code>- baseUrl(publicPath):默认为&#39;\&#39; ，需要二级目录时，加上hello，访问就会变成 localhost:8080\hello
+- OutputDir:打包输出到 output 文件夹，默认是dist文件夹
+- lintOnSave
+- transplieDependencies
+- productionSourceMap：是否为生产环境构建生成 source map，一般在生产环境下为了快速定位错误信息，一般会开启
+- chainWebpack：控制 webpack 的内部配置
+- configureWebpack：整体替换和修改
+- css
+- parallel
+- pwa
+- devServer
+- pluginOptions
+</code></pre><h4 id="productionSourceMap"><a href="#productionSourceMap" class="headerlink" title="productionSourceMap"></a>productionSourceMap</h4><p>该配置会修改 webpack 中 <code>devtool</code> 项的值为 <code>source-map</code>，打包输出的文件中会包含 js 对应的 .map 文件，其用途可以参考：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html">http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html</a></p>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>本项目为众多服务中的一个服务，但是也可作为独立项目启动，所以需要单独的登录页面（也可不要，由用户中心服务负责提供）。（简单的架构，尽量不要减少系统中的东西，这样就比较好维护整体项目的生命周期，尽量去除有状态服务）</p>
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>用户登录的部分，采用JWT（JSON WEB  TOKEN）的方式来验证用户的合法性，有关于用户的token、权限等问题。</p>
+<ul>
+<li><p>登录时的安全问题（加密），RSA非对称加密算法，结合数字签名（校验身份）构成 HTTPS</p>
+</li>
+<li><p>登录后的权限问题（门或权限表）</p>
+</li>
+<li><p>登录令牌（token），生命周期（1~2小时）（登录校验成功是，生成token，再交由权限点校验令牌中的权限）</p>
+</li>
+</ul>
+<p>将JWT存入cookie中</p>
+<p>缺点：令牌无法自主撤回</p>
+<p>可以尝试使用redis进行存储，但是这无疑新增了一个有状态的服务，不是很理想</p>
+<p>虽然简单过了一下<code>Vue</code>所学的基础知识，但是对整体前端工程的把握还是有点不足。</p>
+<p>有以下疑惑：</p>
+<ol>
+<li>是什么Vue-Cli，什么又叫脚手架</li>
+<li>Vuex和Vue Router</li>
+<li>Webpack</li>
+<li>NodeJS和npm之前学过，也出过项目，现在重新进行回购</li>
+<li>如何才算是前端工程，项目如何架构</li>
+</ol>
+<p>目的：为了构建新产品的前端工程，所以选择了Vue。</p>
+<p>选择了<code>vue-element-admin</code></p>
+<p>前端测试时，可以使用mock</p>
+<p>时间2020年1月5日16:47:15，当前vue-element-admin版本为4.0，有一些bug</p>
+<p>1、 项目重复启动：</p>
+<p>1.vue.config.js 下的 devServer.open 设置为 false // true默认打开浏览器<br>2.package.json 的 dev 命令设置为 vue-cli-service serve —open</p>
+<p>2、 项目环境配置：</p>
+<p>mockJS 与 mock Server </p>

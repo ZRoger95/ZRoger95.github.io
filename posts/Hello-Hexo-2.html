@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="Hexo,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="这里将记录关于Hexo一些东西，关于NexT主题，还有修改博客的东西都记录在这里。 Hexo的文件结构使用hexo init初始化文件夹，并在安装好所需的依赖，其文件夹的结构：   .deploy_git：是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。  node_modules：是Hexo运行时需">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义Hexo与主题NexT">
+<meta property="og:url" content="https://zroger95.github.io/posts/Hello-Hexo-2.html">
+<meta property="og:site_name">
+<meta property="og:description" content="这里将记录关于Hexo一些东西，关于NexT主题，还有修改博客的东西都记录在这里。 Hexo的文件结构使用hexo init初始化文件夹，并在安装好所需的依赖，其文件夹的结构：   .deploy_git：是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。  node_modules：是Hexo运行时需">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zroger95.github.io/posts/Hello-Hexo-2/hexo_folders.png">
+<meta property="og:updated_time" content="2020-04-05T07:49:42.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义Hexo与主题NexT">
+<meta name="twitter:description" content="这里将记录关于Hexo一些东西，关于NexT主题，还有修改博客的东西都记录在这里。 Hexo的文件结构使用hexo init初始化文件夹，并在安装好所需的依赖，其文件夹的结构：   .deploy_git：是上传到GitHub中，如果你想添加一些额外东西的话，可以到下面的public文件夹中进行添加，然后在使用hexo d -g部署到GitHub中。  node_modules：是Hexo运行时需">
+<meta name="twitter:image" content="https://zroger95.github.io/posts/Hello-Hexo-2/hexo_folders.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zroger95.github.io/posts/Hello-Hexo-2.html">
+
+
+
+
+
+  <title>自定义Hexo与主题NexT | </title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-vcard"></i> <br>
+            
+            自我介绍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calculator"></i> <br>
+            
+            时间线
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Hello-Hexo-2.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自定义Hexo与主题NexT</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-08T20:37:22+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Hello-Hexo-2.html" class="leancloud_visitors" data-flag-title="自定义Hexo与主题NexT">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这里将记录关于<code>Hexo</code>一些东西，关于<code>NexT</code>主题，还有修改博客的东西都记录在这里。</p>
+<h2 id="Hexo的文件结构"><a href="#Hexo的文件结构" class="headerlink" title="Hexo的文件结构"></a>Hexo的文件结构</h2><p>使用<code>hexo init</code>初始化文件夹，并在安装好所需的依赖，其文件夹的结构：</p>
+<p><img src="/posts/./Hello-Hexo-2\hexo_folders.png" alt="hexo_folders"></p>
+<ol>
+<li><p><code>.deploy_git</code>：是上传到<code>GitHub</code>中，如果你想添加一些额外东西的话，可以到下面的<code>public</code>文件夹中进行添加，然后在使用<code>hexo d -g</code>部署到<code>GitHub</code>中。</p>
+</li>
+<li><p><code>node_modules</code>：是<code>Hexo</code>运行时需要的一些依赖文件。</p>
+</li>
+<li><p><code>public</code>：和<code>.deploy_git</code>一样，生成的静态文件，只不过不用上传而已</p>
+</li>
+<li><p><code>scaffolds</code>：是一些模板文件，可以预先定义一些博文的模板，通用的格式</p>
+</li>
+<li><p><code>source</code>：我们编辑的<code>md</code>文件生成对应的静态文件就在这里，还有生成的一些分类文件夹也在这里。</p>
+</li>
+<li><p><code>themes</code>：存放主题文件的地方。</p>
+</li>
+<li><p><code>.gitigonre</code>：过滤上传的文件</p>
+</li>
+<li><p><code>_config.yml</code>：站点配置文件</p>
+</li>
+<li><p><code>db.json</code>：Hexo生成的缓存文件</p>
+</li>
+<li><p><code>package-lock.json</code>和<code>package.json</code>：类型Maven项目的pom.xml，目的是记录当前项目安装哪些依赖。</p>
+</li>
+</ol>
+<a id="more"></a>
+<h3 id="站点配置文件：-config-yml"><a href="#站点配置文件：-config-yml" class="headerlink" title="站点配置文件：_config.yml"></a>站点配置文件：_config.yml</h3><h4 id="网站设置"><a href="#网站设置" class="headerlink" title="网站设置"></a>网站设置</h4><figure class="highlight yml"><figcaption><span>文件地址:博客/_confg.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">网站副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">网站描述，这里的作用是便于搜索引擎找到你的博客</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">网站使用的语言</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">时区，默认是电脑使用的时区</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h4><figure class="highlight yml"><figcaption><span>站点配置:site/_confg.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">网址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">网站根目录，默认为：</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">文章的永久链接格式，默认为：</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span> <span class="string">永久链接中各部分的默认值</span></span><br></pre></td></tr></tbody></table></figure>
+<p>注：若是把博客网站放在子目录中，比如：<code>http://yoursite.com/blog</code>，则需要将<code>root</code>改为<code>/blog/</code></p>
+<h5 id="permalink-生成的链接"><a href="#permalink-生成的链接" class="headerlink" title="permalink  - 生成的链接"></a>permalink  - 生成的链接</h5><p>​    按照默认的生成规则，文字链接的格式是 <em>时间  +文章名</em> 这样的形式。如果你的文章名是中文的话，就会造成一定程度上面的困扰，也不利于<code>SEO</code>。</p>
+<p>​    所以可以借助<code>hexo-abbrlink</code>，修改生成规则，减少链接的层级。 但是对<code>hexo-asset-image</code>有影响，需要在文章头部修改<code>abbrlink</code>。安装命令如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-abbrlink --save</span><br></pre></td></tr></tbody></table></figure>
+<p>之后修改站点配置文件：</p>
+<figure class="highlight yml"><figcaption><span>站点配置:site/_confg.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">post/:abbrlink.html</span> </span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line"><span class="attr">  alg:</span> <span class="string">crc32</span> <span class="comment"># 算法</span></span><br><span class="line"><span class="attr">  rep:</span> <span class="string">dec</span> <span class="comment"># 进制</span></span><br></pre></td></tr></tbody></table></figure>
+<p>重新部署后，文章的<code>abbrlink</code>由算法生成，如下形式的：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000/post/17e96663.html</span><br><span class="line">http://localhost:4000/post/17e96663.html</span><br></pre></td></tr></tbody></table></figure>
+<p>同时，也可以直接修改<code>abbrlink</code>的值，直接自定义</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- abbrlink: '17e96663`</span></span><br><span class="line"><span class="addition">+ abbrlink: 'Hello-World`</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="hexo-asset-image-amp-图片"><a href="#hexo-asset-image-amp-图片" class="headerlink" title="hexo-asset-image&amp; 图片"></a>hexo-asset-image&amp; 图片</h5><p>关于<code>hexo-asset-image</code>，原本引用图片的命令是：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">代替文字</span>](<span class="link">图片名.jpg</span>)</span><br><span class="line">![<span class="string">代替文字</span>](<span class="link">./md文件名/图片</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>使用<code>hexo-abbrlink</code>插件，可以自定义<code>abbrlink</code>的值，来简化引入图片</p>
+<p>如果你对这个插件比较感兴趣，可以去看下<a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">hexo-abbrlink的官网</a>。</p>
+<hr>
+
+<h2 id="改造Hexo博客todoList1"><a href="#改造Hexo博客todoList1" class="headerlink" title="改造Hexo博客todoList1"></a>改造Hexo博客todoList<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h2><div class="note info no-icon"><p>个性化自己的博客，注：当前使用的主题是<strong>NexT</strong>，所以是针对NexT</p></div>
+
+
+
+<p>NexT 仓库地址 <a href="https://github.com/theme-next" target="_blank" rel="noopener">https://github.com/theme-next</a></p>
+<h3 id="核心配置"><a href="#核心配置" class="headerlink" title="核心配置"></a>核心配置</h3><h4 id="override"><a href="#override" class="headerlink" title="override"></a>override</h4><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 用于更新 NexT 项目</span><br><span class="line"><span class="deletion">- override: false</span></span><br><span class="line"><span class="addition">+ override: true</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="网站信息设置"><a href="#网站信息设置" class="headerlink" title="网站信息设置"></a>网站信息设置</h3><h4 id="favicon-站点图标"><a href="#favicon-站点图标" class="headerlink" title="favicon - 站点图标"></a>favicon - 站点图标</h4><p>先选好一张图片，然后到<a href="https://realfavicongenerator.net" target="_blank" rel="noopener">这里</a>生成相应的图片，然后把图片放在主题的资源文件夹<code>/themes/next/source/images/</code>下面，我新建了一个<code>favicon</code>文件夹用来存放站点图标</p>
+<figure class="highlight yml"><figcaption><span>文件位置：theme/next/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line"><span class="attr">  small:</span> <span class="string">/images/favicon/favicon-16x16-next.png</span></span><br><span class="line"><span class="attr">  medium:</span> <span class="string">/images/favicon/favicon-32x32-next.png</span></span><br><span class="line"><span class="attr">  apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span></span><br><span class="line"><span class="attr">  safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment">#android_manifest: /images/manifest.json</span></span><br><span class="line">  <span class="comment">#ms_browserconfig: /images/browserconfig.xml</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="keywords-默认关键词"><a href="#keywords-默认关键词" class="headerlink" title="keywords - 默认关键词"></a>keywords - 默认关键词</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Set default keywords (Use a comma to separate)</span><br><span class="line">keywords: "Something Good"</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="rss-订阅设置"><a href="#rss-订阅设置" class="headerlink" title="rss - 订阅设置"></a>rss - 订阅设置</h4><p>无修改</p>
+<h4 id="footer-页脚"><a href="#footer-页脚" class="headerlink" title="footer - 页脚"></a>footer - 页脚</h4><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line"><span class="addition">+  # 建站年份</span></span><br><span class="line"><span class="addition">+  since: 2018</span></span><br><span class="line"><span class="addition">+  # 年份后面的图标，为 Font Awesome 图标</span></span><br><span class="line"><span class="addition">+  # https://fontawesome.com/v4.7.0/icons/</span></span><br><span class="line"><span class="addition">+  icon: rocket</span></span><br><span class="line"><span class="addition">+  # 作者</span></span><br><span class="line"><span class="addition">+  copyright: </span></span><br><span class="line">  # 是否展示Hexo的地址</span><br><span class="line">  powered: true</span><br><span class="line"></span><br><span class="line">  # 是否展示使用Hexo的主题</span><br><span class="line">  theme:</span><br><span class="line">    # Theme &amp; scheme info link (Theme - NexT.scheme).</span><br><span class="line">    enable: true</span><br><span class="line">    # Version info of NexT after scheme info (vX.X.X).</span><br><span class="line">    version: true</span><br><span class="line">   </span><br><span class="line">  # 自定义文本</span><br><span class="line">  #custom_text: 'Hello'</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="SEO-设置"><a href="#SEO-设置" class="headerlink" title="SEO 设置"></a>SEO 设置</h3><p>无修改</p>
+<h3 id="菜单设置"><a href="#菜单设置" class="headerlink" title="菜单设置"></a>菜单设置</h3><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || vcard</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  archives: /archives/ || calculator</span><br><span class="line">  </span><br><span class="line"><span class="addition">+ #  开启图标</span></span><br><span class="line">menu_icons:</span><br><span class="line">  enable: true</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="主题方案选择"><a href="#主题方案选择" class="headerlink" title="主题方案选择"></a>主题方案选择</h3> <figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line"><span class="addition">+ scheme: Pisces</span></span><br><span class="line">#scheme: Gemini</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="侧边栏设置"><a href="#侧边栏设置" class="headerlink" title="侧边栏设置"></a>侧边栏设置</h3><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+ # 社交链接</span></span><br><span class="line"><span class="addition">+ social:</span></span><br><span class="line"><span class="addition">+   GitHub: https://github.com/yourname || github</span></span><br><span class="line"></span><br><span class="line"># Blog rolls</span><br><span class="line"><span class="addition">+ # 侧栏友链设置</span></span><br><span class="line"><span class="addition">+ links_icon: globe</span></span><br><span class="line"><span class="addition">+ links_title: 神奇的链接</span></span><br><span class="line"><span class="addition">+ #links_layout: block</span></span><br><span class="line"><span class="addition">+ links_layout: inline</span></span><br><span class="line"><span class="addition">+ links:</span></span><br><span class="line"><span class="addition">+	UserA: xxxx</span></span><br><span class="line"><span class="addition">+	UserB: ssss</span></span><br><span class="line"></span><br><span class="line"># 侧边栏头像设置</span><br><span class="line"># Sidebar Avatar</span><br><span class="line"># in theme directory(source/images): /images/avatar.gif</span><br><span class="line"># in site  directory(source/uploads): /uploads/avatar.gif</span><br><span class="line"># 将头像放在blog/source/uploads中（新建uploads）</span><br><span class="line"><span class="addition">+ avatar: /uploads/logo.jpg</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="emoji表情（有问题）"><a href="#emoji表情（有问题）" class="headerlink" title="emoji表情（有问题）"></a>emoji表情（有问题）</h3><p>先安装<code>hexo-filter-github-emojis</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-filter-github-emojis --save</span><br></pre></td></tr></tbody></table></figure>
+<p>安装完成后，修改站点配置文件</p>
+<figure class="highlight diff"><figcaption><span>文件位置：~/blog/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+ # emoji表情支持</span></span><br><span class="line"><span class="addition">+ githubEmojis:</span></span><br><span class="line"><span class="addition">+  enable: true</span></span><br><span class="line"><span class="addition">+  idName: github-emoji</span></span><br><span class="line"><span class="addition">+  unicode: false</span></span><br><span class="line"><span class="addition">+  styles:</span></span><br><span class="line"><span class="addition">+  localEmojis:</span></span><br></pre></td></tr></tbody></table></figure>
+<p>接着我们要修改下这个插件，这里和<a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-emoji" target="_blank" rel="noopener">reuixiy</a>就不同了</p>
+<figure class="highlight diff"><figcaption><span>文件位置：~/blog/node_modules/hexo-filter-github-emojis/index.js</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if (options.inject) {</span><br><span class="line">      $('body').append(`&lt;script&gt;</span><br><span class="line"><span class="deletion">-        document.querySelectorAll('.${options.className}')</span></span><br><span class="line"><span class="addition">+        document.querySelectorAll('#${options.className}')</span></span><br><span class="line">          .forEach(el =&gt; {...});</span><br><span class="line">      &lt;/script&gt;`)</span><br><span class="line">}</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="deletion">- return `&lt;span class="${options.className}" style="${styles.join(';')}" data-src="${emojis[name].src}"&gt;${codepoints}&lt;/span&gt;`</span></span><br><span class="line"><span class="addition">+ return `&lt;span id="${options.className}" style="${styles.join(';')}" data-src="${emojis[name].src}"&gt;${codepoints}&lt;/span&gt;`</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最后补点东西</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// 自定义emoji样式</span><br><span class="line">img#github-emoji {</span><br><span class="line">    margin: 0px;</span><br><span class="line">    padding: 0px;</span><br><span class="line">    display: inline !important;</span><br><span class="line">    vertical-align: text-bottom;</span><br><span class="line">    border: none;</span><br><span class="line">    cursor: text;</span><br><span class="line">    box-shadow: none;</span><br><span class="line">}</span><br><span class="line">// 文章超链接样式（为emoji特设）</span><br><span class="line">.post-body a {</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">}</span><br><span class="line">.post-body a:hover {</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">}</span><br><span class="line">// 标签云页面超链接样式（为emoji特设）</span><br><span class="line">.tag-cloud a {</span><br><span class="line">    border-bottom: 1px solid rgb(80, 115, 184);</span><br><span class="line">    text-decoration: none;</span><br><span class="line">}</span><br><span class="line">.tag-cloud a:hover {</span><br><span class="line">    border-bottom: 1px solid rgb(161, 102, 171);</span><br><span class="line">    text-decoration: none;</span><br><span class="line">}</span><br><span class="line">// 文章元数据中categories的样式（为emoji特设）</span><br><span class="line">a.categories {</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">}</span><br><span class="line">a.categories:hover { </span><br><span class="line">    border-bottom: none;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">}</span><br><span class="line">// tabs标签（为emoji特设）</span><br><span class="line">.post-body .tabs ul.nav-tabs li.tab a {</span><br><span class="line">    text-decoration: none;</span><br><span class="line">}</span><br><span class="line">// 图片下方标题设置（为emoji特设）</span><br><span class="line">a.fancybox{</span><br><span class="line">    text-decoration: none !important;</span><br><span class="line">}</span><br><span class="line">// 按钮样式（为emoji特设）</span><br><span class="line">.btn {</span><br><span class="line">    text-decoration: none !important;</span><br><span class="line">    border: 2px solid #222 !important;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>然后直接去 <a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">Emoji Cheat Sheet</a> 点一下自己想要的表情复制，再粘贴到自己的文章中即可<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png?v8">😝</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f43e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f43e.png?v8">🐾</span></p>
+<h3 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h3><p>我们需要用到<a href="https://github.com/jquery-backstretch/jquery-backstretch" target="_blank" rel="noopener"><code>jquery-backstretch</code></a>，然后修改如下文件：</p>
+<figure class="highlight diff"><figcaption><span>文件位置：/themes/next/layout/_layout.swig</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="addition">+  &lt;script&gt;</span></span><br><span class="line"><span class="addition">+  $("body").backstretch("https://背景图.jpg");</span></span><br><span class="line"><span class="addition">+  &lt;/script&gt;</span></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>当然还有另外的方法：</p>
+<figure class="highlight styl"><figcaption><span>文件位置：/theme/next/source/css/_custom/custom.styl</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 站点背景</span></span><br><span class="line">@media screen and (<span class="attribute">min-width</span>:<span class="number">1200px</span>) {</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">body</span> {</span><br><span class="line">        <span class="attribute">background-image</span>:url(/images/图片);</span><br><span class="line">        <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">        <span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>; </span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">0.97</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="selector-id">#footer</span> <span class="selector-tag">a</span> {</span><br><span class="line">        <span class="attribute">color</span>:<span class="number">#eee</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="文章注脚"><a href="#文章注脚" class="headerlink" title="文章注脚"></a>文章注脚</h3><p>安装<code>hexo-footnotes</code><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
+<figure class="highlight bash"><figcaption><span>执行位置：~/blog</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-footnotes --save</span><br></pre></td></tr></tbody></table></figure>
+<p>使用的方法：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">basic footnote<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></span><br><span class="line">here is an inline footnote[<span class="string">^2</span>](<span class="link">inline footnote</span>)</span><br><span class="line">and another one<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></span><br><span class="line">and another one<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">basic footnote content</span></span><br><span class="line">[<span class="symbol">^3</span>]: <span class="link">paragraph</span></span><br><span class="line">footnote</span><br><span class="line">content</span><br><span class="line">[<span class="string">^4</span>]: footnote content with some [<span class="string">markdown</span>](<span class="link">https://en.wikipedia.org/wiki/Markdown</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>用法：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{% cq %}</span><br><span class="line">人生乃是一面镜子，</span><br><span class="line">从镜子里认识自己，</span><br><span class="line">我要称之为头等大事，</span><br><span class="line">也只是我们追求的目的！</span><br><span class="line">{% endcq %}</span><br></pre></td></tr></tbody></table></figure>
+<p>效果：</p>
+<blockquote class="blockquote-center"><p>人生乃是一面镜子，<br>从镜子里认识自己，<br>我要称之为头等大事，<br>也只是我们追求的目的！</p>
+</blockquote>
+<h3 id="note-标签"><a href="#note-标签" class="headerlink" title="note 标签"></a>note 标签</h3><p>现在主题中启动note标签</p>
+<figure class="highlight yml"><figcaption><span>文件位置：~/blog/themes/next/_config.yml</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Note tag (bs-callout).</span></span><br><span class="line"><span class="attr">note:</span></span><br><span class="line">  <span class="comment"># 风格</span></span><br><span class="line"><span class="attr">  style:</span> <span class="string">flat</span></span><br><span class="line">  <span class="comment"># 要不要图标</span></span><br><span class="line"><span class="attr">  icons:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 圆角矩形</span></span><br><span class="line"><span class="attr">  border_radius:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">  light_bg_offset:</span></span><br></pre></td></tr></tbody></table></figure>
+<div class="note default"><p>default</p></div>
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note default"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>default<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>其他还有<code>primary</code>,<code>success</code>,<code>info</code>,<code>warning</code>,<code>danger</code>，若不想要带有图标可以用<code>no-icon</code></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>​        </p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html" target="_blank" rel="noopener">reuixiy----打造个性超赞博客Hexo+NexT+GitHubPages的超深度优化</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://github.com/LouisBarranqueiro/hexo-footnotes" target="_blank" rel="noopener">hexo-footnotes</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #686868;font-size: 17px;font-weight: bold;"> - the End - </div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    ZRoger
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zroger95.github.io/posts/Hello-Hexo-2.html" title="自定义Hexo与主题NexT">https://zroger95.github.io/posts/Hello-Hexo-2.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/Hello-Hexo.html" rel="next" title="你好,Hexo（01）">
+                <i class="fa fa-chevron-left"></i> 你好,Hexo（01）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/Dec-18-blog-01.html" rel="prev" title="Dec. 18 blog (01)">
+                Dec. 18 blog (01) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/logo.jpg" alt="ZRoger">
+            
+              <p class="site-author-name" itemprop="name">ZRoger</p>
+              <p class="site-description motion-element" itemprop="description">宇宙浩瀚无垠,人生沧海一粟</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.artstation.com/" title="ArtStation" target="_blank">ArtStation</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dribbble.com/" title="Dribbble" target="_blank">Dribbble</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo的文件结构"><span class="nav-number">1.</span> <span class="nav-text">Hexo的文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#站点配置文件：-config-yml"><span class="nav-number">1.1.</span> <span class="nav-text">站点配置文件：_config.yml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网站设置"><span class="nav-number">1.1.1.</span> <span class="nav-text">网站设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网址"><span class="nav-number">1.1.2.</span> <span class="nav-text">网址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#permalink-生成的链接"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">permalink  - 生成的链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-asset-image-amp-图片"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">hexo-asset-image&amp; 图片</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改造Hexo博客todoList1"><span class="nav-number">2.</span> <span class="nav-text">改造Hexo博客todoList1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心配置"><span class="nav-number">2.1.</span> <span class="nav-text">核心配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#override"><span class="nav-number">2.1.1.</span> <span class="nav-text">override</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站信息设置"><span class="nav-number">2.2.</span> <span class="nav-text">网站信息设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#favicon-站点图标"><span class="nav-number">2.2.1.</span> <span class="nav-text">favicon - 站点图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keywords-默认关键词"><span class="nav-number">2.2.2.</span> <span class="nav-text">keywords - 默认关键词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rss-订阅设置"><span class="nav-number">2.2.3.</span> <span class="nav-text">rss - 订阅设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#footer-页脚"><span class="nav-number">2.2.4.</span> <span class="nav-text">footer - 页脚</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SEO-设置"><span class="nav-number">2.3.</span> <span class="nav-text">SEO 设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#菜单设置"><span class="nav-number">2.4.</span> <span class="nav-text">菜单设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题方案选择"><span class="nav-number">2.5.</span> <span class="nav-text">主题方案选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏设置"><span class="nav-number">2.6.</span> <span class="nav-text">侧边栏设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emoji表情（有问题）"><span class="nav-number">2.7.</span> <span class="nav-text">emoji表情（有问题）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景图片"><span class="nav-number">2.8.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章注脚"><span class="nav-number">2.9.</span> <span class="nav-text">文章注脚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.10.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note-标签"><span class="nav-number">2.11.</span> <span class="nav-text">note 标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer" style="background-color: white;">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-rocket"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZRoger</span>
+
+  
+</div>
+
+
+  <div class="powered-by" style="color:black;font-weight:bold;"><a href="http://beian.miit.gov.cn" style="color:black">粤ICP备2020080518号</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("N9NwOf7WsGV0xDlx9qyHqBrm-gzGzoHsz", "7TlNkfyBLA8gVRM63uz6mkCq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

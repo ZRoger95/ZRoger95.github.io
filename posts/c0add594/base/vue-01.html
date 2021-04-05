@@ -1,0 +1,237 @@
+<hr>
+<p>title: ‘Vue-01’<br>abbrlink: ‘vue-start’<br>tags:</p>
+<ul>
+<li>Vue<br>copyright: true<br>date: 2019-9-23 22:40:23</li>
+</ul>
+<hr>
+<h1 id="Vue-00"><a href="#Vue-00" class="headerlink" title="Vue 00"></a>Vue 00</h1><h2 id="开始前的一些废话"><a href="#开始前的一些废话" class="headerlink" title="开始前的一些废话"></a>开始前的一些废话</h2><p>大概在大三（2017年）的时候，就听到有人提起Vue，是前端的新东西，而在微信小程序方面也是借鉴了angular和Vue的一些特性。当我实习时，还在用着<code>Bootstrap</code>+<code>JQuery</code>和一些前端控件的时候，其他的同学公司就已经开始使用Angular开发前端中的东西。在之后的工作过程中，有认识到了以<code>SeaJS</code>+<code>JQuery</code>配套的前端模块化开发。这是那个时候我对前端的认知。比如<code>SeaJS</code>的由来，<code>JavaScript</code>的规范(<code>CMD</code>、<code>AMD</code>、<code>CommonJS</code>)。</p>
+<p>到了现在2020年，工作中的前端决定开始使用<code>Vue</code>来搭建前端工程，随之了解，前端们所说的流行3大JavaScript框架：Angular，React，Vue。之所以选择Vue，无非是它容易上手，而且中文的教程比较多，适合后端人员选择一些既有的Vue前端方案，开发一些管理系统或者其他类型系统。</p>
+<h2 id="需要学习Vue之前"><a href="#需要学习Vue之前" class="headerlink" title="需要学习Vue之前"></a>需要学习Vue之前</h2><h3 id="产生的背景与目的"><a href="#产生的背景与目的" class="headerlink" title="产生的背景与目的"></a>产生的背景与目的</h3><h4 id="传统前端开发模式"><a href="#传统前端开发模式" class="headerlink" title="传统前端开发模式"></a>传统前端开发模式</h4><p>在过去的十年中，网页变得更加的丰富，动态化和更加强大。这些都多亏了<code>JavaScript</code>，可以将服务端代码放到浏览器中，比如校验表单，控制控件等等。随着业务的发展，会产生成千上万行的<code>JavaScript</code>代码，影响项目里的<code>Html</code>和<code>Css</code>文件。</p>
+<p>随着技术的普及，又有一套<strong>“万金油”</strong>技术栈被用于商业环境：</p>
+<p><code>jQuery</code>+<code>RequireJS(SeaJS)</code>+<code>artTemplate(doT)</code>+<code>Gulp(Grunt)</code></p>
+<p>以<code>jQuery</code>为核心，兼容大部分的浏览器，比如一些老客户还在用<code>IE8</code>或者更低版本的<code>IE</code>（这简直是噩梦）。使用RequireJS或者SeaJS进行前端模块化开发，目的是为了解决代码之间依赖混乱的问题，也便于维护及团队协作。轻量级的前端模板引擎可以将数据与前端模板之间进行分离（前后端分离）。而最后的使用构建化工具（Gulp）可以合并压缩代码，目的是为了在加载页面时候能够快点，甚至可以使用懒加载的方式。</p>
+<h4 id="JavaScript-模块化规范"><a href="#JavaScript-模块化规范" class="headerlink" title="JavaScript 模块化规范"></a>JavaScript 模块化规范</h4><p>主要有以下三种：</p>
+<p><strong>Common.js</strong>由<code>Node.js</code>提出，全局<code>require</code>用于加载模块，用<code>module.exports</code>输出模块，每一个文件就是一个模块，拥有自己的作用域，各个模块之间相互隔离，模块之间通讯通过<code>global</code>完成</p>
+<p>而上面所提的SeaJS，对模块定义的规范化产出了<strong>CMD</strong>，延迟执行，推崇依赖就近的原则，职责单一。</p>
+<p>AMD 是由 requireJS 提出来的</p>
+<h4 id="Vue的开发模式"><a href="#Vue的开发模式" class="headerlink" title="Vue的开发模式"></a>Vue的开发模式</h4><p>东西一多，又没有规范，缺乏正规的组织形式。所以，接下来的一段时间内，越来越多的开发者使用JAVASCRIPT框架，比如 ANGGULAR、REACT或者VUE。</p>
+<p>以我为例子（回顾自己，审视自己）：</p>
+<p>1、<code>2017</code>年，开始实习，前端技术栈是<code>Bootstrap</code>+<code>jQuery</code>+<code>layer</code>，就可以完成一些简单管理项目，<code>Bootstrap</code>提供自适应效果，又有丰富的组件，拿来即用。<code>jQuery</code>+<code>layer</code>丰富与用户之间的交互，数据与<code>Html</code>之间分开，既前后端分离。在开发过程中，遇到<code>Bootstrap</code>不能提供的效果，再选<code>jQuery</code>插件添加就可以了，比如<code>zTree</code>来展示树形。那个时候前端的<code>JavaScript</code>推荐使用面向对象的方式来写。</p>
+<p>后端则是一个<code>Maven</code>项目:<code>Spring MVC</code>+<code>Spring</code>+<code>Mybatis</code>+<code>Jetty</code>，不用<code>Tomcat</code>（为什么呢？），数据库以<code>MySQL</code>为主。</p>
+<p>2、到了<code>2018</code>年，去了新的公司，进了新的项目组，在前端遇到了上面所说的<strong>万金油</strong>的前端技术栈。</p>
+<p>不过却没有使用到构建化工具（<code>Gulp</code>）对代码进行压缩处理，既<code>jQuery</code>+<code>SeaJS</code>+<code>doT</code>来解决前端，<code>UI</code>库依然是<code>Bootstrap</code>，<code>layer</code>+<code>zTree</code>+<code>bootstrap-table</code>还是存在的。期间在<code>mobile</code>端使用<code>vue</code>实现了一个功能模块，还以为能全面使用的，但是后来大佬们以学习成本为由，选定<code>MUI</code>这个框架解决<code>mobile</code>端中的页面。<code>Android</code>端和<code>IOS</code>端选用<code>APICloud</code>方案来解决。</p>
+<p>后端使用了<code>Spring MVC</code>+<code>Hibernate</code>，数据库使用<code>MySQL</code>。为了和其他系统对接，使用了<code>Hession</code>来进行数据交互，缓存使用了<code>Memcahe</code>，使用<code>Hudson</code>进行持续集成。</p>
+<p>所遇和所学颇多，但是没有好好整理，大部分我也只是看着，跟随、大佬们在使用，我也好想插手试试啊。</p>
+<p>这个项目是一个产品，目的是为了<strong>SAAS</strong></p>
+<p>3、到了<code>2019</code>年。看了公司其他的项目，开始使用新的东西。<code>Vue（Router、Vuex）</code>+<code>Element</code>+<code>Eslint</code>+<code>LESS</code>+<code>Babel</code>，后端使用了Spring Boot</p>
+<p>Vue 是一个响应式、渐进式的JavaScript框架</p>
+<p>为什么要学习<code>vue</code>，在17年左右的时候，还流行使用<code>bootstrap</code>的全家桶加上一些其他的<code>UI</code>库或插件来组成一个系统的前端，那个时候已经开始了前后端分离。在之后的一年里，<code>vue</code>越来越主流，和<code>angluar</code>、<code>react</code>有得一拼，仅仅是因为它的简单，上手快，对项目来说开发成本低吗？目前，是的。但我觉得这也是个捷径来了解前端方面到底发生了什么？网页三剑客进化了许多东西出来。</p>
+<ul>
+<li>webpack</li>
+<li>babel</li>
+<li>eslint</li>
+<li>typescript</li>
+<li>sass/less</li>
+<li>unit</li>
+</ul>
+<h2 id="使用vue-cli构建项目"><a href="#使用vue-cli构建项目" class="headerlink" title="使用vue-cli构建项目"></a>使用<code>vue-cli</code>构建项目</h2><p>官网文档：<a href="https://cli.vuejs.org/">https://cli.vuejs.org/</a></p>
+<blockquote>
+<p>关于<code>Node.js</code>的版本控制，推荐使用<code>nvm</code>来进行控制。这样可以切换2个版本，一个稳定版主要用于日常的开发，另一个是最新版主要了解新的特性。推荐阅读这篇<a href="https://www.jianshu.com/p/d0e0935b150a">文章</a></p>
+</blockquote>
+<h3 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a><code>vue-cli</code></h3><h4 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h4><blockquote>
+<p><code>Vue CLI</code>是一个基于 <code>Vue.js</code> 进行快速开发的完整系统。— 来源官方的<a href="https://cli.vuejs.org/zh/guide/">文档</a></p>
+</blockquote>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>假如已经安装了版本为<code>2.x.x</code>或之前的版本，需要卸载：</p>
+<pre><code class="lang-bash">npm uninstall vue-cli-g
+</code></pre>
+<p>安装</p>
+<pre><code class="lang-bash">npm install -g @vue/cli
+# OR
+cnpm install -g @vue/cli
+</code></pre>
+<p><em>tip</em>：如果使用<code>npm</code>安装过慢，可以切换成淘宝镜像<code>cnpm</code>，<a href="http://npm.taobao.org/">cnpm地址</a>（里面有安装的介绍）</p>
+<p>查看当前版本</p>
+<pre><code class="lang-bash">vue --version
+# OR
+vue -V
+</code></pre>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>有2中创建项目的方式，一种是在终端中使用<code>vue create xxx</code>，另一种这是用可视化的方式来生成项目。其中如果要使用<code>vue create</code>，如果是在<code>windows</code>环境下的话，使用<code>cmd</code>进行创建，使用<code>git bash</code>会选择不了相关的配置，需要搭配<code>minTTY</code>来构建项目。以下是例子：</p>
+<pre><code class="lang-bash">vue create project_name # 不支持大写
+# OR
+vue ui
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：项目名不可以大写，会提示错误：</p>
+<p>Warning: name can no longer contain capital letters</p>
+</blockquote>
+<h4 id="vue-create"><a href="#vue-create" class="headerlink" title="vue create"></a>vue create</h4><p>以下是使用<code>vue create</code>来创建项目</p>
+<p>创建项目时的配置（系统环境是window7 ）</p>
+<p><img src="C:\Users\ZRoger\AppData\Roaming\Typora\typora-user-images\1569336676245.png" alt="1569336676245"></p>
+<ul>
+<li>选择默认的项目配置（<code>babel</code>+<code>eslint</code>）</li>
+<li>自定义配置</li>
+</ul>
+<p>在自定义中（以下是我的选择）：</p>
+<pre><code class="lang-bash">Babel # 将ES6编译成ES5
+TypeScript # JavaScript的超集
+ (*) Progressive Web App (PWA) Support # PWA应用
+ (*) Router # 路由
+ (*) Vuex # 状态管理
+ (*) CSS Pre-processors # CSS预处理器，如：LESS/SASS
+ (*) Linter / Formatter # 代码格式化
+ (*) Unit Testing # 单元测试
+ ( ) E2E Testing # 黑盒测试
+</code></pre>
+<p>接下来是会遇到选择场景（接下来就很纠结了）：</p>
+<pre><code class="lang-bash">Use class-style component syntax? # 是否使用(TypeScript中的)class风格的组件语法？
+</code></pre>
+<p>涉及到<code>TypeScript  Class</code></p>
+<p>从<code>ECMAScript 6</code>开始便可以用基于类的面向对象的方式来创建编写自己的程序，而在<code>TypeScript</code>不需要等待下一个版本就可以开始使用这一新的特性。这种方式与<code>C#</code>和<code>Java</code>中命名类的方式类似：</p>
+<pre><code class="lang-typescript">class User {
+    name: string;
+    constructor(name: string){
+        this.name = name ;
+    }
+    say() {
+        return &quot;Hello, &quot; + this.name  ;
+    }
+
+}
+var user = new User(&quot;Ming&quot;);
+</code></pre>
+<p>同样，也可以使用新的类继承<code>extend</code>已有的类，并对已有类的属性，行为做扩展。还有类的访问域，默认是<code>public</code>，可以标记<code>private</code>。</p>
+<pre><code class="lang-bash">Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX ? # 将Babel与TypeScript一起使用？（需要modren mode、自动填充polyfill(特性API)和JSX的转译）
+</code></pre>
+<p><code>Babel</code>与<code>TypeScript</code>搭配使用：</p>
+<ul>
+<li><p>构建模式：<code>modern mode</code>主要用于转换，封装一些<code>API</code></p>
+</li>
+<li><p>适配低级浏览器（IE8之前的版本，有些浏览器的API是没有的，像是<code>JSON</code>，等等），这里就与<code>auto-detected polyfills</code>有关。</p>
+</li>
+<li><code>JSX</code>的转译</li>
+</ul>
+<p>其实以上这些都是与<code>TypeScript</code>相关的东西。</p>
+<p>如果要使用es5的一些新特性，但是在一些旧的浏览器中不支持，通过添加<code>polyfill</code>来使得旧的浏览器支持这些特性，但是转换过后的代码就比较冗长，在解析和运行的时候就会变得过慢。所以<code>Vue CLI</code>就提供了一个<code>Modeer mode</code>来帮助我们解决这个问题，会构建2个版本的js包，一个面向支持现代浏览器的原生 <code>ES2015+</code>包，以及一个针对其他旧浏览器的包，没有特殊的部署要求，生成的HTML文件自动适配。在支持原生es5的浏览器中，js会通过<code>&lt;script type=&quot;module&quot;&gt;</code>进行加载，并且可以使用<code>&lt;link rel=&quot;modulepreload&quot;&gt;</code>进行预加载；而在不支持的浏览器中，则使用<code>&lt;script nomodule&gt;</code>来加载编译版本，并且这个会被支持<code>es</code>模块的浏览器所忽略。</p>
+<p><a href="https://yq.aliyun.com/articles/607991">https://yq.aliyun.com/articles/607991</a></p>
+<p>JSX Fragment 支持</p>
+<pre><code class="lang-bash">Use history mode for router? (Requires proper server setup for index fallback in production)  # 是否使用路由的history模式
+</code></pre>
+<p>关于<code>history</code>模式，<code>#/hello</code></p>
+<p>Vue项目访问的链接都是<code>localhost:8080/#/xxx</code>，但是在生成环境或者说正式环境下，不应该有这个<code>/#</code>才是，所有就要用到了<code>history</code>模式，原本使用的是<code>hash</code>模式。介绍下 balabala 。</p>
+<p>关于<code>CSS</code>预处理器的选择</p>
+<pre><code class="lang-bash">Sass/SCSS (with dart-sass) # 保存后才会生效 选择这个吧
+Sass/SCSS (with node-sass) # 自动编译实时的
+Less
+Stylus
+</code></pre>
+<p>关于Sass，Less还有Stylus之间的区别。</p>
+<p>关于代码格式化的选择：</p>
+<pre><code class="lang-bash">? Pick a linter / formatter config:
+  TSLint
+  ESLint with error prevention only
+  ESLint + Airbnb config
+  ESLint + Standard config
+&gt; ESLint + Prettier
+</code></pre>
+<p>代码格式化校验方式：</p>
+<pre><code class="lang-bash">(*) Lint on save # 保存时校验
+( ) Lint and fix on commit # 提交时检测并修复
+</code></pre>
+<p>前端单元测试方案选择（类似Java Web开发中的JUNIT）</p>
+<pre><code class="lang-bash">Pick a unit testing solution: (Use arrow keys)
+Mocha + Chai #mocha灵活,只提供简单的测试结构，如果需要其他功能需要添加其他库/插件完成。必须在全局环境中安装
+Jest #安装配置简单，容易上手。内置Istanbul，可以查看到测试覆盖率，相较于Mocha:配置简洁、测试代码简洁、易于和babel集成、内置丰富的expect
+</code></pre>
+<p><a href="https://segmentfault.com/a/1190000007957897">https://segmentfault.com/a/1190000007957897</a></p>
+<pre><code>In dedicated config files # 独立配置文件
+In package.json # 将配置放在package.json中
+</code></pre><p>后续运行项目</p>
+<pre><code class="lang-bash">cd project_name
+npm run serve
+</code></pre>
+<p>在后续的开发中，在已有的项目中加入<code>nightwatch</code>完成<code>E2E</code>测试</p>
+<pre><code class="lang-bash">vue add @vue/e2e-nightwatch
+</code></pre>
+<p>如何将Vue2.x的项目升级到Vue3.x？</p>
+<p>首选需要卸载掉环境中的<code>vue-cli 2.x</code>，将项目中的<code>src</code>文件夹带出，放置新的<code>Vue 3.x</code>项目下。为了以防万一，可以在虚拟机中进行试验。</p>
+<h4 id="vue-ui"><a href="#vue-ui" class="headerlink" title="vue ui"></a>vue ui</h4><p>然后是对项目结构</p>
+<pre><code>node_modules
+public
+src
+tests
+.browserslistrc # 根据提供的目标浏览器的环境来，智能添加css前缀，js的polyfill垫片,来兼容旧版本浏览器。避免不必要的兼容代码，以提高代码的编译质量。
+.eslintrc.js # 代码风格
+babel.config.js # babel
+postcss.config.js # SASS
+tsconfig.json # typescript 
+package-lock.json
+package.json # 依赖文件
+README.md
+.gitignore # git ignore
+.idea # idea
+</code></pre><p>然后是<code>src</code>中的结构：</p>
+<pre><code>assets
+components
+views
+App.vue  # 主组件，页面入口文件,所有页面都是在App.vue下进行切换的,负责构建定义及页面组件归集
+main.ts  # vue2.x main.js 程序入口文件，是初始化vue实例并使用需要的插件,加载各种公共组件
+registerServiceWorker.ts # pwa
+router.ts # history模式
+shims-tsx.d.ts  # 相关 tsx 模块注入,以.tsx结尾的文件，在Vue项目中编写jsx代码
+shims-vue.d.ts  # Vue 模块注入,主要用于 TypeScript 识别.vue 文件，Ts默认并不支持导入 vue 文件，这个文件告诉ts 导入.vue 文件都按VueConstructor&lt;Vue&gt;处理
+store.ts
+</code></pre><p>引入TypeScript后，App.vue与原来有些不同</p>
+<p>vue2.x</p>
+<pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &#39;App&#39;
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+&lt;/style&gt;
+</code></pre><pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;div id=&quot;nav&quot;&gt;
+      &lt;router-link to=&quot;/&quot;&gt;Home&lt;/router-link&gt; |
+      &lt;router-link to=&quot;/about&quot;&gt;About&lt;/router-link&gt;
+    &lt;/div&gt;
+    &lt;router-view /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+#app {
+  font-family: &quot;Avenir&quot;, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#nav {
+  padding: 30px;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    &amp;.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+&lt;/style&gt;
+</code></pre><p>项目技术栈</p>
+<p><code>vue</code> + <code>SASS</code> + <code>TypeScript</code></p>
+<p>UI库：<code>ant</code> </p>
+<p><code>PWA</code>应用</p>
+<p>代码格式化：<code>eslint + prettier</code></p>
+<h3 id="vue-项目的部署流程"><a href="#vue-项目的部署流程" class="headerlink" title="vue 项目的部署流程"></a>vue 项目的部署流程</h3><p>第一种：</p>
+<p>使用 gitlab ci 部署，先 docker multi stage 编译出 nginx+dist 的部署镜像，再触发 k8s 的滚动更新。</p>
+<p>第二种：用的 pm2 自动部署，配置操作挺简单的，就是没法无缝更新，替换的时候会有十几秒无法访问</p>
+<p>第三种：  laravel + vue 的项目，用的这个</p>
+<p><a href="https://deployer.org/">https://deployer.org</a>  ..dd</p>
