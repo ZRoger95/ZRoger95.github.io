@@ -140,7 +140,7 @@
 <meta name="keywords" content="ZRoger">
 <meta property="og:type" content="website">
 <meta property="og:title">
-<meta property="og:url" content="https://zroger95.github.io/tags/JavaScript/index.html">
+<meta property="og:url" content="https://zroger95.github.io/tags/javascript/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="宇宙浩瀚无垠,人生沧海一粟">
 <meta property="og:locale" content="zh-Hans">
@@ -176,13 +176,13 @@
 
 
 
-  <link rel="canonical" href="https://zroger95.github.io/tags/JavaScript/">
+  <link rel="canonical" href="https://zroger95.github.io/tags/javascript/">
 
 
 
 
 
-  <title>文章分类: JavaScript | </title>
+  <title>文章分类: javascript | </title>
   
 
 
@@ -334,7 +334,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>JavaScript<small>文章分类</small>
+        <h1>javascript<small>文章分类</small>
         </h1>
       </div>
 
@@ -346,17 +346,69 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/posts/JavaScript&Calculation.html" itemprop="url">
+            <a class="post-title-link" href="/posts/typescript-interfaces.html" itemprop="url">
               
-                <span itemprop="name">JavaScript浮点计算</span>
+                <span itemprop="name">TypeScript 接口</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-02T21:50:58+08:00" content="2019-07-02">
-          07-02
+        <time class="post-time" itemprop="dateCreated" datetime="2020-04-14T22:32:41+08:00" content="2020-04-14">
+          04-14
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/posts/typescript-basic-types.html" itemprop="url">
+              
+                <span itemprop="name">TypeScript 基础类型</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-04-08T21:52:59+08:00" content="2020-04-08">
+          04-08
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/posts/typescript-variable-declarations.html" itemprop="url">
+              
+                <span itemprop="name">TypeScript 解构与展开</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-04-08T21:52:59+08:00" content="2020-04-08">
+          04-08
         </time>
       </div>
 
@@ -418,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1074,68 +1126,6 @@
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
-
-</body>
-</html>
-      },
               error: function(newcounter, error) {
                 console.log('Failed to create');
               }

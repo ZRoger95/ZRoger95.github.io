@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zroger95.github.io/posts/Go_6.html</loc>
+    
+    <lastmod>2021-04-11T14:56:42.865Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Go_5.html</loc>
+    
+    <lastmod>2021-04-11T08:27:43.604Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zroger95.github.io/posts/Docker_Getting_Started.html</loc>
+    
+    <lastmod>2021-04-10T11:46:07.197Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zroger95.github.io/posts/Go_3.html</loc>
     
     <lastmod>2021-04-05T08:49:05.120Z</lastmod>
@@ -26,13 +47,6 @@
     <loc>https://zroger95.github.io/posts/Go_2.html</loc>
     
     <lastmod>2021-04-05T08:35:19.219Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/posts/Docker_Getting_Started.html</loc>
-    
-    <lastmod>2020-12-15T12:54:33.422Z</lastmod>
     
   </url>
   

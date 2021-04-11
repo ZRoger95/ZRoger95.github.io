@@ -146,7 +146,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zroger95.github.io/posts/Docker_Getting_Started/getting-started.png">
 <meta property="og:image" content="https://zroger95.github.io/posts/Docker_Getting_Started/getting-started2.png">
-<meta property="og:updated_time" content="2020-12-15T12:54:33.422Z">
+<meta property="og:updated_time" content="2021-04-10T11:46:07.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker_Getting_Started">
 <meta name="twitter:description" content="开始环境 win10，已开启 Hyper-V后，成功安装 Docker Desktop。打开后可以看到一个命令： 1docker run -d -p 80:80 docker/getting-started 在执行这个命令之前，先修改下 docker 中的镜像 地址：Settings/Docker Engine123456{  &quot;registry-mirrors&quot;: [+    &quot;https://">
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  690
+                  710
                 </span>
               
 
@@ -458,6 +458,7 @@
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80 docker/getting-started</span><br></pre></td></tr></tbody></table></figure>
 <p>在执行这个命令之前，先修改下 <code>docker</code> 中的镜像</p>
 <figure class="highlight diff"><figcaption><span>地址：Settings/Docker Engine</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  "registry-mirrors": [</span><br><span class="line"><span class="addition">+    "https://registry.docker-cn.com"</span></span><br><span class="line">  ],</span><br><span class="line">  ....</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>或者使用阿里的docker镜像</p>
 <a id="more"></a>
 <p>之后再执行命令：</p>
 <p><img src="/posts/./Docker_Getting_Started\getting-started.png" alt=""></p>
@@ -474,14 +475,14 @@
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 80:80 docker/getting-started</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Docker-Dashboard"><a href="#Docker-Dashboard" class="headerlink" title="Docker Dashboard"></a>Docker Dashboard</h3><p>在继续的深入之前，想重点介绍 docker dashboard，它可以让你快速看到目前机器上运行了的容器。可以快速访问容器日志，容器中有命令解析器（即可以在容器中输入命令），更方便管控容器的生命周期（停止服务，删除等）</p>
 <p><code>getting-started</code> 在一个随机命名的容器内。当然你也可以随意取名</p>
-<p>先查看系统中现在运行的容器</p>
+<p>先查看系统中目前的容器</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></tbody></table></figure>
 <p>找到想要修改的容器，找到它的 <code>container id</code>，修改名称：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rename container_id newname</span><br></pre></td></tr></tbody></table></figure>
 <p>第一个参数可以是 <code>container id</code> 和 <code>name</code>。如果一个容器的name和另一个容器的id是一样的，会执行两次。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">CONTAINER ID NAMES</span><br><span class="line">41033a3d043a  hello</span><br><span class="line">41033a3d043b  41033a3d043a</span><br></pre></td></tr></tbody></table></figure>
 <p><code>docker rename</code>第一个参数<code>&lt;my_container&gt;</code>，是先匹配<code>NAME</code>，再匹配<code>ID</code>的。也就是说下列语句会被正确执行两次，第一次会把<code>name</code>为<code>41033a3d043a</code>的容器改名，第二次会把<code>id</code>为<code>41033a3d043a</code>的容器改名。</p>
-<h3 id="什么是容器（container）？"><a href="#什么是容器（container）？" class="headerlink" title="什么是容器（container）？"></a>什么是容器（container）？</h3><p>现在你已经运行了一个容器，什么是容器呢？简单来说，容器是你机器上的一个进程，与主机上的其他进程隔离。这种隔离的方式利用  内核（<code>kernel namespaces</code>）内核名称空间与 <code>cgroups</code>，这个功能已经在 Linux 存在了很长一段时间。Docker 致力与使这些功能更易于使用。</p>
+<h3 id="什么是容器（container）？"><a href="#什么是容器（container）？" class="headerlink" title="什么是容器（container）？"></a>什么是容器（container）？</h3><p>现在你已经运行了一个容器，什么是容器呢？简单来说，容器是你机器上的一个进程，可以把它想象成是一个箱子，与主机上的其他进程隔离。这种隔离的方式利用  内核（<code>kernel namespaces</code>）内核名称空间与 <code>cgroups</code>，这个功能已经在 Linux 存在了很长一段时间。Docker 致力与使这些功能更易于使用。</p>
 <p>如果想知道如何从头开始创建容器，可以看下来自 Aqua Security 的 Liz Rice 的演讲，展示了使用 Go 从头开始创建一个容器。虽然这是一个简单容器，没有涉及到网络，文件系统映像等等。但是它可以让你深入了解这些是如何运作的。</p>
 <ul>
 <li>Youtube 地址：<a href="https://www.youtube-nocookie.com/embed/8fi7uSYlOdc" target="_blank" rel="noopener">https://www.youtube-nocookie.com/embed/8fi7uSYlOdc</a></li>
@@ -660,7 +661,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
