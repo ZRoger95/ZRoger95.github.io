@@ -136,18 +136,18 @@
 
 
 
-<meta name="description" content="if 控制 条件表达式没有括号  支持一个初始化表达式（可以是并行方式）  左大括号必须和条件语句或else在同一行 支持单行模式 初始化语句中的变量为block级别，同时隐藏外部同名变量  12345678a := trueif a, b, c := 1, 2, 3; a+b+c &amp;gt; 6 {	fmt.Println(&quot;&amp;gt;6&quot;)} else {    fmt.Println(&quot;&amp;lt;">
+<meta name="description" content="if 控制 条件表达式没有括号 支持一个初始化表达式（可以是并行方式） 左大括号必须和条件语句或else在同一行 支持单行模式 初始化语句中的变量为block级别，同时隐藏外部同名变量">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go 控制语句">
 <meta property="og:url" content="https://zroger95.github.io/posts/Go_5.html">
 <meta property="og:site_name">
-<meta property="og:description" content="if 控制 条件表达式没有括号  支持一个初始化表达式（可以是并行方式）  左大括号必须和条件语句或else在同一行 支持单行模式 初始化语句中的变量为block级别，同时隐藏外部同名变量  12345678a := trueif a, b, c := 1, 2, 3; a+b+c &amp;gt; 6 {	fmt.Println(&quot;&amp;gt;6&quot;)} else {    fmt.Println(&quot;&amp;lt;">
+<meta property="og:description" content="if 控制 条件表达式没有括号 支持一个初始化表达式（可以是并行方式） 左大括号必须和条件语句或else在同一行 支持单行模式 初始化语句中的变量为block级别，同时隐藏外部同名变量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-11T08:27:43.604Z">
+<meta property="og:updated_time" content="2021-04-11T15:02:08.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go 控制语句">
-<meta name="twitter:description" content="if 控制 条件表达式没有括号  支持一个初始化表达式（可以是并行方式）  左大括号必须和条件语句或else在同一行 支持单行模式 初始化语句中的变量为block级别，同时隐藏外部同名变量  12345678a := trueif a, b, c := 1, 2, 3; a+b+c &amp;gt; 6 {	fmt.Println(&quot;&amp;gt;6&quot;)} else {    fmt.Println(&quot;&amp;lt;">
+<meta name="twitter:description" content="if 控制 条件表达式没有括号 支持一个初始化表达式（可以是并行方式） 左大括号必须和条件语句或else在同一行 支持单行模式 初始化语句中的变量为block级别，同时隐藏外部同名变量">
 
 
 
@@ -452,14 +452,13 @@
 
       
         <h2 id="if-控制"><a href="#if-控制" class="headerlink" title="if 控制"></a>if 控制</h2><ul>
-<li><p>条件表达式没有括号</p>
-</li>
-<li><p>支持一个初始化表达式（可以是并行方式）</p>
-</li>
+<li>条件表达式没有括号</li>
+<li>支持一个初始化表达式（可以是并行方式）</li>
 <li>左大括号必须和条件语句或else在同一行</li>
 <li>支持单行模式</li>
 <li>初始化语句中的变量为block级别，同时隐藏外部同名变量</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="literal">true</span></span><br><span class="line"><span class="keyword">if</span> a, b, c := <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; a+b+c &gt; <span class="number">6</span> {</span><br><span class="line">	fmt.Println(<span class="string">"&gt;6"</span>)</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    fmt.Println(<span class="string">"&lt;=6"</span>)</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">}</span><br><span class="line">fmt.Println(a)</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p>在 Go 中只有 for 一个循环语句关键字，没有 while ，但是支持3种形式</p>
 <ul>

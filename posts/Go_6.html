@@ -136,18 +136,18 @@
 
 
 
-<meta name="description" content="数组 Array 定义数组的格式：var &amp;lt;varName&amp;gt; [n]&amp;lt;type,n&amp;gt; = 0 数组长度也是类型的一部分，因此具有不同长度的数组为不同类型 注意区分指向数组的指针和指针数组 数组在Go中为值类型 数组之间可以使用==或者!=进行比较，但是不可以使用&amp;gt;或者&amp;lt; 可以使用new来创建数组，此方法返回一个指向数组的指针 Go支持多维数组  例子123456">
+<meta name="description" content="数组 Array 定义数组的格式：var &amp;lt;varName&amp;gt; [n]&amp;lt;type,n&amp;gt; = 0 数组长度也是类型的一部分，因此具有不同长度的数组为不同类型 注意区分指向数组的指针和指针数组 数组在Go中为值类型 数组之间可以使用==或者!=进行比较，但是不可以使用&amp;gt;或者&amp;lt; 可以使用new来创建数组，此方法返回一个指向数组的指针 Go支持多维数组">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go 数组">
 <meta property="og:url" content="https://zroger95.github.io/posts/Go_6.html">
 <meta property="og:site_name">
-<meta property="og:description" content="数组 Array 定义数组的格式：var &amp;lt;varName&amp;gt; [n]&amp;lt;type,n&amp;gt; = 0 数组长度也是类型的一部分，因此具有不同长度的数组为不同类型 注意区分指向数组的指针和指针数组 数组在Go中为值类型 数组之间可以使用==或者!=进行比较，但是不可以使用&amp;gt;或者&amp;lt; 可以使用new来创建数组，此方法返回一个指向数组的指针 Go支持多维数组  例子123456">
+<meta property="og:description" content="数组 Array 定义数组的格式：var &amp;lt;varName&amp;gt; [n]&amp;lt;type,n&amp;gt; = 0 数组长度也是类型的一部分，因此具有不同长度的数组为不同类型 注意区分指向数组的指针和指针数组 数组在Go中为值类型 数组之间可以使用==或者!=进行比较，但是不可以使用&amp;gt;或者&amp;lt; 可以使用new来创建数组，此方法返回一个指向数组的指针 Go支持多维数组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-11T14:56:42.865Z">
+<meta property="og:updated_time" content="2021-04-11T15:02:16.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go 数组">
-<meta name="twitter:description" content="数组 Array 定义数组的格式：var &amp;lt;varName&amp;gt; [n]&amp;lt;type,n&amp;gt; = 0 数组长度也是类型的一部分，因此具有不同长度的数组为不同类型 注意区分指向数组的指针和指针数组 数组在Go中为值类型 数组之间可以使用==或者!=进行比较，但是不可以使用&amp;gt;或者&amp;lt; 可以使用new来创建数组，此方法返回一个指向数组的指针 Go支持多维数组  例子123456">
+<meta name="twitter:description" content="数组 Array 定义数组的格式：var &amp;lt;varName&amp;gt; [n]&amp;lt;type,n&amp;gt; = 0 数组长度也是类型的一部分，因此具有不同长度的数组为不同类型 注意区分指向数组的指针和指针数组 数组在Go中为值类型 数组之间可以使用==或者!=进行比较，但是不可以使用&amp;gt;或者&amp;lt; 可以使用new来创建数组，此方法返回一个指向数组的指针 Go支持多维数组">
 
 
 
@@ -460,6 +460,7 @@
 <li>可以使用<code>new</code>来创建数组，此方法返回一个指向数组的指针</li>
 <li>Go支持多维数组</li>
 </ul>
+<a id="more"></a>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">arrF1</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">var</span> a [<span class="number">2</span>]<span class="keyword">int</span></span><br><span class="line">	fmt.Println(a)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 简写</span></span><br><span class="line">	a1 := [<span class="number">2</span>]<span class="keyword">int</span>{}</span><br><span class="line">	fmt.Println(a1)</span><br><span class="line"></span><br><span class="line">	a2 := [<span class="number">2</span>]<span class="keyword">int</span>{<span class="number">1</span>}</span><br><span class="line">	fmt.Println(a2)</span><br><span class="line"></span><br><span class="line">	a3 := [<span class="number">2</span>]<span class="keyword">int</span>{<span class="number">1</span>, <span class="number">2</span>}</span><br><span class="line">	fmt.Println(a3)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>输出</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[0 0]</span><br><span class="line">[0 0]</span><br><span class="line">[1 0]</span><br><span class="line">[1 2]</span><br></pre></td></tr></tbody></table></figure>
