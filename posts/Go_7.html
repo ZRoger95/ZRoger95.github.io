@@ -136,18 +136,18 @@
 
 
 
-<meta name="description" content="什么是Go ?​        Go是一门 并发支持、垃圾回收的编译型系统编程语言，旨在创造一门具有静态编译语言的高性能和动态语言的高效开发之间拥有良好平衡点的一门编程语言。">
+<meta name="description" content="切片Slice切片本身并不是数组，是指向底层的数组，类似指针。其作为变长数组的替代方案，可以关联底层数组的局部或全部。同时这是一个引用类型，可以直接传教或者从底层数组获取生成。和数组一样，可以使用len()来获取元素个数，cap()获取容量。一般使用mark()进行创建，而不是new ()。">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go 安装配置与Demo">
-<meta property="og:url" content="https://zroger95.github.io/posts/Go_1.html">
+<meta property="og:title" content="Go 切片">
+<meta property="og:url" content="https://zroger95.github.io/posts/Go_7.html">
 <meta property="og:site_name">
-<meta property="og:description" content="什么是Go ?​        Go是一门 并发支持、垃圾回收的编译型系统编程语言，旨在创造一门具有静态编译语言的高性能和动态语言的高效开发之间拥有良好平衡点的一门编程语言。">
+<meta property="og:description" content="切片Slice切片本身并不是数组，是指向底层的数组，类似指针。其作为变长数组的替代方案，可以关联底层数组的局部或全部。同时这是一个引用类型，可以直接传教或者从底层数组获取生成。和数组一样，可以使用len()来获取元素个数，cap()获取容量。一般使用mark()进行创建，而不是new ()。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-05T08:41:46.441Z">
+<meta property="og:updated_time" content="2021-04-12T15:01:10.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go 安装配置与Demo">
-<meta name="twitter:description" content="什么是Go ?​        Go是一门 并发支持、垃圾回收的编译型系统编程语言，旨在创造一门具有静态编译语言的高性能和动态语言的高效开发之间拥有良好平衡点的一门编程语言。">
+<meta name="twitter:title" content="Go 切片">
+<meta name="twitter:description" content="切片Slice切片本身并不是数组，是指向底层的数组，类似指针。其作为变长数组的替代方案，可以关联底层数组的局部或全部。同时这是一个引用类型，可以直接传教或者从底层数组获取生成。和数组一样，可以使用len()来获取元素个数，cap()获取容量。一般使用mark()进行创建，而不是new ()。">
 
 
 
@@ -177,13 +177,13 @@
 
 
 
-  <link rel="canonical" href="https://zroger95.github.io/posts/Go_1.html">
+  <link rel="canonical" href="https://zroger95.github.io/posts/Go_7.html">
 
 
 
 
 
-  <title>Go 安装配置与Demo | </title>
+  <title>Go 切片 | </title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_1.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_7.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go 安装配置与Demo</h1>
+          <h1 class="post-title" itemprop="name headline">Go 切片</h1>
         
 
         <div class="post-meta">
@@ -371,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T16:28:40+08:00">
-                2019-09-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T16:28:40+08:00">
+                2021-04-12
               </time>
             
 
@@ -389,7 +389,7 @@
 
           
           
-             <span id="/posts/Go_1.html" class="leancloud_visitors" data-flag-title="Go 安装配置与Demo">
+             <span id="/posts/Go_7.html" class="leancloud_visitors" data-flag-title="Go 切片">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.1k
                 </span>
               
 
@@ -451,86 +451,62 @@
       
 
       
-        <h2 id="什么是Go"><a href="#什么是Go" class="headerlink" title="什么是Go ?"></a>什么是Go ?</h2><p>​        <code>Go</code>是一门 <strong>并发支持</strong>、<strong>垃圾回收</strong>的<em>编译型系统编程语言</em>，旨在创造一门具有静态编译语言的高性能和动态语言的高效开发之间拥有良好平衡点的一门编程语言。</p>
+        <h2 id="切片Slice"><a href="#切片Slice" class="headerlink" title="切片Slice"></a>切片Slice</h2><p>切片本身并不是数组，是指向底层的数组，类似指针。其作为变长数组的替代方案，可以关联底层数组的局部或全部。同时这是一个引用类型，可以直接传教或者从底层数组获取生成。和数组一样，可以使用<code>len()</code>来获取元素个数，<code>cap()</code>获取容量。一般使用<code>mark()</code>进行创建，而不是<code>new ()</code>。</p>
 <a id="more"></a>
-<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><p>​        主要是为了处理高并发和异步的场景，并简化代码，提高开发效率，提高项目运行时的稳定性。像是一些云产品处理高峰时候的并发请求，或者是一些桌面程序。<code>Go</code>的杀手级应用是<code>Docker</code>，其他是<code>PaaS</code>类型的项目，或是消息缓存中间件，日志收集等。可以看下这个知乎上面，这个回答：<a href="https://www.zhihu.com/question/296426314" target="_blank" rel="noopener">https://www.zhihu.com/question/296426314</a></p>
-<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><ul>
-<li><strong>类型安全</strong>和<strong>内存安全</strong></li>
-<li>以非常直观和极低代价的方案实现<strong>高并发</strong></li>
-<li>高效的<strong>垃圾回收</strong>机制</li>
-<li>快速编译（同时解决C语言中头文件太多的问题）</li>
-<li>为多核计算机提供性能提升方案</li>
-<li>UTF-8 编码支持</li>
-</ul>
-<h3 id="安装时的坑"><a href="#安装时的坑" class="headerlink" title="安装时的坑"></a>安装时的坑</h3><p>当前环境为<code>win10</code>，安装文件地址为：<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a></p>
-<p>下载<code>msi</code>文件就可以了，执行它并按照安装的指导进行安装，会为我们在<code>PATH</code>配置好环境，并在用户系统变量中配置<code>GOPATH</code>，这个变量需要作修改。还有一个<code>GOROOT</code>变量指向我们的<code>Go SDK</code>路径（即安装<code>Go</code>的地址）。安装后，检验下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看安装的版本</span></span><br><span class="line">go version</span><br><span class="line"><span class="comment"># 查看关于go的环境变量</span></span><br><span class="line">go env</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
-<li><p><code>go get</code> ： 获取远程包，需要git或hg环境</p>
-</li>
-<li><p><code>go run</code> ： 直接允许程序</p>
-</li>
-<li><p><code>go build</code> : 测试编译，检查是否有编译错误</p>
-</li>
-<li><p><code>go fmt</code> : 格式化源码</p>
-</li>
-<li><p><code>go install</code> : 编译包文件并编译整个程序</p>
-</li>
-<li><p><code>go test</code> : 运行测试文件</p>
-</li>
-<li><p><code>go doc</code> : 查看包文档</p>
-</li>
-</ul>
-<p>在使用<code>go get</code>之前，可以修改下<code>go proxy</code>的地址<br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> GOPROXY = <span class="string">"https://goproxy.io,direct"</span></span><br></pre></td></tr></tbody></table></figure><p></p>
-<h3 id="GOPATH的作用"><a href="#GOPATH的作用" class="headerlink" title="GOPATH的作用"></a>GOPATH的作用</h3><p>在配置<code>GO</code>环境时，除了<code>GOROOT</code>与<code>PATH</code>外，还需要在用户变量中修改<code>GOPATH</code>的值，这里指向工作空间的地址。在该工作空间中创建项目才可以运行，为什么会这样呢？</p>
-<p><code>GOPATH</code> 工作空间是一个目录层次结构，其根目录包含三个子目录（这些需要自己手动创建）：</p>
-<ul>
-<li><code>src</code>：包含 <code>Go</code> 源文件，注意：你自己创建依赖的<code>package</code>，也要放到<code>GOPATH</code>目录下，这样才能够被引用到。</li>
-<li><code>pkg</code>：包含包对象，编译好的库文件</li>
-<li><code>bin</code>：包含可执行命令</li>
-</ul>
-<p><code>GOPATH</code>相对于工作区的概念，可以分为<code>Go</code>工作区和用户工作区，<code>GOROOT</code>是<code>Go</code>核心工作区</p>
-<p><code>GOPATH</code>可以包含多个包含 <code>Go</code> 语言源码文件、包文件和可执行文件的路径，而这些路径下又必须分别包含三个规定的目录：<code>src</code>、<code>pkg</code> 和 <code>bin</code></p>
-<h3 id="程序的整体结构"><a href="#程序的整体结构" class="headerlink" title="程序的整体结构"></a>程序的整体结构</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bin</span><br><span class="line">	xxx</span><br><span class="line">pkg</span><br><span class="line">	平台名/ 如：darwin_amd64、linux_amd64</span><br><span class="line">		mymath.a</span><br><span class="line">			xxx/</span><br><span class="line">				aa/</span><br><span class="line">					bb.a</span><br><span class="line">src</span><br><span class="line">	xxx</span><br><span class="line">		xxx.go</span><br><span class="line">	xx2</span><br><span class="line">		xx2.go</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="Hello-Go’s-World"><a href="#Hello-Go’s-World" class="headerlink" title="Hello Go’s World"></a>Hello Go’s World</h3><h4 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h4><p>新建一个文件<code>hello.go</code>，内容如下：</p>
-<figure class="highlight go"><figcaption><span>文件名:hello.go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main  <span class="comment">// 包、表明代码所在模块或包</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span>  <span class="comment">// 引入代码依赖</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Hello,World!"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>使用<code>go run</code>直接运行这个文件，会直接输出：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello,World!</span><br></pre></td></tr></tbody></table></figure>
-<p>也可以通过<code>go build</code>编译这个<code>hello.go</code>文件，编译后产生一个静态连接且独立的二进制文件<code>hello.exe</code>，可以复制到不同机器上运行（容器相关）。</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build hello.<span class="keyword">go</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="关于程序入口"><a href="#关于程序入口" class="headerlink" title="关于程序入口"></a>关于程序入口</h4><p>与<code>Spring Boot</code>相似，以<code>application</code>为项目入口启动程序。<code>Go</code>的可执行程序需要一个应用程序的入口，文件夹和文件名的名字随意（文件名一般是<code>main.go</code>），但是必须是<code>main</code>包，既<code>package main</code>，还有必须是<code>main</code>方法，既<code>func main()</code>。所以<code>package</code>的名字可以和目录名不一致。</p>
-<blockquote>
-<p>在<code>Java</code>中，<code>package</code>的名字需要和目录一致</p>
-</blockquote>
-<p><strong>退出返回值</strong></p>
-<p><code>func main()</code>是不支持返回值，我们可以一试：</p>
-<figure class="highlight diff"><figcaption><span>go</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func main() int {</span><br><span class="line">	fmt.Println("Hello,World!");</span><br><span class="line"><span class="addition">+ 	return 1 ;</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>然后编译并允许，结果如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># command-line-arguments</span></span><br><span class="line">.\hello.go:5:6: func main must have no arguments and no <span class="built_in">return</span> values</span><br></pre></td></tr></tbody></table></figure>
-<p>可以通过<code>os</code>来返回值：</p>
-<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func main()   {</span><br><span class="line">	fmt.Println("Hello,World!");</span><br><span class="line"><span class="deletion">-	return 1 ;</span></span><br><span class="line"><span class="addition">+	os.Exit(123);</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>结果如下：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello,World!</span><br><span class="line"></span><br><span class="line">Process finished with <span class="built_in">exit</span> code 123</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="获取命令行参数"><a href="#获取命令行参数" class="headerlink" title="获取命令行参数"></a>获取命令行参数</h4><p>在<code>Java</code>中，<code>main</code>一般这样写，其中<code>String[] args</code>用来接收一些参数：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</span><br><span class="line">    .....</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>然而在<code>Go</code>中不支持传入参数，<code>func main(arg  []string)</code>，这样在编译会产生错误提示。可以使用<code>os.Args</code>来获取命令行参数。</p>
-<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func main( )   {</span><br><span class="line"><span class="deletion">-	fmt.Println("Hello,World!");</span></span><br><span class="line"><span class="addition">+   if len(os.Args)&gt;1 {</span></span><br><span class="line"><span class="addition">+		fmt.Println("Hello,World!",os.Args[1]);</span></span><br><span class="line"><span class="addition">+	}</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>然后在终端中输入：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run hello.go Zing</span><br></pre></td></tr></tbody></table></figure>
-<p>结果：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello,World! Zing</span><br></pre></td></tr></tbody></table></figure>
-<p>其中：<code>os.Args[0]</code>会输出<code>hello.go</code>二进制文件的地址。 </p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="本地web文档"><a href="#本地web文档" class="headerlink" title="本地web文档"></a>本地web文档</h3><p>一般在命令中输入<code>go doc</code>来查找有点麻烦，资源网站访问有时加载很慢。所以可以尝试下在本地启动web文档，在一些比较老的版本中：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">godoc -http=localhost:8088</span><br></pre></td></tr></tbody></table></figure>
-<p>在新版本中，默认不带有<code>godoc</code>，需要自行安装：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get golang.org/x/tools/cmd/godoc</span><br></pre></td></tr></tbody></table></figure>
-<p>若遇到下载不成功的问题，考虑调整<code>Go</code>的代理地址。</p>
-<p>安装成功后，在<code>GOPATH</code>中的<code>bin</code>文件夹里，在里面使用。也可以将其复制到<code>GOROOT</code>的<code>bin</code>中，这样在任意文件夹位置都可以使用。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li>《The Way To Go》：  <a href="https://www.cntofu.com/book/14/index.html" target="_blank" rel="noopener">https://www.cntofu.com/book/14/index.html</a></li>
-<li>Go-Wiki ： <a href="http://code.google.com/p/go-wiki" target="_blank" rel="noopener">http://code.google.com/p/go-wiki</a></li>
-<li>go 中文地址 ： <a href="https://golang.google.cn/" target="_blank" rel="noopener">https://golang.google.cn/</a></li>
-</ol>
+<p>如果多个<code>slice</code>指向相同的底层数组，其中一个的值改变会影响到全部</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span>([]T, <span class="built_in">len</span>, <span class="built_in">cap</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>其中cap是可以省略的，默认为与<code>len()</code>值相同</p>
+<h3 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a []<span class="keyword">int</span></span><br><span class="line">fmt.Println(a)</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="取元素"><a href="#取元素" class="headerlink" title="取元素"></a>取元素</h3><h4 id="取前-后n位元素"><a href="#取前-后n位元素" class="headerlink" title="取前/后n位元素"></a>取前/后n位元素</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceF2</span><span class="params">()</span></span> {</span><br><span class="line">	a := [<span class="number">10</span>]<span class="keyword">int</span>{<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>}</span><br><span class="line">	fmt.Println(a)</span><br><span class="line">	s1 := a[<span class="number">5</span>:<span class="number">10</span>]</span><br><span class="line">	fmt.Println(s1)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1 2 4 5 6 7 8 9 10 0]</span><br><span class="line">[7 8 9 10 0]</span><br></pre></td></tr></tbody></table></figure>
+<p>包含起始索引，不包含结尾的索引</p>
+<p>可以简化下</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-  s1 := a[5:10]</span></span><br><span class="line"><span class="addition">+  s1 := a[5:]  </span></span><br><span class="line">// 或者</span><br><span class="line"><span class="addition">+  s1 := a[5:len(a)]</span></span><br></pre></td></tr></tbody></table></figure>
+<p>往前面取，索引从0~4</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s1 := a[:5]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceF3</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="comment">// 类型，元素个数，容量</span></span><br><span class="line">	s1 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line">    fmt.Println(<span class="built_in">len</span>(s1), <span class="built_in">cap</span>(s1))</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>当元素个数小于等于容量时，不会进行扩容。当大于当前容量时，会分配长度位20且连续的内存块。每次超过时，容量值会翻倍，10-&gt;20-&gt;40。</p>
+<p>容量默认为元素格式</p>
+<h3 id="Reslice"><a href="#Reslice" class="headerlink" title="Reslice"></a>Reslice</h3><p>Reslice 时索引以被slice的切片为准，索引不可以超过被slice的切片容量<code>cap()</code>值，索引越界不会导致底层数组的重新分配而是引发错误</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceF4</span><span class="params">()</span></span> {</span><br><span class="line">	a := []<span class="keyword">byte</span>{<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>}</span><br><span class="line">	sa := a[<span class="number">2</span>:<span class="number">5</span>]</span><br><span class="line">	<span class="comment">// 在sa的范围内</span></span><br><span class="line">	sb := sa[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">	<span class="comment">// 超出sa的范围,但后面的内容是连续的</span></span><br><span class="line">	sc := sa[<span class="number">3</span>:<span class="number">5</span>]</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(a))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(sa), <span class="built_in">len</span>(sa), <span class="built_in">cap</span>(sa))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(sb))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(sc))</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">abcdefghijk</span><br><span class="line">cde 3 9</span><br><span class="line">cd</span><br><span class="line">fg</span><br></pre></td></tr></tbody></table></figure>
+<p>sa 从<code>'c'</code>的位置开始，一直到<code>a</code>结束，是一个连续的，所分配的最大容器是 9</p>
+<h3 id="Append"><a href="#Append" class="headerlink" title="Append"></a>Append</h3><p>在slice尾部追加元素，可以将一个slice追加到另一个slice的尾部，如果最终长度未超过追加到slice的容量则返回原始slice。如果超过，则将会重新分配数组并拷贝原始数据</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceF5</span><span class="params">()</span></span> {</span><br><span class="line">	s1 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>, s1)</span><br><span class="line">	s1 = <span class="built_in">append</span>(s1, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%v %p\n"</span>, s1, s1)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0xc0000d6030</span><br><span class="line">[0 0 0 1 2 3] 0xc0000d6030</span><br></pre></td></tr></tbody></table></figure>
+<p>超出时，重新分配并拷贝原始数据</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceF5</span><span class="params">()</span></span> {</span><br><span class="line">	s1 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>, s1)</span><br><span class="line">	s1 = <span class="built_in">append</span>(s1, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%v %p\n"</span>, s1, s1)</span><br><span class="line">	s1 = <span class="built_in">append</span>(s1, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%v %p\n"</span>, s1, s1)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0xc0000d6030</span><br><span class="line">[0 0 0 1 2 3] 0xc0000d6030</span><br><span class="line">[0 0 0 1 2 3 1 2 3] 0xc000086060</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="同时指向的影响"><a href="#同时指向的影响" class="headerlink" title="同时指向的影响"></a>同时指向的影响</h4><p>多个slice指向同一个底层数组，在操作数组时，会影响到所有关联的slice</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceF6</span><span class="params">()</span></span> {</span><br><span class="line">	a := []<span class="keyword">int</span>{<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>}</span><br><span class="line">	s1 := a[<span class="number">0</span>:<span class="number">4</span>]</span><br><span class="line">	s2 := a[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">	fmt.Println(s1, s2)</span><br><span class="line">	s1[<span class="number">1</span>] = <span class="number">123</span><span class="keyword">go</span></span><br><span class="line">	fmt.Println(s1, s2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1 2 3 4] [1 2 3]</span><br><span class="line">[1 123 3 4] [1 123 3]</span><br></pre></td></tr></tbody></table></figure>
+<p>但对slice2进行append操作，并超过其<code>cap()</code>值时，之后的操作就不会影响到slice2</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func sliceF6(){</span><br><span class="line">	a := []int{1, 2, 3, 4, 5, 6}</span><br><span class="line">	s1 := a[0:4]</span><br><span class="line">	s2 := a[0:3]</span><br><span class="line">	fmt.Println(s1, s2)</span><br><span class="line"><span class="addition">+	s2 = append(s2, 1, 1, 1, 1, 1, 1, 1, 1)</span></span><br><span class="line">	a[1] = 123</span><br><span class="line">	fmt.Println(s1, s2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1 2 3 4] [1 2 3]</span><br><span class="line">[1 123 3 4] [1 2 3 1 1 1 1 1 1 1 1]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func sliceF8() {</span><br><span class="line">	s1 := []int{1, 2, 3, 4, 5, 6}</span><br><span class="line">	s2 := []int{7, 8, 9}</span><br><span class="line">	copy(s2, s1)</span><br><span class="line">	fmt.Println(s2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1 2 3]</span><br></pre></td></tr></tbody></table></figure>
+<p>s2 中只有3个元素，将会copy前3个元素</p>
+<p>只copy s1中的一部分，<code>s1[0:2]</code>是一个新的slice</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+ copy(s2, s1[0:2])</span></span><br><span class="line"><span class="deletion">- copy(s2, s1)</span></span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1 2 9]</span><br></pre></td></tr></tbody></table></figure>
+<p>或者只是替换其中一部分</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+ copy(s2[1:2], s1[0:2])</span></span><br><span class="line"><span class="deletion">- copy(s2, s1)</span></span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[7 1 9]</span><br></pre></td></tr></tbody></table></figure>
+<p>得到一个完整的数组</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s1 := []<span class="keyword">int</span>{<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>}</span><br><span class="line">s3 := s1</span><br><span class="line">s4 := s1[<span class="number">0</span>:]</span><br><span class="line">s5 := s1[<span class="number">0</span>:<span class="built_in">len</span>(s1)]</span><br><span class="line">s6 := s1[:<span class="built_in">len</span>(s1)]</span><br><span class="line">s7 := s1[:]</span><br><span class="line">fmt.Println(s3)</span><br><span class="line">fmt.Println(s4)</span><br><span class="line">fmt.Println(s5)</span><br><span class="line">fmt.Println(s6)</span><br><span class="line">fmt.Println(s7)</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[1 2 3 4 5 6]</span><br><span class="line">[1 2 3 4 5 6]</span><br><span class="line">[1 2 3 4 5 6]</span><br><span class="line">[1 2 3 4 5 6]</span><br><span class="line">[1 2 3 4 5 6]</span><br></pre></td></tr></tbody></table></figure>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -579,7 +555,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zroger95.github.io/posts/Go_1.html" title="Go 安装配置与Demo">https://zroger95.github.io/posts/Go_1.html</a>
+    <a href="https://zroger95.github.io/posts/Go_7.html" title="Go 切片">https://zroger95.github.io/posts/Go_7.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -607,8 +583,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/flutter-02.html" rel="next" title="【译】Flutter中的Bottom sheets">
-                <i class="fa fa-chevron-left"></i> 【译】Flutter中的Bottom sheets
+              <a href="/posts/Go_6.html" rel="next" title="Go 数组">
+                <i class="fa fa-chevron-left"></i> Go 数组
               </a>
             
           </div>
@@ -616,10 +592,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/Go_2.html" rel="prev" title="Go 程序的基本结构和要素">
-                Go 程序的基本结构和要素 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -773,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Go"><span class="nav-number">1.</span> <span class="nav-text">什么是Go ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">1.1.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要特点"><span class="nav-number">1.2.</span> <span class="nav-text">主要特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装时的坑"><span class="nav-number">1.3.</span> <span class="nav-text">安装时的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">1.4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GOPATH的作用"><span class="nav-number">1.5.</span> <span class="nav-text">GOPATH的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序的整体结构"><span class="nav-number">1.6.</span> <span class="nav-text">程序的整体结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-Go’s-World"><span class="nav-number">1.7.</span> <span class="nav-text">Hello Go’s World</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-world"><span class="nav-number">1.7.1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于程序入口"><span class="nav-number">1.7.2.</span> <span class="nav-text">关于程序入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取命令行参数"><span class="nav-number">1.7.3.</span> <span class="nav-text">获取命令行参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">2.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地web文档"><span class="nav-number">2.1.</span> <span class="nav-text">本地web文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#切片Slice"><span class="nav-number">1.</span> <span class="nav-text">切片Slice</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单例子"><span class="nav-number">1.1.</span> <span class="nav-text">简单例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取元素"><span class="nav-number">1.2.</span> <span class="nav-text">取元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#取前-后n位元素"><span class="nav-number">1.2.1.</span> <span class="nav-text">取前/后n位元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make"><span class="nav-number">1.3.</span> <span class="nav-text">make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reslice"><span class="nav-number">1.4.</span> <span class="nav-text">Reslice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Append"><span class="nav-number">1.5.</span> <span class="nav-text">Append</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同时指向的影响"><span class="nav-number">1.5.1.</span> <span class="nav-text">同时指向的影响</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Copy"><span class="nav-number">1.6.</span> <span class="nav-text">Copy</span></a></li></ol></li></ol></div>
             
 
           </div>
