@@ -1839,6 +1839,7 @@
     <content><![CDATA[<h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
 <p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
 <figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
 <h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
 <figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -2839,28 +2840,5 @@
       <tags>
         <tag>Go</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
   </entry>
 </search>

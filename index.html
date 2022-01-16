@@ -513,189 +513,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/0.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/0.html" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-12T22:41:46+08:00">
-                2021-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/0.html" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  52
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_13.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -980,41 +797,16 @@
 
       
         
-          
-            <h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
+          <h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
 <p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
 <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>缓存</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
-<p>有缓存时同步阻塞的，无缓是异步的</p>
-<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_14.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2241,6 +2033,184 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_6.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/Go_6.html" itemprop="url">Go 数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-11T16:28:40+08:00">
+                2021-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Go_6.html" class="leancloud_visitors" data-flag-title="Go 数组">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  770
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><ul>
+<li>定义数组的格式：<code>var &lt;varName&gt; [n]&lt;type,n&gt; = 0</code></li>
+<li>数组长度也是类型的一部分，因此具有不同长度的数组为不同类型</li>
+<li>注意区分指向数组的指针和指针数组</li>
+<li>数组在Go中为值类型</li>
+<li>数组之间可以使用<code>==</code>或者<code>!=</code>进行比较，但是不可以使用<code>&gt;</code>或者<code>&lt;</code></li>
+<li>可以使用<code>new</code>来创建数组，此方法返回一个指向数组的指针</li>
+<li>Go支持多维数组</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_6.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2293,7 +2263,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
