@@ -136,20 +136,20 @@
 
 
 
-<meta name="description" content="Spring Cloud前言总结工作到现在的使用Java Web框架的变化 ( 2017 ~ 2020 )">
+<meta name="description" content="Spring Cloud回顾以前回顾开始工作到现在的使用Java Web框架的变化 ( 2017 ~ 2020 )">
 <meta name="keywords" content="微服务,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud - 01">
 <meta property="og:url" content="https://zroger95.github.io/posts/Spring Cloud - 01.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Spring Cloud前言总结工作到现在的使用Java Web框架的变化 ( 2017 ~ 2020 )">
+<meta property="og:description" content="Spring Cloud回顾以前回顾开始工作到现在的使用Java Web框架的变化 ( 2017 ~ 2020 )">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zroger95.github.io/posts/spring%20cloud%20-%2001/spring%20cloud%20-%20create%20new%20project.png">
 <meta property="og:image" content="https://zroger95.github.io/posts/spring%20cloud%20-%2001/spring%20cloud%20-%20create%20new%20child.png">
-<meta property="og:updated_time" content="2020-07-30T15:08:46.642Z">
+<meta property="og:updated_time" content="2021-09-25T12:54:10.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud - 01">
-<meta name="twitter:description" content="Spring Cloud前言总结工作到现在的使用Java Web框架的变化 ( 2017 ~ 2020 )">
+<meta name="twitter:description" content="Spring Cloud回顾以前回顾开始工作到现在的使用Java Web框架的变化 ( 2017 ~ 2020 )">
 <meta name="twitter:image" content="https://zroger95.github.io/posts/spring%20cloud%20-%2001/spring%20cloud%20-%20create%20new%20project.png">
 
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.3k
                 </span>
               
 
@@ -454,10 +454,10 @@
       
 
       
-        <h1 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>总结工作到现在的使用<code>Java Web</code>框架的变化 ( <code>2017</code> ~ <code>2020</code> )</p>
+        <h1 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h1><h2 id="回顾以前"><a href="#回顾以前" class="headerlink" title="回顾以前"></a>回顾以前</h2><p>回顾开始工作到现在的使用<code>Java Web</code>框架的变化 ( <code>2017</code> ~ <code>2020</code> )</p>
 <a id="more"></a>
 <ol>
-<li><p>最开始接触 <code>Java Web</code> 的时候，那时候用的框架是 <code>SSH</code> 既 <code>Struts2</code> + <code>Spring</code> + <code>Hibernate</code>。围绕着<code>struts</code>作为系统的基础架构，负责 <strong>MVC</strong> 的分离，<code>struts</code> 负责模型部分，<code>hibernate</code> 负责数据交互（持久层），<code>spring</code> 负责管理配置。</p>
+<li><p>最开始接触 <code>Java Web</code> 的时候，那时候用的框架是 <code>SSH</code> 既 <code>Struts2</code> + <code>Spring</code> + <code>Hibernate</code>。围绕着<code>struts</code>作为系统的基础架构，负责 <strong>MVC</strong> 的分离，<code>struts</code> 负责模型部分，对页面进行<strong>后端渲染</strong>；<code>hibernate</code> 负责数据交互（持久层），处理事务；<code>spring</code> 负责管理配置，bean。</p>
 </li>
 <li><p>之后一个阶段，抛弃了<code>struts2</code>，转成了 <code>SSM</code>  :  <code>Spring-MVC</code> + <code>Spring</code> + <code>MyBatis</code>，或者是 <code>SSH</code>  :  <code>Spring-MVC</code>+<code>Spring</code>+<code>Hibernate</code>。</p>
 </li>
@@ -468,15 +468,15 @@
 <ol>
 <li>最后到了现在的<code>Spring Cloud</code> + <code>Spring Boot</code> + <code>Mybatis</code>。也不是所有的场景都需要分布式的微服务框架。如果场景单一，使用<code>Spring Boot</code> + <code>Mybatis</code> 或者 <code>Spring Boot</code> + <code>Hibernate</code> 来开发并维护单应用的项目。随着用户量逐渐增多，每日请求也开始变多，并发的问题，频繁更新所带来的问题等等。需要多维度解决如上发生的问题，<ol>
 <li>比如<strong>电商</strong>的场景，将<em>用户登录</em>，<em>订单</em>，<em>售后</em>，<em>秒杀</em>这些抽离出来，即使其中一个服务出现了问题，也不会影响到其他服务。</li>
-<li>比如项目是一些产品的组合，有的客户需要<code>A+B</code>，有的客户需要<code>A+B+C</code>，在开发时，根据产品的粒度，区分开<code>A</code>，<code>B</code>，<code>C</code>三种产品，这些是业务层的服务。它们还用共同用了<strong>无业务类型</strong>的微服务，如：身份验证（auth），邮件短信平台，文件存储服务等等 </li>
+<li>比如项目是一些产品的组合，有的客户需要<code>A+B</code>，有的客户需要<code>A+B+C</code>，在开发时，根据产品的粒度，区分开<code>A</code>，<code>B</code>，<code>C</code>三种产品，这些是业务层的服务。它们还用共同用了<strong>无业务类型</strong>的微服务，如：身份验证（auth），邮件短信平台，文件存储服务等等；这一些是项目的定制，是围绕一个企业的用户进行开发，遇到极限场景比较少；</li>
 </ol>
 </li>
 </ol>
-<!-- more -->
 <p>敏捷开发，微服务这些概念的提出都离不开 <strong><a href="https://martinfowler.com/" target="_blank" rel="noopener">Martin Fowler</a></strong></p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>Spring Cloud</code>是一站式微服务解决方案，它像是一个桌子，由你把各个积木（微服务）搭配起来，展示最终的效果。和<code>Spring Cloud</code>差不多，还有阿里的<code>Dubbo</code>。或者是<em>Google</em>的<code>GPRC</code></p>
+<h2 id="他们所说的Spring-Cloud是什么东西"><a href="#他们所说的Spring-Cloud是什么东西" class="headerlink" title="他们所说的Spring Cloud是什么东西"></a>他们所说的Spring Cloud是什么东西</h2><h3 id="目的-amp-定义"><a href="#目的-amp-定义" class="headerlink" title="目的&amp;定义"></a>目的&amp;定义</h3><p><code>Spring Cloud</code>是一站式微服务解决方案，它像是一个桌子，由你把各个积木（微服务）搭配起来，展示最终的效果。或者把它理解成一个书架，看你要给客人展示什么东西，就往上面去装饰它；</p>
+<p>同类型的还有：<em>阿里</em>的<code>Dubbo</code>、<em>Google</em>的<code>GPRC</code></p>
 <p>文档： <a href="https://start.spring.io/actuator/info" target="_blank" rel="noopener">https://start.spring.io/actuator/info</a></p>
-<p><code>Spring Cloud</code>主要解决了一些纬度的问题</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p><code>Spring Cloud</code>主要解决了一些纬度的问题</p>
 <ul>
 <li>服务注册与发现：<ul>
 <li><code>Eureka</code>：<code>Eureka2</code> 已停止维护，可能后续会出<code>Eureka3</code></li>
@@ -522,7 +522,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><blockquote>
+<h2 id="简单创建父子工程"><a href="#简单创建父子工程" class="headerlink" title="简单创建父子工程"></a>简单创建父子工程</h2><blockquote>
 <p> 约定 &gt; 配置 &gt; 编码</p>
 </blockquote>
 <h3 id="创建父工程"><a href="#创建父工程" class="headerlink" title="创建父工程"></a>创建父工程</h3><p><img src="/posts/./spring cloud - 01/spring cloud - create new project.png" alt="create new cloud project"></p>
@@ -625,8 +625,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/Apache_Flink_01.html" rel="prev" title="Apache_Flink_01">
-                Apache_Flink_01 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/Spring Cloud - 01.html" rel="prev" title="Spring Cloud - 01">
+                Spring Cloud - 01 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -696,7 +696,7 @@
               <img class="site-author-image" itemprop="image" src="/uploads/logo.jpg" alt="ZRoger">
             
               <p class="site-author-name" itemprop="name">ZRoger</p>
-              <p class="site-description motion-element" itemprop="description">宇宙浩瀚无垠,人生沧海一粟</p>
+              <p class="site-description motion-element" itemprop="description">如无必要，勿增实体</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -706,7 +706,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -719,7 +719,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -781,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cloud"><span class="nav-number">1.</span> <span class="nav-text">Spring Cloud</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">1.3.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建父工程"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建父工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子模块服务"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建子模块服务</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cloud"><span class="nav-number">1.</span> <span class="nav-text">Spring Cloud</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾以前"><span class="nav-number">1.1.</span> <span class="nav-text">回顾以前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#他们所说的Spring-Cloud是什么东西"><span class="nav-number">1.2.</span> <span class="nav-text">他们所说的Spring Cloud是什么东西</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的-amp-定义"><span class="nav-number">1.2.1.</span> <span class="nav-text">目的&amp;定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题"><span class="nav-number">1.2.2.</span> <span class="nav-text">解决问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单创建父子工程"><span class="nav-number">1.3.</span> <span class="nav-text">简单创建父子工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建父工程"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建父工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子模块服务"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建子模块服务</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -801,7 +801,7 @@
 
     <footer id="footer" class="footer" style="background-color: white;">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-rocket"></i>
   </span>

@@ -136,17 +136,17 @@
 
 
 
-<meta name="description" content="宇宙浩瀚无垠,人生沧海一粟">
+<meta name="description" content="如无必要，勿增实体">
 <meta name="keywords" content="ZRoger">
 <meta property="og:type" content="website">
 <meta property="og:title">
 <meta property="og:url" content="https://zroger95.github.io/page/2/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="宇宙浩瀚无垠,人生沧海一粟">
+<meta property="og:description" content="如无必要，勿增实体">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title">
-<meta name="twitter:description" content="宇宙浩瀚无垠,人生沧海一粟">
+<meta name="twitter:description" content="如无必要，勿增实体">
 
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Next&ThirdPartyServices.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/0.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -361,7 +361,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Next&ThirdPartyServices.html" itemprop="url">NexT&第三方服务</a></h1>
+                <a class="post-title-link" href="/posts/0.html" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -373,8 +373,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-05T15:42:48+08:00">
-                2020-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-18T23:08:01+08:00">
+                2021-05-18
               </time>
             
 
@@ -391,7 +391,7 @@
 
           
           
-             <span id="/posts/Next&ThirdPartyServices.html" class="leancloud_visitors" data-flag-title="NexT&第三方服务">
+             <span id="/posts/0.html" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  137
+                  363
                 </span>
               
 
@@ -455,10 +455,274 @@
       
         
           
-            <h1 id="文章阅读数量记录"><a href="#文章阅读数量记录" class="headerlink" title="文章阅读数量记录"></a>文章阅读数量记录</h1><p>关于文章阅读数量，可以使用<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>，还有<a href="https://console.firebase.google.com/u/0/" target="_blank" rel="noopener">Google</a>的，或者是<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">不蒜子统计</a></p>
-<p>这里选用的<strong>LeanCloud</strong>，可以看doublemine这篇<a href="https://notes.doublemine.me/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html" target="_blank" rel="noopener">文章</a></p>
-<p>时间：2020年4月5日</p>
-<p>如果LeanCloud的服务长时间不用，会被停掉并且归档，所以还是需要时不时上去看看~</p>
+            <h1 id="对缓存技术的思考"><a href="#对缓存技术的思考" class="headerlink" title="对缓存技术的思考"></a>对缓存技术的思考</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在实习时，需要研究大数据的查询，偶然间就碰到了<code>redis</code>缓存，利用内存解决查询耗时的问题。仅仅安装体验了一番，便不了了之了。之后在新公司实习时，便遇到<code>memcached</code>缓存，但也仅仅是安装用来跑本地服务，没有过多去深入了解。</p>
+<p>​        OK，那么到现在想重新认识一下缓存技术。</p>
+<h2 id="缓存技术是为了处理什么问题"><a href="#缓存技术是为了处理什么问题" class="headerlink" title="缓存技术是为了处理什么问题"></a>缓存技术是为了处理什么问题</h2><p><a href="https://zhuanlan.zhihu.com/p/55303228" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55303228</a></p>
+<h2 id="主流缓存技术"><a href="#主流缓存技术" class="headerlink" title="主流缓存技术"></a>主流缓存技术</h2><h3 id="Memcached"><a href="#Memcached" class="headerlink" title="Memcached"></a>Memcached</h3><p>官网地址：<a href="http://memcached.org/" target="_blank" rel="noopener">http://memcached.org/</a></p>
+<p><img src="/posts/E:/blog\source\_posts\redis\应用场景\redis.assets\image-20210519230744864.png" alt="image-20210519230744864"></p>
+<p>什么是Memcached ?</p>
+<p>是一个免费，开源，高性能，分布式内存对象缓存系统。旨在通过减轻数据库负载来加上动态web应用程序。</p>
+<p>Memcached 是一个在内存存储键值对的数据库，主要存储一些小块任意数据（如：字符串，对象），以便于存储来自数据库调用，api调用或是一些页面数据查询呈现。</p>
+<p>Memcached 简易且强大。便于快速部署，简化开发，同时解决了大型数据缓存所面临的许多问题。Memcached Api 适用于大多数流行语言（Java等）</p>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h3><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/JSON Web Token.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/JSON Web Token.html" itemprop="url">JSON Web Token</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-12T21:45:31+08:00">
+                2021-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/JSON Web Token.html" class="leancloud_visitors" data-flag-title="JSON Web Token">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  942
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JSON-Web-Token"><a href="#JSON-Web-Token" class="headerlink" title="JSON Web Token"></a>JSON Web Token</h2><h3 id="传统的认证"><a href="#传统的认证" class="headerlink" title="传统的认证"></a>传统的认证</h3><p>​       在以前的单体web应用中，由于 http 协议是一个无状态的协议，当客户端发送请求时，并不知道是哪位用户发出的请求。为了解决这个问题，在用户登录后，服务器会存储一份用户登录的信息（<code>session</code>)，这份登录信息会在响应时传递给浏览器，保存在<code>cookie</code>中，以便下次发生请求时传递给应用。</p>
+<h3 id="遭遇的问题"><a href="#遭遇的问题" class="headerlink" title="遭遇的问题"></a>遭遇的问题</h3><p>​    随着用户量的增多，服务器的开销也开始增加，登录用户们的信息都被存储在当前这台服务器的内存中。限制了分布式的扩展，限制了负载均衡的能力。使用<code>cookie</code>容易受到CSRF</p>
+<h3 id="JWT-构成"><a href="#JWT-构成" class="headerlink" title="JWT 构成"></a>JWT 构成</h3><p>一般喜欢叫作 <code>jwt</code>，是一个由<code>.</code>连接3个信息的字符串，像这样：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header.payload.signature</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="头部-header"><a href="#头部-header" class="headerlink" title="头部 header"></a>头部 header</h4><p>由声明类型<code>typ</code>和声明加密算法组成<code>alg</code></p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  'typ': 'JWT',</span><br><span class="line">  'alg': 'HS256'</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>对头部信息进行base64加密，构成第一部分</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyd0eXAnOiAnSldUJywnYWxnJzogJ0hTMjU2J30=</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="载荷-payload"><a href="#载荷-payload" class="headerlink" title="载荷 payload"></a>载荷 payload</h4><p>存放有效信息，其中由标准中注册的声明，公共声明，私有声明构成</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">"sub"</span>: <span class="string">"*"</span>,</span><br><span class="line">  <span class="attr">"userId"</span>: <span class="string">"123456"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>base64编码后：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJzdWIiOiAiKiIsInVzZXJJZCI6ICIxMjM0NTYifQ==</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="标准中注册的声明"><a href="#标准中注册的声明" class="headerlink" title="标准中注册的声明"></a>标准中注册的声明</h5><p><em>建议但不强制使用</em></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>字段</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iss</td>
+<td>jwt签发者</td>
+</tr>
+<tr>
+<td>sub</td>
+<td>jwt所面向的用户</td>
+</tr>
+<tr>
+<td>aud</td>
+<td>接收jwt的一方</td>
+</tr>
+<tr>
+<td>exp</td>
+<td>jwt的过期时间，这个过期时间必须要大于签发时间</td>
+</tr>
+<tr>
+<td>nbf</td>
+<td>定义在什么时间之前，该jwt都是不可用的</td>
+</tr>
+<tr>
+<td>iat</td>
+<td>jwt的签发时间</td>
+</tr>
+<tr>
+<td>jti</td>
+<td>唯一身份标识，主要用来作为一次性token,从而回避重放攻击</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="公共声明"><a href="#公共声明" class="headerlink" title="公共声明"></a>公共声明</h5><p>可以添加任何信息，如用户信息或重要业务信息，但不建议添加敏感信息，该部分客户端可解密</p>
+<h5 id="私有声明"><a href="#私有声明" class="headerlink" title="私有声明"></a>私有声明</h5><p>由提供者和消费者共同定义的声明，一般不建议存放敏感信息。</p>
+<h4 id="签证-signature"><a href="#签证-signature" class="headerlink" title="签证 signature"></a>签证 signature</h4><p>由三个部分组成</p>
+<ul>
+<li>base64后的header</li>
+<li>base64后的payload</li>
+<li>secret</li>
+</ul>
+<p>这个部分需要base64加密后的header和base64加密后的payload使用<code>.</code>连接组成的字符串，然后通过header中声明的加密方式进行加盐<code>secret</code>组合加密，然后就构成了jwt的第三部分。</p>
+<p>最后三段的构成：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ</span><br></pre></td></tr></tbody></table></figure>
+<p>前端使用</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.headers.common['Authorization'] = 'Bearer ' + getToken()</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="过期问题"><a href="#过期问题" class="headerlink" title="过期问题"></a>过期问题</h3><h4 id="并发场景"><a href="#并发场景" class="headerlink" title="并发场景"></a>并发场景</h4><h5 id="同时请求时，过期问题"><a href="#同时请求时，过期问题" class="headerlink" title="同时请求时，过期问题"></a>同时请求时，过期问题</h5><p>JWT的缺陷主要是在并发的时候体现的，要理解这个问题首先你得知道一些基本特点：</p>
+<ul>
+<li>JWT的刷新操作也就是返回一个新的JWT(这是由于JWT的 过期时间exp claim是封装在Payload中的)</li>
+<li>在实际的使用中，刷新后旧的Token会被放入黑名单，避免被再次使用，导致重放攻击。</li>
+<li>我们一般是在一个业务HTTP请求的同时刷新JWT，附带在响应中返回，尽量的保证在用户使用期间内，JWT不过期。</li>
+</ul>
+<p>当你清晰的理解上面的特点后，你会发现：</p>
+<p>如果有两个并发请求，附带着相同的Token请求服务器。此时一定会有一个先后顺序，如果其中的一个请求的Token先刷新，那么Token被放入黑名单，无法使用，后来的请求就被服务器拒绝。</p>
+<p>这的的确确是存在的问题，而导致问题的根本原因就是：我们在每一次请求中都进行了JWT刷新，旧Token放入黑名单。</p>
+<p>链接：<a href="https://www.zhihu.com/question/41248303/answer/270404924" target="_blank" rel="noopener">https://www.zhihu.com/question/41248303/answer/270404924</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -529,7 +793,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Remove-Duplicates-from-Sorted-Array.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_13.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -548,7 +812,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Remove-Duplicates-from-Sorted-Array.html" itemprop="url">从排序数组中删除重复项</a></h1>
+                <a class="post-title-link" href="/posts/Go_13.html" itemprop="url">Go reflection</a></h1>
         
 
         <div class="post-meta">
@@ -560,8 +824,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-05T10:33:36+08:00">
-                2020-01-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-09T16:28:40+08:00">
+                2021-05-09
               </time>
             
 
@@ -578,7 +842,7 @@
 
           
           
-             <span id="/posts/Remove-Duplicates-from-Sorted-Array.html" class="leancloud_visitors" data-flag-title="从排序数组中删除重复项">
+             <span id="/posts/Go_13.html" class="leancloud_visitors" data-flag-title="Go reflection">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -603,7 +867,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  488
+                  535
                 </span>
               
 
@@ -641,21 +905,12 @@
 
       
         
-          <h2 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h2><p>题目地址：<a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">https://leetcode.com/problems/remove-duplicates-from-sorted-array/</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
-<li>数组下标</li>
-<li>快慢指针</li>
-</ul>
-<p>使用快慢指针来记录遍历的坐标。</p>
-<ul>
-<li>开始时这两个指针都指向第一个数字</li>
-<li>如果两个指针指的数字相同，则快指针向前走一步</li>
-<li>如果不同，则两个指针都向前走一步（之后将慢指针所在的节点值换成快指针所指位置）</li>
-<li>当快指针走完整个数组后，慢指针当前的坐标加1就是数组中不同数字的个数</li>
-</ul>
+          <h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射可以提高程序的灵活性，使得 interface() 有更大的发挥余地，反射使用 TypeOf 和 ValueOf 函数从接口中获取目标对象信息，将匿名字段作为独立字段。</p>
+<p>修改对象状态的前提是 interface.data 是 settable , 即 pointer-interface</p>
+<p>通过反射可以动态调用方法</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/Remove-Duplicates-from-Sorted-Array.html" rel="contents">
+            <a class="btn" href="/posts/Go_13.html" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -710,7 +965,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_3.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_14.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -729,7 +984,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Go_3.html" itemprop="url">Go 类型与变量</a></h1>
+                <a class="post-title-link" href="/posts/Go_14.html" itemprop="url">Go cibcyrrency	</a></h1>
         
 
         <div class="post-meta">
@@ -741,8 +996,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-16T16:28:40+08:00">
-                2019-09-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-09T16:28:40+08:00">
+                2021-05-09
               </time>
             
 
@@ -759,7 +1014,7 @@
 
           
           
-             <span id="/posts/Go_3.html" class="leancloud_visitors" data-flag-title="Go 类型与变量">
+             <span id="/posts/Go_14.html" class="leancloud_visitors" data-flag-title="Go cibcyrrency	">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -784,7 +1039,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  513
                 </span>
               
 
@@ -800,7 +1055,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  2
                 </span>
               
             </div>
@@ -822,14 +1077,41 @@
 
       
         
-          <h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>可以包含数据的变量（或常量），可以使用不同的数据类型或类型来保存数据。使用 var 声明的变量的值会自动初始化为该类型的零值。类型定义了某个变量的值的集合与可对其进行操作的集合。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/Go_3.html" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
+<p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>缓存</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>有缓存时同步阻塞的，无缓是异步的</p>
+<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
         
       
     </div>
@@ -880,7 +1162,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go&Plan 9.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_11.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -899,7 +1181,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Go&Plan 9.html" itemprop="url">Go&Plan 9</a></h1>
+                <a class="post-title-link" href="/posts/Go_11.html" itemprop="url">Go method</a></h1>
         
 
         <div class="post-meta">
@@ -911,8 +1193,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-16T16:28:40+08:00">
-                2019-09-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-25T16:28:40+08:00">
+                2021-04-25
               </time>
             
 
@@ -929,7 +1211,7 @@
 
           
           
-             <span id="/posts/Go&Plan 9.html" class="leancloud_visitors" data-flag-title="Go&Plan 9">
+             <span id="/posts/Go_11.html" class="leancloud_visitors" data-flag-title="Go method">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -954,7 +1236,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  312
+                  719
                 </span>
               
 
@@ -970,7 +1252,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -992,11 +1274,13 @@
 
       
         
-          <h1 id="Plan-9"><a href="#Plan-9" class="headerlink" title="Plan 9"></a>Plan 9</h1><p><img src="https://pic1.zhimg.com/80/9f8102da606acb83969812978cdd4538_hd.jpg" alt=""></p>
-<h2 id="Plan-9是什么"><a href="#Plan-9是什么" class="headerlink" title="Plan 9是什么"></a>Plan 9是什么</h2><p>它是一个网络操作系统（大规模集群）或者说是一种概念，来自贝尔实验室，由<em>Ken Thompson</em>、<em>Dennis Ritchied</em>等大神开发。</p>
+          <h2 id="方法-Method"><a href="#方法-Method" class="headerlink" title="方法 Method"></a>方法 Method</h2><p>Go 中虽然没有<code>class</code>，但依旧有<code>method</code>，通过显示说明<code>receiver</code>来实现与某个类型的组合，只能为同一个包中的类型定义方法，<code>receiver</code>可以是类型的值或指针。</p>
+<p><code>method</code>不存在方法重载，可以是使用值或指针来调节方法，编译器会自动完成转换，从某种意义上来说，方法是函数的语法糖，因为<code>receiver</code>其实就是方法所接收的第一个参数（Method Value vs Method Expression）</p>
+<p>如果外部结构和嵌入结构存在同名方法，则优先调用外部结构的方法，类型别名不会拥有底层类型所附带的方法。</p>
+<p>方法可以待用结构中的非公开字段</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/Go&Plan 9.html" rel="contents">
+            <a class="btn" href="/posts/Go_11.html" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1051,7 +1335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_2.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_12.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -1070,7 +1354,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Go_2.html" itemprop="url">Go 程序的基本结构和要素</a></h1>
+                <a class="post-title-link" href="/posts/Go_12.html" itemprop="url">Go interface</a></h1>
         
 
         <div class="post-meta">
@@ -1082,8 +1366,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T16:28:40+08:00">
-                2019-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-25T16:28:40+08:00">
+                2021-04-25
               </time>
             
 
@@ -1100,7 +1384,185 @@
 
           
           
-             <span id="/posts/Go_2.html" class="leancloud_visitors" data-flag-title="Go 程序的基本结构和要素">
+             <span id="/posts/Go_12.html" class="leancloud_visitors" data-flag-title="Go interface">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  681
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h2><p>接口是一个或多个方法签名的集合，只要某个类型拥有该接口的所有方法签名，即算实现该接口，无需显示声明了实现了哪个接口，这称为 Structural Typing</p>
+<p>接口只有方法声明，没有实现，没有数据类型</p>
+<p>接口可以匿名嵌入其他接口，或嵌入结构中</p>
+<p>将对象赋值给接口时，会发生拷贝，而接口内部存储的是指向这个复制品的指针，即无法修改复制品的状态 ，也无法获取指针</p>
+<p>只有当接口存储的类型和对象都为 nil 时，接口才等于 nil</p>
+<p>接口调用不会做 receiver 的自动转换</p>
+<p>接口同样支持匿名字段方法</p>
+<p>接口可实现类型 OOP 中的多态</p>
+<p>空接口可以作为任何类型数据的容器</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_12.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_10.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/Go_10.html" itemprop="url">Go struct</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-18T16:28:40+08:00">
+                2021-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Go_10.html" class="leancloud_visitors" data-flag-title="Go struct">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1141,6 +1603,188 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>Go 中的<code>struct</code>与 C 中的 <code>struct</code>非常相似，并且 Go 没有 class 。使用 <code>type&lt;Name&gt; struct{}</code>定义结构，名称遵循可见性规则。</p>
+<ul>
+<li>支持指向自身的指针类型成员</li>
+<li>支持匿名结构，可用作成员或定义成员变量</li>
+<li>匿名结构也可以用于<code>map</code>的值</li>
+<li>可以使用字面值对结构进行初始化</li>
+<li>运行直接通过指针来读写结构成员</li>
+<li>相同类型的成员可进行直接拷贝赋值</li>
+<li>支持<code>==</code>与<code>!=</code>比较运算符，但是不支持<code>&gt;</code>和<code>&lt;</code></li>
+<li>支持匿名字段，本质上是定于了以某个类型名为名称的字段</li>
+<li>嵌入结构作为匿名字段看起来像继承，但不是继承</li>
+<li>可使用匿名字段指针</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_10.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_8.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/Go_8.html" itemprop="url">Go map</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-18T16:28:40+08:00">
+                2021-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Go_8.html" class="leancloud_visitors" data-flag-title="Go map">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  801
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
                   4
                 </span>
               
@@ -1163,593 +1807,57 @@
 
       
         
-          <h2 id="内置关键字"><a href="#内置关键字" class="headerlink" title="内置关键字"></a>内置关键字</h2><p>均为小写，关键字不能作为标识符使用</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>break</th>
-<th>default</th>
-<th>func</th>
-<th>interface</th>
-<th>select</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>case</td>
-<td>defer</td>
-<td>go</td>
-<td>map</td>
-<td>struct</td>
-</tr>
-<tr>
-<td>chan</td>
-<td>else</td>
-<td>goto</td>
-<td>package</td>
-<td>switch</td>
-</tr>
-<tr>
-<td>const</td>
-<td>fallthrough</td>
-<td>if</td>
-<td>range</td>
-<td>type</td>
-</tr>
-<tr>
-<td>continue</td>
-<td>for</td>
-<td>import</td>
-<td>return</td>
-<td>var</td>
-</tr>
-</tbody>
-</table>
-</div>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/Go_2.html" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_1.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/Go_1.html" itemprop="url">Go 安装配置与Demo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T16:28:40+08:00">
-                2019-09-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
           
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/Go_1.html" class="leancloud_visitors" data-flag-title="Go 安装配置与Demo">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是Go"><a href="#什么是Go" class="headerlink" title="什么是Go ?"></a>什么是Go ?</h2><p>​        <code>Go</code>是一门 <strong>并发支持</strong>、<strong>垃圾回收</strong>的<em>编译型系统编程语言</em>，旨在创造一门具有静态编译语言的高性能和动态语言的高效开发之间拥有良好平衡点的一门编程语言。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/Go_1.html" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/flutter-02.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/flutter-02.html" itemprop="url">【译】Flutter中的Bottom sheets</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T22:16:11+08:00">
-                2019-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/flutter-02.html" class="leancloud_visitors" data-flag-title="【译】Flutter中的Bottom sheets">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>作者： <a href="https://flutterdoc.com/@hitherejoe?source=post_page-----ec05c90453e7----------------------" target="_blank" rel="noopener">Joe Birch</a></p>
-<p>原文地址：<a href="https://flutterdoc.com/bottom-sheets-in-flutter-ec05c90453e7" target="_blank" rel="noopener">https://flutterdoc.com/bottom-sheets-in-flutter-ec05c90453e7</a></p>
-<p><img src="/posts/./flutter-02\header.png" alt="1_PXlGmKUbyn0cO8E_ncM6Rw"></p>
-<p><code>Bottom sheets</code>（底部菜单或底部页面）是（移动设备）屏幕底部展示内容给用户的视图（widget） — 这样或许可以促进与用户进一步的交互或展示其他内容的一些形式。通常固定在屏幕的底部，并方便用户隐藏。在Flutter中，有2种开箱即用（声明式）的<code>bottom sheet widget</code>,分别是 <strong>Persistent Bottom Sheet</strong> 和 <strong>Modal Bottom Sheet</strong>  — 那么我们来看下这些widget是如何运行，同时在我们的apps中如何去使用它们。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/flutter-02.html" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/JavaScript&Calculation.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/JavaScript&Calculation.html" itemprop="url">JavaScript浮点计算</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T21:50:58+08:00">
-                2019-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/JavaScript&Calculation.html" class="leancloud_visitors" data-flag-title="JavaScript浮点计算">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  346
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="0-30000000000000004"><a href="#0-30000000000000004" class="headerlink" title="0.30000000000000004"></a>0.30000000000000004</h2><p>在前端进行业务的计算时，出现了一点错误：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">console.log(a+b);</span><br><span class="line"></span><br><span class="line">// 结果</span><br><span class="line">0.30000000000000004</span><br></pre></td></tr></tbody></table></figure>
-<p>很奇怪，为什么不直接等于<code>0.3</code></p>
-<h3 id="JavaScript中的数字"><a href="#JavaScript中的数字" class="headerlink" title="JavaScript中的数字"></a>JavaScript中的数字</h3><p>数值始终是64位的双精度浮点数，0到51存储数字（片段），52 到 62 存储指数，63 位存储符号。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值(aka Fraction/Mantissa)</th>
-<th style="text-align:left">指数</th>
-<th style="text-align:left">符号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">52 bits(0 - 51)</td>
-<td style="text-align:left">11 bits (52 - 62)</td>
-<td style="text-align:left">1 bit (63)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p> 整数会被精确到15位、小数最大数是17位。</p>
-<h4 id="对于小数的二进制"><a href="#对于小数的二进制" class="headerlink" title="对于小数的二进制"></a>对于小数的二进制</h4><p>系统是将10进制转为二进制再进行计算，<code>0.1</code>的二进制是<code>0001100110...</code>，后面就一直重复<code>0011</code>，<code>0.2</code>的二进制是<code>0011..</code>，也是重复<code>0011</code>。两个二进制再相加，再转为十进制就是<code>0.30000000000000004</code>。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>1、 先乘后除，缺点是 相乘的结果已经超过了 <strong>MAX_SAFE_INTEGER</strong> 会出现错误</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = (0.2 * 10 + 0.1 * 10) / 10;</span><br></pre></td></tr></tbody></table></figure>
-<p>2、指定精度的四舍五入，小数太多，也不是很理想</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">var c = a+b ;</span><br><span class="line">console.log(parseFloat(c.toFixed(12)));</span><br></pre></td></tr></tbody></table></figure>
-<p>3、将浮点数转字符串，再模拟实际计算</p>
-<p> <a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">bignumber.js</a>，<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">decimal.js</a>，以及<a href="https://github.com/MikeMcl/big.js" target="_blank" rel="noopener">big.js</a>等</p>
+            <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>类似其他语言中的哈希表或者字典，以<code>key-value</code>形式存储数据，<code>key</code>必须是支持<code>==</code>或者<code>!-</code>比较运算的类型，不可以是函数，<code>map</code>或者<code>slice</code>。</p>
+<p><code>Map</code> 查找比线性搜索快很多，但比使用索引访问数据的类型慢100倍。</p>
+<p><code>Map</code>使用<code>make()</code>创建，支持<code>:=</code>简写方式</p>
+<p><code>make([keyType]valueType, cap)</code>，其中<code>cap</code>表示容量，可省略</p>
+<p>超出容量时会自动扩容，但尽量提供一个合理的初始值</p>
+<p>键值对不存在时会自动添加，使用<code>delete()</code>删除某键值对</p>
+<p>使用<code>for range</code>对<code>map</code>和<code>slice</code>进行迭代操作</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF1</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">var</span> m1 <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span></span><br><span class="line">	m1 = <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>{}</span><br><span class="line">	fmt.Println(m1)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> m2 <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span></span><br><span class="line">	m2 = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line">	<span class="comment">// var m2 map[int]string = make(map[int]string)</span></span><br><span class="line">	fmt.Println(m2)</span><br><span class="line"></span><br><span class="line">	m3 := <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>{}</span><br><span class="line">	fmt.Println(m3)</span><br><span class="line"></span><br><span class="line">	m4 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line">	fmt.Println(m4)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map[]</span><br><span class="line">map[]</span><br><span class="line">map[]</span><br><span class="line">map[]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="元素操作"><a href="#元素操作" class="headerlink" title="元素操作"></a>元素操作</h3><h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF2</span><span class="params">()</span></span>{</span><br><span class="line">	m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>{}</span><br><span class="line">	m[<span class="string">"name"</span>] = <span class="string">"Bob"</span></span><br><span class="line">	m[<span class="string">"age"</span>] = <span class="string">"18"</span></span><br><span class="line">	fmt.Println(m)</span><br><span class="line"></span><br><span class="line">	a := m[<span class="string">"name"</span>]</span><br><span class="line">	fmt.Println(a)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map[age:18 name:Bob]</span><br><span class="line">Bob</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+ delete(m,"name")</span></span><br><span class="line"><span class="addition">+ fmt.Println(m)</span></span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map[age:18]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="复杂一点的map"><a href="#复杂一点的map" class="headerlink" title="复杂一点的map"></a>复杂一点的map</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF3</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="comment">// 1 : {1:"123"}</span></span><br><span class="line">	m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line">	m2 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line">	m2[<span class="number">0</span>] = <span class="string">"Bob"</span></span><br><span class="line"></span><br><span class="line">	m[<span class="number">0</span>] = m2</span><br><span class="line"></span><br><span class="line">	fmt.Println(m2)</span><br><span class="line">	fmt.Println(m)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map[0:Bob]</span><br><span class="line">map[0:map[0:Bob]]</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="单独初始化"><a href="#单独初始化" class="headerlink" title="单独初始化"></a>单独初始化</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF3</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="comment">// 1 : {1:"123"}</span></span><br><span class="line">	m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line"></span><br><span class="line">	a, ok := m[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">	fmt.Println(a, ok)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> !ok {</span><br><span class="line">		m[<span class="number">0</span>] = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line">	}</span><br><span class="line">	m[<span class="number">0</span>][<span class="number">0</span>] = <span class="string">"OK"</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(m)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> false</span><br><span class="line">map[0:map[0:OK]]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="循环迭代"><a href="#循环迭代" class="headerlink" title="循环迭代"></a>循环迭代</h3><h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sliceDemo</span><span class="params">()</span></span> {</span><br><span class="line">	a := []<span class="keyword">int</span>{<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>}</span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> a {</span><br><span class="line">		fmt.Println(i, v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">3 4</span><br><span class="line">4 5</span><br><span class="line">5 6</span><br></pre></td></tr></tbody></table></figure>
+<p><code>i</code>是索引，<code>v</code>是具体的属性值，v是个拷贝，对其操作不会影响原来的map</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m := make([]map[int]string, 5)</span><br><span class="line">for _, v := range m {</span><br><span class="line">	v = make(map[int]string, 1)</span><br><span class="line">	v[1] = "OK"</span><br><span class="line">	fmt.Println(v)</span><br><span class="line">}</span><br><span class="line">fmt.Println(m)</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">[map[] map[] map[] map[] map[]]</span><br></pre></td></tr></tbody></table></figure>
+<p><code>m</code>中并没有<code>"OK"</code>。所以为了影响<code>map</code>中，需要使用到索引，即第一个参数</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF6</span><span class="params">()</span></span> {</span><br><span class="line">	m := <span class="built_in">make</span>([]<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>, <span class="number">5</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> m {</span><br><span class="line">		m[i] = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line">		m[i][<span class="number">1</span>] = <span class="string">"OK"</span></span><br><span class="line">		fmt.Println(m[i])</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(m)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><code>_</code>为省略</p>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">map[1:OK]</span><br><span class="line">[map[1:OK] map[1:OK] map[1:OK] map[1:OK] map[1:OK]]</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="map-1"><a href="#map-1" class="headerlink" title="map"></a>map</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>)</span><br><span class="line">m[<span class="number">0</span>] = <span class="string">"Hello"</span></span><br><span class="line">m[<span class="number">1</span>] = <span class="string">"Jmy"</span></span><br><span class="line">m[<span class="number">2</span>] = <span class="string">"Nice to meet you"</span></span><br><span class="line"><span class="keyword">for</span> i, v := <span class="keyword">range</span> m {</span><br><span class="line">   fmt.Println(i, v)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0 Hello</span><br><span class="line">1 Jmy</span><br><span class="line">2 Nice to meet you</span><br></pre></td></tr></tbody></table></figure>
+<p>对<code>map</code>中元素进行操作</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i, v := range m {</span><br><span class="line"><span class="addition">+	m[i] = v + " 123"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map[0:Hello 123 1:Jmy 123 2:Nice to meet you 123]</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h5 id="无序性"><a href="#无序性" class="headerlink" title="无序性"></a>无序性</h5><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF7</span><span class="params">()</span></span> {</span><br><span class="line">   m := <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>{<span class="number">1</span>: <span class="string">"a"</span>, <span class="number">2</span>: <span class="string">"b"</span>, <span class="number">3</span>: <span class="string">"c"</span>, <span class="number">4</span>: <span class="string">"d"</span>, <span class="number">5</span>: <span class="string">"e"</span>}</span><br><span class="line">   s := <span class="built_in">make</span>([]<span class="keyword">int</span>,<span class="built_in">len</span>(m))</span><br><span class="line">   i := <span class="number">0</span></span><br><span class="line">   <span class="keyword">for</span> key,_ := <span class="keyword">range</span> m{</span><br><span class="line">      s[i] = key</span><br><span class="line">      i ++</span><br><span class="line">   }</span><br><span class="line">   fmt.Println(s)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[5 1 2 3 4]</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="sort-包"><a href="#sort-包" class="headerlink" title="sort 包"></a>sort 包</h5><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">	"fmt"</span><br><span class="line"><span class="addition">+	"sort"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.... 省略</span><br><span class="line"></span><br><span class="line"><span class="addition">+ sort.Ints(s)</span></span><br><span class="line">fmt.Println(s)</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1 2 3 4 5]</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mapF8</span><span class="params">()</span></span> {</span><br><span class="line">	m1 := <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">string</span>{<span class="number">1</span>:  <span class="string">"a"</span>, <span class="number">2</span>: <span class="string">"b"</span>, <span class="number">3</span>: <span class="string">"c"</span>}</span><br><span class="line">	m2 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>,<span class="built_in">len</span>(m1))</span><br><span class="line">	<span class="keyword">for</span> key,value := <span class="keyword">range</span> m1{</span><br><span class="line">		m2[value] = key</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(m1)</span><br><span class="line">	fmt.Println(m2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map[1:a 2:b 3:c]</span><br><span class="line">map[a:1 b:2 c:3]</span><br></pre></td></tr></tbody></table></figure>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1820,7 +1928,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Flutter-01.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_9.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -1839,7 +1947,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Flutter-01.html" itemprop="url">Flutter-01</a></h1>
+                <a class="post-title-link" href="/posts/Go_9.html" itemprop="url">Go func</a></h1>
         
 
         <div class="post-meta">
@@ -1851,8 +1959,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T14:09:10+08:00">
-                2019-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-18T16:28:40+08:00">
+                2021-04-18
               </time>
             
 
@@ -1869,7 +1977,7 @@
 
           
           
-             <span id="/posts/Flutter-01.html" class="leancloud_visitors" data-flag-title="Flutter-01">
+             <span id="/posts/Go_9.html" class="leancloud_visitors" data-flag-title="Go func">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1894,7 +2002,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  788
+                  1.3k
                 </span>
               
 
@@ -1910,7 +2018,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -1932,21 +2040,97 @@
 
       
         
-          <p>最近看到Flutter，所以准备玩下这个~</p>
-<h3 id="前期的一些坑"><a href="#前期的一些坑" class="headerlink" title="前期的一些坑"></a>前期的一些坑</h3><h4 id="准备的东西"><a href="#准备的东西" class="headerlink" title="准备的东西"></a>准备的东西</h4><ol>
-<li>Android Studio（个人推荐）或者Visual Studio Code（VS Code）</li>
-<li>Android SDK（使用Android Studio中的SDK Manager下载，需要修改代理设置）</li>
-<li>一部手机（或者使用模拟器）</li>
-<li>Flutter SDK</li>
-<li>Flutter镜像环境配置</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/Flutter-01.html" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>Go 函数不支持嵌套，重载和默认参数</p>
+<p>但支持以下特性：</p>
+<ul>
+<li>无需声明原型，不定长度变参，多返回值，命名返回值参数，匿名函数，闭包</li>
+</ul>
+<p>定义函数使用关键字<code>func</code>，且左大括号不能另起一行</p>
+<p>函数也可以作为一种类型使用</p>
+<h3 id="无需声明原型"><a href="#无需声明原型" class="headerlink" title="无需声明原型"></a>无需声明原型</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func funcTest1(a int, b string) (int, string, int) {</span><br><span class="line">	fmt.Println(a, b)</span><br><span class="line">	return 1, "123", 123</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	fmt.Println(funcTest1(1, "234"))</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="多参数同类型"><a href="#多参数同类型" class="headerlink" title="多参数同类型"></a>多参数同类型</h3><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest2</span><span class="params">(a, b, c <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	fmt.Println(a, b, c)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest2</span><span class="params">(a, b, c <span class="keyword">int</span>)</span> <span class="params">(a1, b1, c1 <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	fmt.Println(a, b, c)</span><br><span class="line">	a1, b1, c1 = a+<span class="number">1</span>, b+<span class="number">1</span>, c+<span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><code>return</code>与返回声明中的参数名一样就可以省略不用写，不过一般情况下，按照编码要求还是需要写得 </p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest2</span><span class="params">(a, b, c <span class="keyword">int</span>)</span> <span class="params">(a1, b1, c1 <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	fmt.Println(a, b, c)</span><br><span class="line">    a1, b1, c1 = a+<span class="number">1</span>, b+<span class="number">1</span>, c+<span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> a1, b1, c1</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="不定长度变参"><a href="#不定长度变参" class="headerlink" title="不定长度变参"></a>不定长度变参</h3><p>java 中参数可变的例子</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sumUp</span><span class="params">(<span class="keyword">int</span>... values)</span> </span>{    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>在go中也可以</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest3</span><span class="params">(a ...<span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">	max := math.MinInt64</span><br><span class="line">	<span class="keyword">for</span> i, _ := <span class="keyword">range</span> a {</span><br><span class="line">		fmt.Println(a[i])</span><br><span class="line">		<span class="keyword">if</span> a[i] &gt; max {</span><br><span class="line">			max = a[i]</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> max</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><code>...[type]</code>必须是最后一个参数，是一个<code>slice</code></p>
+<p>以下是错误的</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest</span><span class="params">(a ...<span class="keyword">int</span>, b <span class="keyword">string</span>)</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p>正确</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funTest</span><span class="params">(b <span class="keyword">string</span>, a ...<span class="keyword">int</span>)</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>...[type]</code>可变参数可以看作是一个<code>slice</code>，但是与<code>slice</code>不同的是，不是引用类型，实际上得到是一个值拷贝。</p>
+<p>如果参数是<code>slice</code>，是拷贝<code>slice</code>的内存地址，而不是值。</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest5</span><span class="params">(s []<span class="keyword">int</span>)</span></span> {</span><br><span class="line">	<span class="keyword">for</span> i,v := <span class="keyword">range</span> s {</span><br><span class="line">		s[i] = v + <span class="number">1</span> </span><br><span class="line">	}</span><br><span class="line">	fmt.Println(<span class="string">"func:"</span>, s)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	s := []<span class="keyword">int</span>{<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}</span><br><span class="line">	fmt.Println(<span class="string">"before:"</span>, s)</span><br><span class="line">	funcTest5(s)</span><br><span class="line">	fmt.Println(<span class="string">"after"</span>, s)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">before: [1 2 3]</span><br><span class="line">func: [2 3 4]</span><br><span class="line">after [2 3 4]</span><br></pre></td></tr></tbody></table></figure>
+<p>一般类型都是值拷贝，如果需要影响到传入的值，需要传入值的地址。</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- func funcTest5(s []int) {</span></span><br><span class="line"><span class="addition">+ func funcTest5(s []int, a *int) {</span></span><br><span class="line">  	for i, v := range s {</span><br><span class="line">		s[i] = v + 1</span><br><span class="line">	}</span><br><span class="line"><span class="addition">+	*a = 2</span></span><br><span class="line"><span class="deletion">-   fmt.Println("func:", s)</span></span><br><span class="line"><span class="addition">+	fmt.Println("func:", s, a)</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	s := []int{1, 2, 3}</span><br><span class="line"><span class="deletion">-	fmt.Println("before:", s)</span></span><br><span class="line"><span class="deletion">-	funcTest5(s)</span></span><br><span class="line"><span class="deletion">-	fmt.Println("after", s)</span></span><br><span class="line"><span class="addition">+	a := 1</span></span><br><span class="line"><span class="addition">+	fmt.Println("before:", s, a)</span></span><br><span class="line"><span class="addition">+	funcTest5(s, &amp;a)</span></span><br><span class="line"><span class="addition">+	fmt.Println("after", s, a)</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">before: [1 2 3] 1</span><br><span class="line">func: [2 3 4] 0xc00001a098</span><br><span class="line">after [2 3 4] 2</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="函数也可以作为一种类型使用"><a href="#函数也可以作为一种类型使用" class="headerlink" title="函数也可以作为一种类型使用"></a>函数也可以作为一种类型使用</h3><p>这个特性与JavaScript中差不多，定义一个变量等于函数，使用这个变量相当于使用这个函数。<em>在Go中一切皆类型</em></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest6</span><span class="params">()</span></span> {</span><br><span class="line">	fmt.Println(<span class="string">"hello everyone"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	a := funcTest6</span><br><span class="line">	a()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello everyone</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	a := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		fmt.Println(<span class="string">"这是一个匿名函数"</span>)</span><br><span class="line">	}</span><br><span class="line">	a()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>没有命令函数名称。是一个代码块。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest7</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">	fmt.Println(<span class="string">"func test 7"</span>, x, &amp;x)</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(y <span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">		x++</span><br><span class="line">		fmt.Println(<span class="string">"func test 7 "</span>, x, &amp;x, y)</span><br><span class="line">		<span class="keyword">return</span> x + y</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	f := funcTest7(<span class="number">10</span>)</span><br><span class="line">	fmt.Println(f(<span class="number">1</span>))</span><br><span class="line">	fmt.Println(f(<span class="number">2</span>))</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func test 7 10 0xc00001a098</span><br><span class="line">func test 7  11 0xc00001a098 1</span><br><span class="line">12</span><br><span class="line">func test 7  12 0xc00001a098 2</span><br><span class="line">14</span><br></pre></td></tr></tbody></table></figure>
+<p>3次输出<code>x</code>的地址是一样的。</p>
+<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><p>执行方式类似其他语言中的<strong>析构函数</strong>，在函数体执行结束后按照<strong>调用顺序的相反顺序逐个执行</strong>（先进后出，栈堆）。即使函数发生严重错误也会执行，支持匿名函数的调用。通常用于资源清理，文件关闭，解锁以及记录时间等操作。通过与匿名函数配合可在<code>return</code>之后修改函数计算结果。如果函数体内某个变量作为<code>defer</code>时匿名函数的参数，则在定义<code>defer</code>时即已经获得了拷贝，否则引用某个变量的地址。。</p>
+<p>Go 中没有异常机制，但是有 <code>panic/recover</code>模式来处理错误</p>
+<p><code>panic</code>可以在任何地方引发，但是<code>recover</code>只有在<code>defer</code>调用的函数中有效</p>
+<h3 id="相反顺序"><a href="#相反顺序" class="headerlink" title="相反顺序"></a>相反顺序</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	fmt.Println(<span class="string">"a"</span>)</span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(<span class="string">"b"</span>)</span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(<span class="string">"c"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br><span class="line">b</span><br></pre></td></tr></tbody></table></figure>
+<p>按照<strong>调用顺序的相反顺序逐个执行</strong></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ {</span><br><span class="line">		<span class="keyword">defer</span> fmt.Println(i)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="闭包-1"><a href="#闭包-1" class="headerlink" title="闭包"></a>闭包</h3><p>在这个匿名函数中，<code>i</code>被当作一个地址的引用，引用这个局部变量，当循环结束时，i = 3 。在main函数结束后，开始执行<code>defer</code>中的代码。</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ {</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		fmt.Println(i)</span><br><span class="line">	}()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br></pre></td></tr></tbody></table></figure>
+<p>可以改成这样：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ {</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(a <span class="keyword">int</span>)</span></span> {</span><br><span class="line">		fmt.Println(a)</span><br><span class="line">	}(i)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="panic"><a href="#panic" class="headerlink" title="panic"></a>panic</h3><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest8</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"func test 8"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest9</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="built_in">panic</span>(<span class="string">"func test 9"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">funcTest10</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"func test 10"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	funcTest8()</span><br><span class="line">	funcTest9()</span><br><span class="line">	funcTest10()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func test 8</span><br><span class="line">panic: func test 9</span><br><span class="line"></span><br><span class="line">goroutine 1 [running]:</span><br><span class="line">main.funcTest9(...)</span><br><span class="line">... 省略</span><br></pre></td></tr></tbody></table></figure>
+<p>并没有继续往下执行到test10</p>
+<h4 id="recover"><a href="#recover" class="headerlink" title="recover()"></a>recover()</h4><figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func funcTest9() {</span><br><span class="line"><span class="addition">+	defer func() {</span></span><br><span class="line"><span class="addition">+		if err := recover(); err != nil {</span></span><br><span class="line"><span class="addition">+			fmt.Println("Recover in test 9")</span></span><br><span class="line"><span class="addition">+		}</span></span><br><span class="line"><span class="addition">+	}()</span></span><br><span class="line">	panic("func test 9")</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>需要在<code>panic</code>前面加入以上代码，输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func test 8</span><br><span class="line">Recover in test 9</span><br><span class="line">func test 10</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">var</span> fs = [<span class="number">4</span>]<span class="function"><span class="keyword">func</span><span class="params">()</span></span>{}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">4</span>; i++ {</span><br><span class="line">		<span class="keyword">defer</span> fmt.Println(<span class="string">"defer i = "</span>, i)</span><br><span class="line">		<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">			fmt.Println(<span class="string">"defer_closure i = "</span>, i)</span><br><span class="line">		}()</span><br><span class="line">		fs[i] = <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">			fmt.Println(<span class="string">"closure i = "</span>, i)</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> _, f := <span class="keyword">range</span> fs {</span><br><span class="line">		f()</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">closure i =  4</span><br><span class="line">closure i =  4</span><br><span class="line">closure i =  4</span><br><span class="line">closure i =  4</span><br><span class="line">defer_closure i =  4</span><br><span class="line">defer i =  3</span><br><span class="line">defer_closure i =  4</span><br><span class="line">defer i =  2</span><br><span class="line">defer_closure i =  4</span><br><span class="line">defer i =  1</span><br><span class="line">defer_closure i =  4</span><br><span class="line">defer i =  0</span><br></pre></td></tr></tbody></table></figure>
+<p><code>fs[i]()</code> 中的<code>i</code>，因为使用的是外部的<code>i</code>，实际上调用外部 <code>i</code>的地址，当循环体结束时，<code>i = 4</code> ，所以输出<code>closure i =  4</code></p>
+<p>defer 使用的匿名函数与上面一样，是闭包的思想。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
         
       
     </div>
@@ -1997,7 +2181,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Mar-19-blog-01.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_7.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -2016,7 +2200,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Mar-19-blog-01.html" itemprop="url">Mar-19-blog-01</a></h1>
+                <a class="post-title-link" href="/posts/Go_7.html" itemprop="url">Go 切片</a></h1>
         
 
         <div class="post-meta">
@@ -2028,8 +2212,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T13:01:12+08:00">
-                2019-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-12T16:28:40+08:00">
+                2021-04-12
               </time>
             
 
@@ -2046,7 +2230,7 @@
 
           
           
-             <span id="/posts/Mar-19-blog-01.html" class="leancloud_visitors" data-flag-title="Mar-19-blog-01">
+             <span id="/posts/Go_7.html" class="leancloud_visitors" data-flag-title="Go 切片">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2071,7 +2255,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  176
+                  1.1k
                 </span>
               
 
@@ -2087,7 +2271,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -2109,11 +2293,10 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近几天，天空像是把双手插进装满云的蜜罐里，黏黏的，怎么抹都抹不掉。最后，跑到海边看日月贝。</p>
-<p><img src="/posts/./Mar-19-blog-01/header/1.jpg" alt="Chien Chung-Wei"></p>
+          <h2 id="切片Slice"><a href="#切片Slice" class="headerlink" title="切片Slice"></a>切片Slice</h2><p>切片本身并不是数组，是指向底层的数组，类似指针。其作为变长数组的替代方案，可以关联底层数组的局部或全部。同时这是一个引用类型，可以直接传教或者从底层数组获取生成。和数组一样，可以使用<code>len()</code>来获取元素个数，<code>cap()</code>获取容量。一般使用<code>mark()</code>进行创建，而不是<code>new ()</code>。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/Mar-19-blog-01.html" rel="contents">
+            <a class="btn" href="/posts/Go_7.html" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2159,7 +2342,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2197,7 +2380,7 @@
               <img class="site-author-image" itemprop="image" src="/uploads/logo.jpg" alt="ZRoger">
             
               <p class="site-author-name" itemprop="name">ZRoger</p>
-              <p class="site-description motion-element" itemprop="description">宇宙浩瀚无垠,人生沧海一粟</p>
+              <p class="site-description motion-element" itemprop="description">如无必要，勿增实体</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -2207,7 +2390,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2220,7 +2403,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2286,7 +2469,7 @@
 
     <footer id="footer" class="footer" style="background-color: white;">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-rocket"></i>
   </span>
