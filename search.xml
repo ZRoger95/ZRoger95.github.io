@@ -1027,30 +1027,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[<h1 id="读后感《THE-MORNING-PAPER》"><a href="#读后感《THE-MORNING-PAPER》" class="headerlink" title="读后感《THE MORNING PAPER》"></a>读后感《THE MORNING PAPER》</h1><p>来自 <a href="https://www.infoq.com/morning-paper-quarterly-review/" target="_blank" rel="noopener">https://www.infoq.com/morning-paper-quarterly-review/</a> 第一篇 <a href="https://www.infoq.com/minibooks/emag-the-morning-paper-q1/?itm_source=minibooks_about_morning-paper-quarterly-review&amp;itm_medium=link&amp;itm_campaign=morning-paper-quarterly-review" target="_blank" rel="noopener">The Morning Paper Quarterly Review Issue 1</a>，原文是2016年4月；我阅读的时间是2021年12月8日，希望2021年结束之前，能阅读完并了解；</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
     <title>Feb-19-blog-01</title>
     <url>/posts/Feb-19-blog-01.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/posts/./Feb-19-blog-01/top.jpg" alt="Chien Chung-Wei"></p>
@@ -1474,77 +1450,6 @@
         <tag>javascript</tag>
         <tag>typescript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[<h1 id="Git的日常使用和提交模板"><a href="#Git的日常使用和提交模板" class="headerlink" title="Git的日常使用和提交模板"></a>Git的日常使用和提交模板</h1><p>Git的提交模板 git commit template 了。</p>
-<ul>
-<li>npm 全局安装利器 commitizen<br><code>npm install -g commitizen</code></li>
-</ul>
-<hr>
-<ul>
-<li>全局安装规范模板，好东西大家享 </li>
-</ul>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 全局下载模板，cz-conventional-changelog 是被业界广泛赞许的AngularJS的规范 </span></span><br><span class="line">npm install -g cz-conventional-changelog </span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入 Git 工程目录 然后再执行上面那条命令</span></span><br><span class="line">commitizen init cz-conventional-changelog  --save --save-exact</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<ul>
-<li>局部安装规范模板，小试牛刀 🤓</li>
-</ul>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="built_in">cd</span> gitUse</span><br><span class="line"><span class="comment"># 如果项目本身就是 node 系列的，例如 web 前端项目，</span></span><br><span class="line"><span class="comment"># 你的项目下应该是有个 package.json 文件的，直接运行下面的命令 安装规范模板 应该不会报错。</span></span><br><span class="line">commitizen init cz-conventional-changelog  --save --save-exact</span><br><span class="line"><span class="comment"># 如果 是iOS 或者 Android 项目，需要先生成对应的 package.json 文件</span></span><br><span class="line">npm init</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<p>接下来我们使用 <code>git cz</code> 命令来提交一下试试</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683753-2a4e370f3034f38c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"></p>
-<hr>
-<p>Type:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">feat :新功能 </span><br><span class="line">fix :修复bug  </span><br><span class="line">doc : 文档改变</span><br><span class="line">style : 代码格式改变</span><br><span class="line">refactor :某个已有功能重构</span><br><span class="line">perf :性能优化</span><br><span class="line"><span class="built_in">test</span> :增加测试</span><br><span class="line">build :改变了build工具 如 grunt换成了 npm</span><br><span class="line">revert: 撤销上一次的 commit</span><br></pre></td></tr></tbody></table></figure>
-<p>Scope:</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="code"><pre><span class="line">scope <span class="symbol">:</span>用来说明此次修改的影响范围 可以随便填写任何东西，commitizen也给出了几个 如：location 、browser、compile。</span><br><span class="line">不过我推荐使用：</span><br><span class="line">all ：表示影响面大 ，如修改了网络框架  会对真个程序产生影响</span><br><span class="line">loation： 表示影响小，某个小小的功能</span><br><span class="line"><span class="class"><span class="keyword">module</span>：表示会影响某个模块 如登录模块、首页模块 、用户管理模块等等</span></span><br></pre></td></tr></tbody></table></figure>
-<p>Others:</p>
-<figure class="highlight objectivec"><table><tbody><tr><td class="code"><pre><span class="line">subject: 用来简要描述本次改动，概述就好了</span><br><span class="line">body:具体的修改信息 应该尽量详细</span><br><span class="line">footer：放置写备注啥的，如果是 bug ，可以把bug <span class="keyword">id</span>放入</span><br></pre></td></tr></tbody></table></figure>
-<p>最后会看到这样的结果：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683753-c7c4bd874143fe4a.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"></p>
-<p>git cz result</p>
-<p>从SourceTree 和 远程仓库 看一下提交记录，可以直观看到该次提交修改的描述：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683753-8d161e2d90c79de5.png?imageMogr2/auto-orient/strip|imageView2/2/w/890/format/webp" alt="img"></p>
-<p>SourceTree</p>
-<hr>
-<h3 id="Git的简单回滚操作"><a href="#Git的简单回滚操作" class="headerlink" title="Git的简单回滚操作"></a>Git的简单回滚操作</h3><p>就算Git中分支、提交、gitflow 分的都很清楚，也难免会遇到需要回退到前几个版本的尴尬境地，你都是怎么做的呢？施展<code>CV大法</code>吗？😂<br>两个简单的命令就可以让他滚回去：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> -(需要查看的版本条数)</span><br><span class="line">git reset --hard [提交对应的编号]</span><br></pre></td></tr></tbody></table></figure>
-<p>我们来试试查看最近的三个提交是怎么样的 <code>git log -3</code></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683753-2c522f4ea0f9cc01.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"></p>
-<p>git log -3</p>
-<p>我们可以看到每一个提交从上到下都有，对应的哈希值、作者、邮箱、日期，以及我上面提到的<code>提交信息</code>，非常重要，不然你都不知道这次提交是为了什么，甚至找不到滚回去的位置。</p>
-<p>假设我们要回滚到第三条，也就是<code>5d9c3b1dab8de8932ebf8deffef821cf2052fd65</code> 这一条，执行命令<code>git reset --hard 5d9c3b1dab8de8932ebf8deffef821cf2052fd65</code> 即可，当前分支就回退到这个版本了。</p>
-<p>回退后，我们可能会修改代码，这个时候又有新的问题了，以前的提交已经push到远程仓库，也就是我们目前的代码落后两个版本，同时有一个新的commit待提交。<br>两个方式：<br>1、强势一点：硬提<br><code>git push -f origin [分支名称]</code><br>2、委婉的：先拉去-&gt;解决冲突-&gt;重新提交整合后的代码<br><code>git pull origin develop</code> -&gt; <code>solve conflct</code> -&gt; <code>git push -u origin develop</code><br>记得写清楚提交信息鸭！！！！！</p>
-<p>这样一个简单的回滚就完成了。<br>不要告诉我你不会解决冲突。🤓🤓🤓🤓🤓</p>
-<hr>
-<h3 id="Git-关联对应的-JIRA-任务"><a href="#Git-关联对应的-JIRA-任务" class="headerlink" title="Git 关联对应的 JIRA 任务"></a>Git 关联对应的 JIRA 任务</h3><blockquote>
-<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.cnblogs.com%2Fhailongchen%2Fp%2F9004565.html" target="_blank" rel="noopener">Git关联JIRA的issue</a></p>
-</blockquote>
-<p>在提交修改的时候，描述信息加上在 JIRA 的任务/问题 编号，就可以关联到一起了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683753-f8ae46bcf587400e.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"></p>
-<p>添加JIRA 任务编号</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683753-646041c1cbdf697c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1064/format/webp" alt="img"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
   </entry>
   <entry>
     <title>Docker_Getting_Started</title>
@@ -2939,97 +2844,6 @@
     <title></title>
     <url>/posts/0.html</url>
     <content><![CDATA[<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[<h2 id="协助工具"><a href="#协助工具" class="headerlink" title="协助工具"></a>协助工具</h2><h2 id="todo-list"><a href="#todo-list" class="headerlink" title="todo list"></a>todo list</h2><ul>
-<li>[ ] redis 常用场景练习<ul>
-<li>[ ] 登录试错限制</li>
-<li>[ ] 短信发生限制</li>
-</ul>
-</li>
-<li>[ ] redis  与 MySQL 双写一致性方案</li>
-<li>[ ] 二次封装 spring-boot-starter-data-redis<ul>
-<li>[ ] 序列化与反序列化</li>
-<li>[ ] 内存管理</li>
-</ul>
-</li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[<h1 id="对缓存技术的思考"><a href="#对缓存技术的思考" class="headerlink" title="对缓存技术的思考"></a>对缓存技术的思考</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在实习时，需要研究大数据的查询，偶然间就碰到了<code>redis</code>缓存，利用内存解决查询耗时的问题。仅仅安装体验了一番，便不了了之了。之后在新公司实习时，便遇到<code>memcached</code>缓存，但也仅仅是安装用来跑本地服务，没有过多去深入了解。</p>
-<p>​        OK，那么到现在想重新认识一下缓存技术。</p>
-<h2 id="缓存技术是为了处理什么问题"><a href="#缓存技术是为了处理什么问题" class="headerlink" title="缓存技术是为了处理什么问题"></a>缓存技术是为了处理什么问题</h2><p><a href="https://zhuanlan.zhihu.com/p/55303228" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55303228</a></p>
-<h2 id="主流缓存技术"><a href="#主流缓存技术" class="headerlink" title="主流缓存技术"></a>主流缓存技术</h2><h3 id="Memcached"><a href="#Memcached" class="headerlink" title="Memcached"></a>Memcached</h3><p>官网地址：<a href="http://memcached.org/" target="_blank" rel="noopener">http://memcached.org/</a></p>
-<p><img src="/posts/E:/blog\source\_posts\redis\应用场景\redis.assets\image-20210519230744864.png" alt="image-20210519230744864"></p>
-<p>什么是Memcached ?</p>
-<p>是一个免费，开源，高性能，分布式内存对象缓存系统。旨在通过减轻数据库负载来加上动态web应用程序。</p>
-<p>Memcached 是一个在内存存储键值对的数据库，主要存储一些小块任意数据（如：字符串，对象），以便于存储来自数据库调用，api调用或是一些页面数据查询呈现。</p>
-<p>Memcached 简易且强大。便于快速部署，简化开发，同时解决了大型数据缓存所面临的许多问题。Memcached Api 适用于大多数流行语言（Java等）</p>
-<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h3><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">/**</span><br><span class="line">    * 重写Redis序列化方式，使用Json方式:</span><br><span class="line">    * 当我们的数据存储到Redis的时候，我们的键（key）和值（value）都是通过Spring提供的Serializer序列化到数据库的。RedisTemplate默认使用的是JdkSerializationRedisSerializer，StringRedisTemplate默认使用的是StringRedisSerializer。</span><br><span class="line">    * Spring Data JPA为我们提供了下面的Serializer：</span><br><span class="line">    * GenericToStringSerializer、Jackson2JsonRedisSerializer、JacksonJsonRedisSerializer、JdkSerializationRedisSerializer、OxmSerializer、StringRedisSerializer。</span><br><span class="line">    * 在此我们将自己配置RedisTemplate并定义Serializer。</span><br><span class="line">    *</span><br><span class="line">    * @param redisConnectionFactory</span><br><span class="line">    * @return</span><br><span class="line">    */</span><br></pre></td></tr></tbody></table></figure><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
