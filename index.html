@@ -513,226 +513,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Zuul Filter.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/Zuul Filter.html" itemprop="url">Zuul Filter</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-20T21:45:31+08:00">
-                2021-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/Zuul Filter.html" class="leancloud_visitors" data-flag-title="Zuul Filter">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  604
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Zuul-Filter"><a href="#Zuul-Filter" class="headerlink" title="Zuul Filter"></a>Zuul Filter</h2><blockquote>
-<p>目前项目中用到的是 Zuul core 是 1.x 版本，可以继续尝试使用Zuul 2，或者用GateWay替换，当然还有其它一些网关中间件可以替换 Zuul , 这里只是一个备注</p>
-</blockquote>
-<h2 id="【译】编写Filter"><a href="#【译】编写Filter" class="headerlink" title="【译】编写Filter"></a>【译】编写Filter</h2><blockquote>
-<p> <a href="https://github.com/Netflix/zuul/wiki/Writing-Filters" target="_blank" rel="noopener">原文</a></p>
-</blockquote>
-<h3 id="Filter-基础"><a href="#Filter-基础" class="headerlink" title="Filter 基础"></a>Filter 基础</h3><h4 id="Filter-接口"><a href="#Filter-接口" class="headerlink" title="Filter 接口"></a>Filter 接口</h4><p>自定义Filter需要继承 ZuulFilter ，并且实现其中的方法</p>
-<figure class="highlight java"><figcaption><span>ZuulFilter.java</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">filterType</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filterOrder</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">shouldFilter</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Object <span class="title">run</span><span class="params">()</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="运行或者停止"><a href="#运行或者停止" class="headerlink" title="运行或者停止"></a>运行或者停止</h4><p><code>shouldFilter</code>返回一个<code>boolean</code>值来决定<em>Filter</em>是否运行</p>
-<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><p><code>filterOrder</code>方法返回<code>int</code>值来决定过滤器之间的运行顺序</p>
-<h4 id="Filter-Types"><a href="#Filter-Types" class="headerlink" title="Filter Types"></a>Filter Types</h4><p>可以用任何的字符串来定义Filter的类型，主要由2种用途：</p>
-<ol>
-<li>Zuul 中基本的请求生命周期，按照顺序由：<code>pre</code>、<code>routing</code>和<code>post</code>阶段构成。所有这些类型的Filter都会运行在所有的请求中</li>
-<li>任何类型的Filter都可以使用<a href="http://netflix.github.io/zuul/javadoc/zuul-core/com/netflix/zuul/FilterProcessor.html#runFilters(java.lang.String" target="_blank" rel="noopener">GroovyProcessor.runFilters(String type)</a>)方法显示运行</li>
-</ol>
-<h4 id="Filter-协调"><a href="#Filter-协调" class="headerlink" title="Filter 协调"></a>Filter 协调</h4><p>Filter没有直接方法去访问彼此。可以使用<a href="http://netflix.github.io/zuul/javadoc/zuul-core/com/netflix/zuul/context/RequestContext.html" target="_blank" rel="noopener">RequestContext</a>共享状态，RequestContext是一个类似Map的结构，具有一些显示访问器方法，来获取Zuul原始数据。</p>
-<h3 id="特殊Filter扩展"><a href="#特殊Filter扩展" class="headerlink" title="特殊Filter扩展"></a>特殊Filter扩展</h3><h4 id="StaticResponseFilter"><a href="#StaticResponseFilter" class="headerlink" title="StaticResponseFilter"></a>StaticResponseFilter</h4><p><a href="http://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/groovy/com/netflix/zuul/filters/StaticResponseFilter.groovy" target="_blank" rel="noopener">StaticResponseFilter</a>允许从Zuul本身生成响应，而不是将请求妆发到源</p>
-<h4 id="SurgicalDebugFilter"><a href="#SurgicalDebugFilter" class="headerlink" title="SurgicalDebugFilter"></a>SurgicalDebugFilter</h4><p><a href="http://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/groovy/com/netflix/zuul/filters/SurgicalDebugFilter.groovy" target="_blank" rel="noopener">SurgicalDebugFilter</a>允许将特定请求路由到单独的调试集群或主机中</p>
-<p>了解了以上，再来处理一些与过滤器有关的设计，比如：</p>
-<ol>
-<li>设计双因素认证拦截</li>
-<li>用户登录后成功签发bearer token</li>
-<li>refresh token 自动续签问题</li>
-<li>黑白名单拦截设计</li>
-</ol>
-<h2 id="其他的补充"><a href="#其他的补充" class="headerlink" title="其他的补充"></a>其他的补充</h2><ul>
-<li><strong>PRE</strong> Filter 在请求到源之前执行。比如：请求身份认证，选择源服务和记录调试信息</li>
-<li><strong>ROUTING</strong> Filter 处理请求路由到源。这是使用 Apache HttpClient 或是 Netfix Ribbon 构建和发送原始HTTP请求的地方</li>
-<li><strong>POST</strong> Filter 在请求被路由到源后执行。比如：向响应头加入标准HTTP标头，收集统计信息和指标以及将响应从源传输到客户端 </li>
-<li><strong>ERROR</strong> Filter 在其他阶段之一发送错误时执行</li>
-</ul>
-<p>除了默认的过滤器流程，Zuul 允许我们创建自定义过滤器类型并显示执行它们。</p>
-<p><img src="/posts/E:/blog\source\_posts\micro_service\spring cloud\zuul filter.assets\687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67" alt="zuul-request-lifecycle.png"></p>
-<p>资料</p>
-<ol>
-<li><a href="https://github.com/Netflix/zuul/wiki/How-it-Works" target="_blank" rel="noopener">How it Works</a></li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/0.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1030,606 +810,6 @@
         
           
             <h1 id="读后感《THE-MORNING-PAPER》"><a href="#读后感《THE-MORNING-PAPER》" class="headerlink" title="读后感《THE MORNING PAPER》"></a>读后感《THE MORNING PAPER》</h1><p>来自 <a href="https://www.infoq.com/morning-paper-quarterly-review/" target="_blank" rel="noopener">https://www.infoq.com/morning-paper-quarterly-review/</a> 第一篇 <a href="https://www.infoq.com/minibooks/emag-the-morning-paper-q1/?itm_source=minibooks_about_morning-paper-quarterly-review&amp;itm_medium=link&amp;itm_campaign=morning-paper-quarterly-review" target="_blank" rel="noopener">The Morning Paper Quarterly Review Issue 1</a>，原文是2016年4月；我阅读的时间是2021年12月8日，希望2021年结束之前，能阅读完并了解；</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/0.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/0.html" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-08T22:53:23+08:00">
-                2021-10-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/0.html" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  91
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>zuul 需要搭配的清单</p>
-<ol>
-<li>如何代理</li>
-<li>如何负载均衡</li>
-<li>如何拦截</li>
-<li>优雅替换路由配置，而不是直接停掉服务</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/0.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/0.html" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-04T14:09:28+08:00">
-                2021-10-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/0.html" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>先考虑单个项目架构，再考虑抽离中间件到分布式微服务架构中</p>
-<p>项目采用前后端分离的方式，系统展示与交互交给前端进行处理；</p>
-<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><h3 id="spring-boot-自动化配置"><a href="#spring-boot-自动化配置" class="headerlink" title="spring boot 自动化配置"></a>spring boot 自动化配置</h3><p>spring boot 有默认配置，项目初始需要进行自定义的配置，区分应用启动环境</p>
-<ul>
-<li>application.yml -&gt; 公共设置</li>
-<li>appliaction-dev.yml -&gt; 本地开发配置</li>
-<li>application-pro.yml -&gt; 线上配置</li>
-<li>appliaction-test.yml -&gt; 测试服配置</li>
-<li>application-stage.yml -&gt; 预上线配置</li>
-</ul>
-<p>开发配置修改：</p>
-<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devtools:</span></span><br><span class="line"><span class="attr">   restart:</span></span><br><span class="line"><span class="attr">     enabled:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">   thymeleaf:</span></span><br><span class="line"><span class="attr">     cache:</span> <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-<p>idea 本地开发修改某一段时，进行热更新。如果是新增方法，修改方法传参，还是需要重新启动应用</p>
-<p>配置承载者各个中间件之间的连接，redis数据库配置，mysql数据库配置，跨数据库查询配置，日志记录配置等等</p>
-<p>后续再进行补充</p>
-<h3 id="数据持久层"><a href="#数据持久层" class="headerlink" title="数据持久层"></a>数据持久层</h3><p>为了数据落地，进行持久化保存；有很多中方案，比如hibernate，JPA，MyBatis ，甚至可以利用反射的方式进行对数据进行处理；</p>
-<h4 id="搭配"><a href="#搭配" class="headerlink" title="搭配"></a>搭配</h4><p>目前个人项目采用 mybatis + mybatis plus + druid</p>
-<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>mybatis 提供orm层，plus对其进行扩展，有抽离好的底层业务架构供开发使用，可以根据 plus 的基础上，对其再次封装，可根据业务要求封装多个基础业务类，提供给不同的场景使用；如：</p>
-<ol>
-<li>普通业务场景，单表结构，仅有增删改查功能</li>
-<li>主从表业务场景，主表与详细清单组成</li>
-<li>关联树结构场景</li>
-<li>活动业务场景：涉及消息，活动，历史记录</li>
-</ol>
-<p>做到后期，再升级，结合plus的代码生成器来构建代码生成器工具，最后这个工具变成可升级为低代码平台，节省开发时间；</p>
-<h4 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h4><p>plus 结合枚举类enum 来维护业务中的字典</p>
-<h5 id="普通业务类型"><a href="#普通业务类型" class="headerlink" title="普通业务类型"></a>普通业务类型</h5><h5 id="动态业务类型"><a href="#动态业务类型" class="headerlink" title="动态业务类型"></a>动态业务类型</h5><h4 id="时间字段处理"><a href="#时间字段处理" class="headerlink" title="时间字段处理"></a>时间字段处理</h4><h4 id="事务回滚"><a href="#事务回滚" class="headerlink" title="事务回滚"></a>事务回滚</h4><h4 id="锁表问题"><a href="#锁表问题" class="headerlink" title="锁表问题"></a>锁表问题</h4><h3 id="日志记录"><a href="#日志记录" class="headerlink" title="日志记录"></a>日志记录</h3><p>spring boot 日志记录，默认配置；切换配置</p>
-<h4 id="spring-boot-中的配置"><a href="#spring-boot-中的配置" class="headerlink" title="spring boot 中的配置"></a>spring boot 中的配置</h4><h4 id="日志-spring-yml"><a href="#日志-spring-yml" class="headerlink" title="日志-spring.yml"></a>日志-spring.yml</h4><p>公共日志层抽离</p>
-<p>记录api调用记录 </p>
-<h4 id="skywalking-服务链路记录"><a href="#skywalking-服务链路记录" class="headerlink" title="skywalking 服务链路记录"></a>skywalking 服务链路记录</h4><h4 id="ELK-日志记录"><a href="#ELK-日志记录" class="headerlink" title="ELK 日志记录"></a>ELK 日志记录</h4><h3 id="auth-认证"><a href="#auth-认证" class="headerlink" title="auth 认证"></a>auth 认证</h3><p>基于前后端分离，取消了sessionId配置；http是stateless的；</p>
-<h4 id="jwt"><a href="#jwt" class="headerlink" title="jwt"></a>jwt</h4><p>采用jwt的方式，beare token的接口，从请求头部 request header 获取 authorization 前缀为 beare 的token 进行校验，通过filter 再进行后续的服务操作</p>
-<h2 id="JWT的工作过程"><a href="#JWT的工作过程" class="headerlink" title="JWT的工作过程"></a>JWT的工作过程</h2><p>客户端接收服务器返回的JWT，将其存储在Cookie或localStorage中。</p>
-<p>此后，客户端将在与服务器交互中都会带JWT。如果将它存储在Cookie中，就可以自动发送，但是不会跨域，因此一般是将它放入HTTP请求的Header Authorization字段中。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authorization: Bearer JWT_TOKEN</span><br></pre></td></tr></tbody></table></figure>
-<p>当跨域时，也可以将JWT被放置于POST请求的数据主体中。</p>
-<h4 id="双因素认证"><a href="#双因素认证" class="headerlink" title="双因素认证"></a>双因素认证</h4><h4 id="SSO-单点登录处理"><a href="#SSO-单点登录处理" class="headerlink" title="SSO 单点登录处理"></a>SSO 单点登录处理</h4><h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><h4 id="redis-缓存"><a href="#redis-缓存" class="headerlink" title="redis 缓存"></a>redis 缓存</h4><p>利用redis的缓存机制可以处理很多场景，比如 redis session 共享，redis 消息队列；</p>
-<h5 id="请求次数限制"><a href="#请求次数限制" class="headerlink" title="请求次数限制"></a>请求次数限制</h5><h5 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h5><h5 id="点赞记录"><a href="#点赞记录" class="headerlink" title="点赞记录"></a>点赞记录</h5><h4 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h4><p>数据大部分以文档形式进行存储；场景：第三方每日推送大量数据进入我方系统，绘制数据图表，可以将数据存储再mongodb中；</p>
-<p>将用户上次的图片等附件存储</p>
-<h4 id="rabbitMQ-消息队列"><a href="#rabbitMQ-消息队列" class="headerlink" title="rabbitMQ 消息队列"></a>rabbitMQ 消息队列</h4><p>服务间推送消息，A 服务发送消息，B 服务从队列中获取并进行消费，再对影响其他服务；</p>
-<h2 id="前端；"><a href="#前端；" class="headerlink" title="前端；"></a>前端；</h2><p>前端构建打包后，使用nginx代理到index.html中进行访问</p>
-<p>前端技术栈：vue/vuex/vuerouter/vue-cli/webpack/element-ui</p>
-<p>后续将 webpack -&gt; vite </p>
-<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><p>优化前后端打包效率，灰度发布；</p>
-<h3 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h3><h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><h3 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h3><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Spring Cloud & Eureka.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZRoger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/Spring Cloud & Eureka.html" itemprop="url">Spring Cloud & Eureka</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-25T21:45:31+08:00">
-                2021-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/posts/Spring Cloud & Eureka.html" class="leancloud_visitors" data-flag-title="Spring Cloud & Eureka">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  66
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Spring-Cloud-amp-Eureka"><a href="#Spring-Cloud-amp-Eureka" class="headerlink" title="Spring Cloud &amp; Eureka"></a>Spring Cloud &amp; Eureka</h1><p>eureka 是什么，有什么用，怎么用</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2297,11 +1477,750 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/0.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/0.html" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-18T23:08:01+08:00">
+                2021-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/0.html" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  363
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="对缓存技术的思考"><a href="#对缓存技术的思考" class="headerlink" title="对缓存技术的思考"></a>对缓存技术的思考</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在实习时，需要研究大数据的查询，偶然间就碰到了<code>redis</code>缓存，利用内存解决查询耗时的问题。仅仅安装体验了一番，便不了了之了。之后在新公司实习时，便遇到<code>memcached</code>缓存，但也仅仅是安装用来跑本地服务，没有过多去深入了解。</p>
+<p>​        OK，那么到现在想重新认识一下缓存技术。</p>
+<h2 id="缓存技术是为了处理什么问题"><a href="#缓存技术是为了处理什么问题" class="headerlink" title="缓存技术是为了处理什么问题"></a>缓存技术是为了处理什么问题</h2><p><a href="https://zhuanlan.zhihu.com/p/55303228" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55303228</a></p>
+<h2 id="主流缓存技术"><a href="#主流缓存技术" class="headerlink" title="主流缓存技术"></a>主流缓存技术</h2><h3 id="Memcached"><a href="#Memcached" class="headerlink" title="Memcached"></a>Memcached</h3><p>官网地址：<a href="http://memcached.org/" target="_blank" rel="noopener">http://memcached.org/</a></p>
+<p><img src="/posts/E:/blog\source\_posts\redis\应用场景\redis.assets\image-20210519230744864.png" alt="image-20210519230744864"></p>
+<p>什么是Memcached ?</p>
+<p>是一个免费，开源，高性能，分布式内存对象缓存系统。旨在通过减轻数据库负载来加上动态web应用程序。</p>
+<p>Memcached 是一个在内存存储键值对的数据库，主要存储一些小块任意数据（如：字符串，对象），以便于存储来自数据库调用，api调用或是一些页面数据查询呈现。</p>
+<p>Memcached 简易且强大。便于快速部署，简化开发，同时解决了大型数据缓存所面临的许多问题。Memcached Api 适用于大多数流行语言（Java等）</p>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h3><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_13.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/Go_13.html" itemprop="url">Go reflection</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-09T16:28:40+08:00">
+                2021-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Go_13.html" class="leancloud_visitors" data-flag-title="Go reflection">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  535
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射可以提高程序的灵活性，使得 interface() 有更大的发挥余地，反射使用 TypeOf 和 ValueOf 函数从接口中获取目标对象信息，将匿名字段作为独立字段。</p>
+<p>修改对象状态的前提是 interface.data 是 settable , 即 pointer-interface</p>
+<p>通过反射可以动态调用方法</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_13.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_14.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/Go_14.html" itemprop="url">Go cibcyrrency	</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-09T16:28:40+08:00">
+                2021-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Go_14.html" class="leancloud_visitors" data-flag-title="Go cibcyrrency	">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  513
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
+<p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>缓存</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>有缓存时同步阻塞的，无缓是异步的</p>
+<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_12.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/Go_12.html" itemprop="url">Go interface</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-25T16:28:40+08:00">
+                2021-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/Go_12.html" class="leancloud_visitors" data-flag-title="Go interface">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  681
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h2><p>接口是一个或多个方法签名的集合，只要某个类型拥有该接口的所有方法签名，即算实现该接口，无需显示声明了实现了哪个接口，这称为 Structural Typing</p>
+<p>接口只有方法声明，没有实现，没有数据类型</p>
+<p>接口可以匿名嵌入其他接口，或嵌入结构中</p>
+<p>将对象赋值给接口时，会发生拷贝，而接口内部存储的是指向这个复制品的指针，即无法修改复制品的状态 ，也无法获取指针</p>
+<p>只有当接口存储的类型和对象都为 nil 时，接口才等于 nil</p>
+<p>接口调用不会做 receiver 的自动转换</p>
+<p>接口同样支持匿名字段方法</p>
+<p>接口可实现类型 OOP 中的多态</p>
+<p>空接口可以作为任何类型数据的容器</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/Go_12.html" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2349,7 +2268,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
