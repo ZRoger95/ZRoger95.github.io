@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_5.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_6.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -361,7 +361,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Go_5.html" itemprop="url">Go 控制语句</a></h1>
+                <a class="post-title-link" href="/posts/Go_6.html" itemprop="url">Go 数组</a></h1>
         
 
         <div class="post-meta">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  770
                 </span>
               
 
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  3
                 </span>
               
             </div>
@@ -443,16 +443,18 @@
 
       
         
-          <h2 id="if-控制"><a href="#if-控制" class="headerlink" title="if 控制"></a>if 控制</h2><ul>
-<li>条件表达式没有括号</li>
-<li>支持一个初始化表达式（可以是并行方式）</li>
-<li>左大括号必须和条件语句或else在同一行</li>
-<li>支持单行模式</li>
-<li>初始化语句中的变量为block级别，同时隐藏外部同名变量</li>
+          <h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><ul>
+<li>定义数组的格式：<code>var &lt;varName&gt; [n]&lt;type,n&gt; = 0</code></li>
+<li>数组长度也是类型的一部分，因此具有不同长度的数组为不同类型</li>
+<li>注意区分指向数组的指针和指针数组</li>
+<li>数组在Go中为值类型</li>
+<li>数组之间可以使用<code>==</code>或者<code>!=</code>进行比较，但是不可以使用<code>&gt;</code>或者<code>&lt;</code></li>
+<li>可以使用<code>new</code>来创建数组，此方法返回一个指向数组的指针</li>
+<li>Go支持多维数组</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/Go_5.html" rel="contents">
+            <a class="btn" href="/posts/Go_6.html" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1820,7 +1822,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go&Plan 9.html">
+    <link itemprop="mainEntityOfPage" href="https://zroger95.github.io/posts/Go_3.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZRoger">
@@ -1839,7 +1841,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/Go&Plan 9.html" itemprop="url">Go&Plan 9</a></h1>
+                <a class="post-title-link" href="/posts/Go_3.html" itemprop="url">Go 类型与变量</a></h1>
         
 
         <div class="post-meta">
@@ -1883,7 +1885,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  312
+                  1.5k
                 </span>
               
 
@@ -1899,7 +1901,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -1921,11 +1923,10 @@
 
       
         
-          <h1 id="Plan-9"><a href="#Plan-9" class="headerlink" title="Plan 9"></a>Plan 9</h1><p><img src="https://pic1.zhimg.com/80/9f8102da606acb83969812978cdd4538_hd.jpg" alt=""></p>
-<h2 id="Plan-9是什么"><a href="#Plan-9是什么" class="headerlink" title="Plan 9是什么"></a>Plan 9是什么</h2><p>它是一个网络操作系统（大规模集群）或者说是一种概念，来自贝尔实验室，由<em>Ken Thompson</em>、<em>Dennis Ritchied</em>等大神开发。</p>
+          <h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>可以包含数据的变量（或常量），可以使用不同的数据类型或类型来保存数据。使用 var 声明的变量的值会自动初始化为该类型的零值。类型定义了某个变量的值的集合与可对其进行操作的集合。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/Go&Plan 9.html" rel="contents">
+            <a class="btn" href="/posts/Go_3.html" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
