@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zroger95.github.io/posts/axios-01.html</loc>
+    
+    <lastmod>2022-01-16T14:48:57.824Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zroger95.github.io/posts/Go_12.html</loc>
     
     <lastmod>2022-01-16T08:57:19.090Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://zroger95.github.io/posts/Go_14.html</loc>
     
     <lastmod>2022-01-16T08:53:25.309Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/posts/axios-01.html</loc>
-    
-    <lastmod>2022-01-16T08:39:33.053Z</lastmod>
     
   </url>
   
