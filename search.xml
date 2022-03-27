@@ -1461,9 +1461,9 @@
 <p>或者使用阿里的docker镜像</p>
 <a id="more"></a>
 <p>之后再执行命令：</p>
-<p><img src="/posts/./Docker_Getting_Started\getting-started.png" alt=""></p>
+<p><img src="/posts/./Docker_Getting_Started\getting-started.png" alt="docker run"></p>
 <p>成功后，访问 <code>localhost/tutorial</code>，在 <code>docker desktop</code> 中也可以看到刚刚获取的东西</p>
-<p><img src="/posts/./Docker_Getting_Started\getting-started2.png" alt="image-20201214204505252"></p>
+<p><img src="/posts/./Docker_Getting_Started\getting-started2.png" alt="docker desktop"></p>
 <p>对于刚刚运行的命令</p>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">docker run -d -p 80:80 docker/getting-started</span><br></pre></td></tr></tbody></table></figure>
 <ul>

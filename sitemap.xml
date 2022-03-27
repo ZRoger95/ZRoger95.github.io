@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zroger95.github.io/posts/Docker_Getting_Started.html</loc>
+    
+    <lastmod>2022-03-27T07:59:18.786Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zroger95.github.io/posts/axios-01.html</loc>
     
     <lastmod>2022-01-16T14:48:57.824Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://zroger95.github.io/posts/Go_5.html</loc>
     
     <lastmod>2021-04-11T15:02:08.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zroger95.github.io/posts/Docker_Getting_Started.html</loc>
-    
-    <lastmod>2021-04-10T11:46:07.197Z</lastmod>
     
   </url>
   
