@@ -56,6 +56,62 @@
       </tags>
   </entry>
   <entry>
+    <title>Flutter-01</title>
+    <url>/posts/Flutter-01.html</url>
+    <content><![CDATA[<p>最近看到Flutter，所以准备玩下这个~</p>
+<h3 id="前期的一些坑"><a href="#前期的一些坑" class="headerlink" title="前期的一些坑"></a>前期的一些坑</h3><h4 id="准备的东西"><a href="#准备的东西" class="headerlink" title="准备的东西"></a>准备的东西</h4><ol>
+<li>Android Studio（个人推荐）或者Visual Studio Code（VS Code）</li>
+<li>Android SDK（使用Android Studio中的SDK Manager下载，需要修改代理设置）</li>
+<li>一部手机（或者使用模拟器）</li>
+<li>Flutter SDK</li>
+<li>Flutter镜像环境配置</li>
+</ol>
+<a id="more"></a>
+<h4 id="新建Flutter项目后"><a href="#新建Flutter项目后" class="headerlink" title="新建Flutter项目后"></a>新建Flutter项目后</h4><h5 id="更改为阿里镜像"><a href="#更改为阿里镜像" class="headerlink" title="更改为阿里镜像"></a>更改为阿里镜像</h5><figure class="highlight diff"><table><tbody><tr><td class="code"><pre><span class="line">buildscript {</span><br><span class="line">    ...</span><br><span class="line">    repositories {</span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/google'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/public'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/jcenter'}</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    ....</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">allprojects {</span><br><span class="line">    repositories {</span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/google'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/public'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/jcenter'}</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="修改gradle的仓库地址"><a href="#修改gradle的仓库地址" class="headerlink" title="修改gradle的仓库地址"></a>修改gradle的仓库地址</h5><p>包管理-Dart,下载依赖会存储在 Flutter SDK 安装路径下</p>
+<h5 id="关于调试"><a href="#关于调试" class="headerlink" title="关于调试"></a>关于调试</h5><p>控制台是调试程序必须要看的一个辅助工具，控制台有两个：一个是调试Android程序的 LogCat调试台，另一个是Flutter里面自带的Run控制台。</p>
+<p>Flutter Toggle Debug Painting 这个还是很重要，可以在不同机器上看到布局情况。</p>
+<p><img src="/posts/./flutter-01\1555343142313.png" alt="1555343142313"></p>
+<h3 id="关于以前的一些事（一些废话）"><a href="#关于以前的一些事（一些废话）" class="headerlink" title="关于以前的一些事（一些废话）"></a>关于以前的一些事（一些废话）</h3><p>​        在实习阶段的时候，大佬让我看看<code>APICloud</code>和<code>Ionic</code>。因为接下来的工作内容是，是将之前的应用移植到移动端中，并且跨越两个平台，再做一些客户定制的功能。最后，小组选定用<code>APICloud</code>。而在之后的工作，我也只是将<code>APICloud</code>上的一些现有的官方模块整理好，并实现前端调用的接口，像是地图，图片剪辑，文件管理等。移植的工作全是大佬来完成。</p>
+<p>​        原来开发移动端APP还可以这样。总体效果还是不错的，虽然在一些模块中感觉就是把浏览器嵌入到APP中（其实后来才知道是webview）。<code>APICloud</code>总得来说还是不错的，如果要在短期内做出一个轻便的应用，但是又没有移动端开发经验的话。</p>
+<p>​        在之后的学习中，了解到一些其他的开发移动端的姿势。</p>
+<ol>
+<li>原生开发</li>
+<li>Hybrid混合式<ol>
+<li>APICloud (APPCan)</li>
+<li>Ionic</li>
+</ol>
+</li>
+<li>React Native</li>
+<li>自绘UI+原生(Flutter) </li>
+</ol>
+<p>​        到了现在，Flutter出现了，我觉得这是个不错的选择。Flutter是什么呢？</p>
+<p>​        Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 。主要是为了解决跨平台问题，兼顾Android和IOS平台，即使呈现给用户的效果一样，但是具体实现上却是千差万别（有点夸张）。同时在设计方面使用 <a href="https://material.io/" target="_blank" rel="noopener">Material Design</a>  。我觉得非常有趣，可以一试。或者你看看在B站上关于<code>Material Design</code>的宣传 <a href="https://www.bilibili.com/video/av40925939" target="_blank" rel="noopener">视频</a>。 </p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">摘自关于Flutter的介绍:https://flutterchina.club</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">移动开发技术简介: https://book.flutterchina.club/chapter1/mobile_development_intro.html</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">flutter vs 其他跨平台開發工具:https://www.bilibili.com/video/av44447707/?p=1</span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>app</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【译】Flutter中的Bottom sheets</title>
     <url>/posts/flutter-02.html</url>
     <content><![CDATA[<p>作者： <a href="https://flutterdoc.com/@hitherejoe?source=post_page-----ec05c90453e7----------------------" target="_blank" rel="noopener">Joe Birch</a></p>
@@ -92,62 +148,6 @@
 <figure class="highlight dart"><table><tbody><tr><td class="code"><pre><span class="line">controller.closed.then(...)</span><br></pre></td></tr></tbody></table></figure>
 <p>我希望这篇文章能够进一步深入了解如何在应用程序中实现底页，以及哪一个是正确的。 如果您有任何问题或意见，请联系！</p>
 <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>Flutter</tag>
-        <tag>app</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flutter-01</title>
-    <url>/posts/Flutter-01.html</url>
-    <content><![CDATA[<p>最近看到Flutter，所以准备玩下这个~</p>
-<h3 id="前期的一些坑"><a href="#前期的一些坑" class="headerlink" title="前期的一些坑"></a>前期的一些坑</h3><h4 id="准备的东西"><a href="#准备的东西" class="headerlink" title="准备的东西"></a>准备的东西</h4><ol>
-<li>Android Studio（个人推荐）或者Visual Studio Code（VS Code）</li>
-<li>Android SDK（使用Android Studio中的SDK Manager下载，需要修改代理设置）</li>
-<li>一部手机（或者使用模拟器）</li>
-<li>Flutter SDK</li>
-<li>Flutter镜像环境配置</li>
-</ol>
-<a id="more"></a>
-<h4 id="新建Flutter项目后"><a href="#新建Flutter项目后" class="headerlink" title="新建Flutter项目后"></a>新建Flutter项目后</h4><h5 id="更改为阿里镜像"><a href="#更改为阿里镜像" class="headerlink" title="更改为阿里镜像"></a>更改为阿里镜像</h5><figure class="highlight diff"><table><tbody><tr><td class="code"><pre><span class="line">buildscript {</span><br><span class="line">    ...</span><br><span class="line">    repositories {</span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/google'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/public'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/jcenter'}</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    ....</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">allprojects {</span><br><span class="line">    repositories {</span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/google'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/public'}</span></span><br><span class="line"><span class="addition">+       maven{ url 'https://maven.aliyun.com/repository/jcenter'}</span></span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h5 id="修改gradle的仓库地址"><a href="#修改gradle的仓库地址" class="headerlink" title="修改gradle的仓库地址"></a>修改gradle的仓库地址</h5><p>包管理-Dart,下载依赖会存储在 Flutter SDK 安装路径下</p>
-<h5 id="关于调试"><a href="#关于调试" class="headerlink" title="关于调试"></a>关于调试</h5><p>控制台是调试程序必须要看的一个辅助工具，控制台有两个：一个是调试Android程序的 LogCat调试台，另一个是Flutter里面自带的Run控制台。</p>
-<p>Flutter Toggle Debug Painting 这个还是很重要，可以在不同机器上看到布局情况。</p>
-<p><img src="/posts/./flutter-01\1555343142313.png" alt="1555343142313"></p>
-<h3 id="关于以前的一些事（一些废话）"><a href="#关于以前的一些事（一些废话）" class="headerlink" title="关于以前的一些事（一些废话）"></a>关于以前的一些事（一些废话）</h3><p>​        在实习阶段的时候，大佬让我看看<code>APICloud</code>和<code>Ionic</code>。因为接下来的工作内容是，是将之前的应用移植到移动端中，并且跨越两个平台，再做一些客户定制的功能。最后，小组选定用<code>APICloud</code>。而在之后的工作，我也只是将<code>APICloud</code>上的一些现有的官方模块整理好，并实现前端调用的接口，像是地图，图片剪辑，文件管理等。移植的工作全是大佬来完成。</p>
-<p>​        原来开发移动端APP还可以这样。总体效果还是不错的，虽然在一些模块中感觉就是把浏览器嵌入到APP中（其实后来才知道是webview）。<code>APICloud</code>总得来说还是不错的，如果要在短期内做出一个轻便的应用，但是又没有移动端开发经验的话。</p>
-<p>​        在之后的学习中，了解到一些其他的开发移动端的姿势。</p>
-<ol>
-<li>原生开发</li>
-<li>Hybrid混合式<ol>
-<li>APICloud (APPCan)</li>
-<li>Ionic</li>
-</ol>
-</li>
-<li>React Native</li>
-<li>自绘UI+原生(Flutter) </li>
-</ol>
-<p>​        到了现在，Flutter出现了，我觉得这是个不错的选择。Flutter是什么呢？</p>
-<p>​        Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 。主要是为了解决跨平台问题，兼顾Android和IOS平台，即使呈现给用户的效果一样，但是具体实现上却是千差万别（有点夸张）。同时在设计方面使用 <a href="https://material.io/" target="_blank" rel="noopener">Material Design</a>  。我觉得非常有趣，可以一试。或者你看看在B站上关于<code>Material Design</code>的宣传 <a href="https://www.bilibili.com/video/av40925939" target="_blank" rel="noopener">视频</a>。 </p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">摘自关于Flutter的介绍:https://flutterchina.club</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">移动开发技术简介: https://book.flutterchina.club/chapter1/mobile_development_intro.html</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">flutter vs 其他跨平台開發工具:https://www.bilibili.com/video/av44447707/?p=1</span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -349,7 +349,7 @@
 <ol>
 <li>在<code>git bash</code>中输入：</li>
 </ol>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new post 文章名字</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new post 文章名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># -p 参数可以指定文章的路径</span></span><br><span class="line">$ hexo new post -p hello/hello-world <span class="comment"># 注意里面的title为post</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此时里面的title为hello-world</span></span><br><span class="line"><span class="comment"># hexo new post title -p dir/filename</span></span><br><span class="line">$ hexo new post hello-world -p hello/hello-world</span><br></pre></td></tr></tbody></table></figure>
 <ol>
 <li>在生成以及部署文章之前，需要再安装一个扩展，不然很有可能你的文章会部署失败:</li>
 </ol>
@@ -484,6 +484,62 @@
       </script>]]></content>
       <tags>
         <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript浮点计算</title>
+    <url>/posts/JavaScript&amp;Calculation.html</url>
+    <content><![CDATA[<h2 id="0-30000000000000004"><a href="#0-30000000000000004" class="headerlink" title="0.30000000000000004"></a>0.30000000000000004</h2><p>在前端进行业务的计算时，出现了一点错误：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">console.log(a+b);</span><br><span class="line"></span><br><span class="line">// 结果</span><br><span class="line">0.30000000000000004</span><br></pre></td></tr></tbody></table></figure>
+<p>很奇怪，为什么不直接等于<code>0.3</code></p>
+<h3 id="JavaScript中的数字"><a href="#JavaScript中的数字" class="headerlink" title="JavaScript中的数字"></a>JavaScript中的数字</h3><p>数值始终是64位的双精度浮点数，0到51存储数字（片段），52 到 62 存储指数，63 位存储符号。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值(aka Fraction/Mantissa)</th>
+<th style="text-align:left">指数</th>
+<th style="text-align:left">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">52 bits(0 - 51)</td>
+<td style="text-align:left">11 bits (52 - 62)</td>
+<td style="text-align:left">1 bit (63)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> 整数会被精确到15位、小数最大数是17位。</p>
+<h4 id="对于小数的二进制"><a href="#对于小数的二进制" class="headerlink" title="对于小数的二进制"></a>对于小数的二进制</h4><p>系统是将10进制转为二进制再进行计算，<code>0.1</code>的二进制是<code>0001100110...</code>，后面就一直重复<code>0011</code>，<code>0.2</code>的二进制是<code>0011..</code>，也是重复<code>0011</code>。两个二进制再相加，再转为十进制就是<code>0.30000000000000004</code>。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>1、 先乘后除，缺点是 相乘的结果已经超过了 <strong>MAX_SAFE_INTEGER</strong> 会出现错误</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var x = (0.2 * 10 + 0.1 * 10) / 10;</span><br></pre></td></tr></tbody></table></figure>
+<p>2、指定精度的四舍五入，小数太多，也不是很理想</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">var c = a+b ;</span><br><span class="line">console.log(parseFloat(c.toFixed(12)));</span><br></pre></td></tr></tbody></table></figure>
+<p>3、将浮点数转字符串，再模拟实际计算</p>
+<p> <a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">bignumber.js</a>，<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">decimal.js</a>，以及<a href="https://github.com/MikeMcl/big.js" target="_blank" rel="noopener">big.js</a>等</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -838,62 +894,6 @@
         <tag>Array</tag>
         <tag>算法</tag>
         <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript浮点计算</title>
-    <url>/posts/JavaScript&amp;Calculation.html</url>
-    <content><![CDATA[<h2 id="0-30000000000000004"><a href="#0-30000000000000004" class="headerlink" title="0.30000000000000004"></a>0.30000000000000004</h2><p>在前端进行业务的计算时，出现了一点错误：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">console.log(a+b);</span><br><span class="line"></span><br><span class="line">// 结果</span><br><span class="line">0.30000000000000004</span><br></pre></td></tr></tbody></table></figure>
-<p>很奇怪，为什么不直接等于<code>0.3</code></p>
-<h3 id="JavaScript中的数字"><a href="#JavaScript中的数字" class="headerlink" title="JavaScript中的数字"></a>JavaScript中的数字</h3><p>数值始终是64位的双精度浮点数，0到51存储数字（片段），52 到 62 存储指数，63 位存储符号。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值(aka Fraction/Mantissa)</th>
-<th style="text-align:left">指数</th>
-<th style="text-align:left">符号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">52 bits(0 - 51)</td>
-<td style="text-align:left">11 bits (52 - 62)</td>
-<td style="text-align:left">1 bit (63)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p> 整数会被精确到15位、小数最大数是17位。</p>
-<h4 id="对于小数的二进制"><a href="#对于小数的二进制" class="headerlink" title="对于小数的二进制"></a>对于小数的二进制</h4><p>系统是将10进制转为二进制再进行计算，<code>0.1</code>的二进制是<code>0001100110...</code>，后面就一直重复<code>0011</code>，<code>0.2</code>的二进制是<code>0011..</code>，也是重复<code>0011</code>。两个二进制再相加，再转为十进制就是<code>0.30000000000000004</code>。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>1、 先乘后除，缺点是 相乘的结果已经超过了 <strong>MAX_SAFE_INTEGER</strong> 会出现错误</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var x = (0.2 * 10 + 0.1 * 10) / 10;</span><br></pre></td></tr></tbody></table></figure>
-<p>2、指定精度的四舍五入，小数太多，也不是很理想</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">var c = a+b ;</span><br><span class="line">console.log(parseFloat(c.toFixed(12)));</span><br></pre></td></tr></tbody></table></figure>
-<p>3、将浮点数转字符串，再模拟实际计算</p>
-<p> <a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">bignumber.js</a>，<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">decimal.js</a>，以及<a href="https://github.com/MikeMcl/big.js" target="_blank" rel="noopener">big.js</a>等</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1683,6 +1683,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Go cibcyrrency	</title>
+    <url>/posts/Go_14.html</url>
+    <content><![CDATA[<h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
+<p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
+<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>缓存</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>有缓存时同步阻塞的，无缓是异步的</p>
+<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Go interface</title>
     <url>/posts/Go_12.html</url>
     <content><![CDATA[<h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h2><p>接口是一个或多个方法签名的集合，只要某个类型拥有该接口的所有方法签名，即算实现该接口，无需显示声明了实现了哪个接口，这称为 Structural Typing</p>
@@ -1771,47 +1812,6 @@
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">if !f.IsValid() {</span><br><span class="line">    fmt.Println("not fund")</span><br><span class="line">    return</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>反射调用方法</p>
 <figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u User)</span> <span class="title">HelloSomeone</span><span class="params">(name <span class="keyword">string</span>)</span></span> {</span><br><span class="line">	fmt.Println(<span class="string">"Hello"</span>, name, <span class="string">", my name is "</span>, u.Name)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	u := User{<span class="number">1</span>, <span class="string">"OK"</span>, <span class="number">12</span>}</span><br><span class="line">	u.HelloSomeone(<span class="string">"Jack"</span>)</span><br><span class="line"></span><br><span class="line">	v := reflect.ValueOf(u)</span><br><span class="line">	mv := v.MethodByName(<span class="string">"HelloSomeone"</span>)</span><br><span class="line">	args := []reflect.Value{reflect.ValueOf(<span class="string">"Bob"</span>)}</span><br><span class="line">	mv.Call(args)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>Go</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Go cibcyrrency	</title>
-    <url>/posts/Go_14.html</url>
-    <content><![CDATA[<h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
-<p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<a id="more"></a>
-<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>缓存</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
-<p>有缓存时同步阻塞的，无缓是异步的</p>
-<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2267,6 +2267,99 @@
       </tags>
   </entry>
   <entry>
+    <title>Go 常量与运算符</title>
+    <url>/posts/Go_4.html</url>
+    <content><![CDATA[<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>常量的值在编译时就已经确定</li>
+<li>常量的定义格式与变量基本相同</li>
+<li>等号右侧必须是常量或者常量表达式</li>
+<li>常量表达式中的函数必须是内置函数</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">onst a <span class="keyword">int</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="string">'A'</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	text   = <span class="string">"123"</span></span><br><span class="line">	length = <span class="built_in">len</span>(text)</span><br><span class="line">	num    = b * <span class="number">20</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> i, j, k = <span class="number">1</span>, <span class="string">"2"</span>, <span class="string">'3'</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	text2, length2, num2 = <span class="string">"456"</span>, <span class="built_in">len</span>(text2), k * <span class="number">10</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="初始化规则与枚举"><a href="#初始化规则与枚举" class="headerlink" title="初始化规则与枚举"></a>初始化规则与枚举</h3><ul>
+<li>在定义常量时，如果不提供初始值，则表示将使用上行的表达式</li>
+<li>使用相同的表达式不代表具有相同的值</li>
+<li>iota 是常量的计数器，从 0 开始，组中每定义1个常量自动递增1</li>
+<li>通过初始化规则与 iota 可以达到枚举的效果</li>
+<li>每遇得到一个 const 关键字， iota 就会重置为 0 </li>
+</ul>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	<span class="comment">// a 和 b 都为 “A"</span></span><br><span class="line">	a = <span class="string">"A"</span></span><br><span class="line">	b</span><br><span class="line">	c = <span class="literal">iota</span></span><br><span class="line">	<span class="comment">// d 的值为 3</span></span><br><span class="line">	d</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	e = <span class="literal">iota</span></span><br><span class="line">	<span class="comment">// f 的值为 1</span></span><br><span class="line">	f</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 星期枚举</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	Monday = <span class="literal">iota</span></span><br><span class="line">	Tuesday</span><br><span class="line">	Wednesday</span><br><span class="line">	Thursday</span><br><span class="line">	Friday</span><br><span class="line">	Saturday</span><br><span class="line">	Sunday</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line">A A <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></tbody></table></figure>
+<p>一般来说，在文件内中的常量尽量大写</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MAX_COUNT = <span class="number">1000</span></span><br><span class="line"><span class="comment">// 如果不想给包外使用，根据可见性规则，可以改为</span></span><br><span class="line"><span class="keyword">const</span> _MAX_COUNT = <span class="number">1000</span> </span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">const</span> cMAX_COUNT = <span class="number">1000</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="iota"><a href="#iota" class="headerlink" title="iota"></a>iota</h4><p>iota是表示无类型整数序数的预先声明的标识符，它是零索引的，Untyped int.</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>Go 中的运算符均是从左至右结合</p>
+<p>优先级由高到低</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一元</td>
+<td><code>^</code>、<code>!</code></td>
+</tr>
+<tr>
+<td>二元</td>
+<td><code>*</code>、<code>/</code>、<code>%</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;</code>、<code>&amp;</code>、<code>&amp;^</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>+</code>、<code>-</code>、`</td>
+<td><code>、</code>^`</td>
+</tr>
+<tr>
+<td></td>
+<td><code>==</code>、<code>!=</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code>、</td>
+</tr>
+<tr>
+<td>专门用于并发的 channel</td>
+<td><code>&lt;-</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>&amp;&amp;</code>、`</td>
+<td></td>
+<td>`</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h4><p>参与计算的数字只有一个</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">fmt.Println(^<span class="number">2</span>)</span><br><span class="line">fmt.Println(!<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果 </span></span><br><span class="line"><span class="number">-3</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h4><p>参与计算的数字有2个</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  5 0101</span></span><br><span class="line"><span class="comment"> 12 1100</span></span><br><span class="line"><span class="comment">--------------</span></span><br><span class="line"><span class="comment">  &amp; 0100 -&gt; 4</span></span><br><span class="line"><span class="comment">  | 1101 -&gt; 13</span></span><br><span class="line"><span class="comment">  ^ 1001 -&gt; 9</span></span><br><span class="line"><span class="comment"> &amp;^ 0001 -&gt; 1</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	a := <span class="number">5</span></span><br><span class="line">	b := <span class="number">12</span></span><br><span class="line">	fmt.Println(a &amp; b)</span><br><span class="line">	fmt.Println(a | b)</span><br><span class="line">	fmt.Println(a ^ b)</span><br><span class="line">	fmt.Println(a &amp;^ b)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="枚举与-iota"><a href="#枚举与-iota" class="headerlink" title="枚举与 iota"></a>枚举与 iota</h2><p>常量的 iota 与 <code>&lt;&lt;</code> 运算符实现计算机存储单位的枚举</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	B <span class="keyword">float64</span> = <span class="number">1</span> &lt;&lt; (<span class="literal">iota</span> * <span class="number">10</span>)</span><br><span class="line">	KB</span><br><span class="line">	MB</span><br><span class="line">	GB</span><br><span class="line">	TB</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<p>第一个常量中的iota为0，之后的KB会将上面的公式带入，不同时 iota 此时进行了 + 1 操作</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Go 控制语句</title>
     <url>/posts/Go_5.html</url>
     <content><![CDATA[<h2 id="if-控制"><a href="#if-控制" class="headerlink" title="if 控制"></a>if 控制</h2><ul>
@@ -2347,99 +2440,6 @@
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">000000000000000000000000000000000000000000000000000000000000000000000..............</span><br></pre></td></tr></tbody></table></figure>
 <p>将 label 放在 goto 的后面</p>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func continueF2() {</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		for {</span><br><span class="line">			fmt.Print(i)</span><br><span class="line">			continue LABEL</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">LABEL:</span><br><span class="line">	// xxxxx</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>Go</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Go 常量与运算符</title>
-    <url>/posts/Go_4.html</url>
-    <content><![CDATA[<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li>常量的值在编译时就已经确定</li>
-<li>常量的定义格式与变量基本相同</li>
-<li>等号右侧必须是常量或者常量表达式</li>
-<li>常量表达式中的函数必须是内置函数</li>
-</ul>
-<a id="more"></a>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">onst a <span class="keyword">int</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="string">'A'</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	text   = <span class="string">"123"</span></span><br><span class="line">	length = <span class="built_in">len</span>(text)</span><br><span class="line">	num    = b * <span class="number">20</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> i, j, k = <span class="number">1</span>, <span class="string">"2"</span>, <span class="string">'3'</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	text2, length2, num2 = <span class="string">"456"</span>, <span class="built_in">len</span>(text2), k * <span class="number">10</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="初始化规则与枚举"><a href="#初始化规则与枚举" class="headerlink" title="初始化规则与枚举"></a>初始化规则与枚举</h3><ul>
-<li>在定义常量时，如果不提供初始值，则表示将使用上行的表达式</li>
-<li>使用相同的表达式不代表具有相同的值</li>
-<li>iota 是常量的计数器，从 0 开始，组中每定义1个常量自动递增1</li>
-<li>通过初始化规则与 iota 可以达到枚举的效果</li>
-<li>每遇得到一个 const 关键字， iota 就会重置为 0 </li>
-</ul>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	<span class="comment">// a 和 b 都为 “A"</span></span><br><span class="line">	a = <span class="string">"A"</span></span><br><span class="line">	b</span><br><span class="line">	c = <span class="literal">iota</span></span><br><span class="line">	<span class="comment">// d 的值为 3</span></span><br><span class="line">	d</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	e = <span class="literal">iota</span></span><br><span class="line">	<span class="comment">// f 的值为 1</span></span><br><span class="line">	f</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 星期枚举</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	Monday = <span class="literal">iota</span></span><br><span class="line">	Tuesday</span><br><span class="line">	Wednesday</span><br><span class="line">	Thursday</span><br><span class="line">	Friday</span><br><span class="line">	Saturday</span><br><span class="line">	Sunday</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line">A A <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></tbody></table></figure>
-<p>一般来说，在文件内中的常量尽量大写</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> MAX_COUNT = <span class="number">1000</span></span><br><span class="line"><span class="comment">// 如果不想给包外使用，根据可见性规则，可以改为</span></span><br><span class="line"><span class="keyword">const</span> _MAX_COUNT = <span class="number">1000</span> </span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">const</span> cMAX_COUNT = <span class="number">1000</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="iota"><a href="#iota" class="headerlink" title="iota"></a>iota</h4><p>iota是表示无类型整数序数的预先声明的标识符，它是零索引的，Untyped int.</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>Go 中的运算符均是从左至右结合</p>
-<p>优先级由高到低</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>一元</td>
-<td><code>^</code>、<code>!</code></td>
-</tr>
-<tr>
-<td>二元</td>
-<td><code>*</code>、<code>/</code>、<code>%</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;</code>、<code>&amp;</code>、<code>&amp;^</code></td>
-</tr>
-<tr>
-<td></td>
-<td><code>+</code>、<code>-</code>、`</td>
-<td><code>、</code>^`</td>
-</tr>
-<tr>
-<td></td>
-<td><code>==</code>、<code>!=</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code>、</td>
-</tr>
-<tr>
-<td>专门用于并发的 channel</td>
-<td><code>&lt;-</code></td>
-</tr>
-<tr>
-<td></td>
-<td><code>&amp;&amp;</code>、`</td>
-<td></td>
-<td>`</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h4><p>参与计算的数字只有一个</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">fmt.Println(^<span class="number">2</span>)</span><br><span class="line">fmt.Println(!<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果 </span></span><br><span class="line"><span class="number">-3</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h4><p>参与计算的数字有2个</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  5 0101</span></span><br><span class="line"><span class="comment"> 12 1100</span></span><br><span class="line"><span class="comment">--------------</span></span><br><span class="line"><span class="comment">  &amp; 0100 -&gt; 4</span></span><br><span class="line"><span class="comment">  | 1101 -&gt; 13</span></span><br><span class="line"><span class="comment">  ^ 1001 -&gt; 9</span></span><br><span class="line"><span class="comment"> &amp;^ 0001 -&gt; 1</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	a := <span class="number">5</span></span><br><span class="line">	b := <span class="number">12</span></span><br><span class="line">	fmt.Println(a &amp; b)</span><br><span class="line">	fmt.Println(a | b)</span><br><span class="line">	fmt.Println(a ^ b)</span><br><span class="line">	fmt.Println(a &amp;^ b)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="枚举与-iota"><a href="#枚举与-iota" class="headerlink" title="枚举与 iota"></a>枚举与 iota</h2><p>常量的 iota 与 <code>&lt;&lt;</code> 运算符实现计算机存储单位的枚举</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	B <span class="keyword">float64</span> = <span class="number">1</span> &lt;&lt; (<span class="literal">iota</span> * <span class="number">10</span>)</span><br><span class="line">	KB</span><br><span class="line">	MB</span><br><span class="line">	GB</span><br><span class="line">	TB</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
-<p>第一个常量中的iota为0，之后的KB会将上面的公式带入，不同时 iota 此时进行了 + 1 操作</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2841,6 +2841,39 @@
       <tags>
         <tag>Go</tag>
         <tag>Plan 9</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>reids_删除策略</title>
+    <url>/posts/reids_%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5.html</url>
+    <content><![CDATA[<h1 id="Redis-过期删除策略"><a href="#Redis-过期删除策略" class="headerlink" title="Redis 过期删除策略"></a>Redis 过期删除策略</h1><p>当数据库中的键过期时，会如何删除？</p>
+<ul>
+<li>定时删除，当键的时间一到，立即执行删除，对内存友好，对CPU时间不友好</li>
+<li>惰性删除，当获取该键时，判断是否过期进行删除，对内存不友好，对CPU时间友好</li>
+<li>定期删除，隔一段时间进行检测过期键，然后删除。是前两种策略的结合，需要根据项目情况，把握好发生频率和时长。</li>
+</ul>
+<p>Redis 使用的是 惰性删除 和 定期删除，在一段时间内对数据库进行抽样检查，如果检查时间上限一到就停止。之后再次触发时，接着上一次的数据库继续进行。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>redis</tag>
       </tags>
   </entry>
 </search>
