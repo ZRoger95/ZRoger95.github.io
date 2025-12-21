@@ -1175,7 +1175,7 @@ pre .javascript .function {
   vertical-align: top;
 }
 .site-title {
-  display: inline-block;
+  display: none;
   vertical-align: top;
   line-height: 36px;
   font-size: 20px;
@@ -1879,7 +1879,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #61578f;
+  background: #a1c874;
 }
 .links-of-blogroll {
   font-size: 13px;

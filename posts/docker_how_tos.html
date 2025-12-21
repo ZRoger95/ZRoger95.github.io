@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.staticfile.org/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.staticfile.org/pace/1.0.2/themes/black/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="docker,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ZRoger's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="自定义项目名称默认会使用当前 compose.yaml 所处文件夹的名称作为 project name 。使用 project name 来隔离各个环境。  在开发主机上：创建单个环境的多个副本，这对于为项目的每个功能分支运行稳定副本很有用 saas 化的场景 私有定制化的场景   在 CI 服务器上：通过将项目名称设置为唯一的构建编号来防止构建之间的干扰 在共享或开发主机上：避免可能共享相同服务">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker How-tos">
+<meta property="og:url" content="https://zroger.top/posts/docker_how_tos.html">
+<meta property="og:site_name" content="ZRoger&#39;s Blog">
+<meta property="og:description" content="自定义项目名称默认会使用当前 compose.yaml 所处文件夹的名称作为 project name 。使用 project name 来隔离各个环境。  在开发主机上：创建单个环境的多个副本，这对于为项目的每个功能分支运行稳定副本很有用 saas 化的场景 私有定制化的场景   在 CI 服务器上：通过将项目名称设置为唯一的构建编号来防止构建之间的干扰 在共享或开发主机上：避免可能共享相同服务">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2025-04-13T11:54:11.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker How-tos">
+<meta name="twitter:description" content="自定义项目名称默认会使用当前 compose.yaml 所处文件夹的名称作为 project name 。使用 project name 来隔离各个环境。  在开发主机上：创建单个环境的多个副本，这对于为项目的每个功能分支运行稳定副本很有用 saas 化的场景 私有定制化的场景   在 CI 服务器上：通过将项目名称设置为唯一的构建编号来防止构建之间的干扰 在共享或开发主机上：避免可能共享相同服务">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zroger.top/posts/docker_how_tos.html">
+
+
+
+
+
+  <title>Docker How-tos | ZRoger's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZRoger's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-vcard"></i> <br>
+            
+            自我介绍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calculator"></i> <br>
+            
+            时间线
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zroger.top/posts/docker_how_tos.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZRoger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZRoger's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker How-tos</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2025-04-13T16:28:40+08:00">
+                2025-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="自定义项目名称"><a href="#自定义项目名称" class="headerlink" title="自定义项目名称"></a><a href="https://docs.docker.com/compose/how-tos/project-name/" target="_blank" rel="noopener">自定义项目名称</a></h2><p>默认会使用当前 compose.yaml 所处文件夹的名称作为 project name 。使用 project name 来隔离各个环境。</p>
+<ol>
+<li>在开发主机上：创建单个环境的多个副本，这对于为项目的每个功能分支运行稳定副本很有用<ul>
+<li>saas 化的场景</li>
+<li>私有定制化的场景</li>
+</ul>
+</li>
+<li>在 CI 服务器上：通过将项目名称设置为唯一的构建编号来防止构建之间的干扰</li>
+<li>在共享或开发主机上：避免可能共享相同服务名称的不同项目之间的干扰</li>
+</ol>
+<a id="more"></a>
+<p>项目名称只能包含 <em>小写字母、十进制数字、破折号 和 下划线</em>，并且<strong>必须</strong>以 小写字母 或 十进制数字 开头</p>
+<p>优先级如下 - 从高到低：</p>
+<ol>
+<li><p><code>-p</code> 命令行标志</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose -p demo_project up</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>设置 COMPOSE_PROJECT_NAME 环境变量</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> COMPOSE_PROJECT_NAME=demo_project</span><br><span class="line">docker compose up</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>在 Compose 文件中使用顶级的 name 属性</p>
+ <figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">my_custom_project</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nginx</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>使用多个 Compose 文件时的最后一个 name 属性，当通过 <code>-f</code> 标志指定多个 Compose 文件时，最后一个文件中定义的 name 属性生效</p>
+<ul>
+<li><p>文件 docker-compose.yml：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">project_a</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nginx</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>文件 docker-compose.override.yml：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">project_b</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8080:80"</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>运行命令：</p>
+ <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose -f docker-compose.yml -f docker-compose.override.yml up</span><br></pre></td></tr></tbody></table></figure>
+<p> 由于 docker-compose.override.yml 是最后一个指定的文件，其 name: project_b 生效，项目名称为 project_b。由于 docker-compose.override.yml 是最后一个指定的文件，其 name: project_b 生效，项目名称为 project_b。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Compose-生命周期钩子"><a href="#Compose-生命周期钩子" class="headerlink" title="Compose 生命周期钩子"></a><a href="https://docs.docker.com/compose/how-tos/lifecycle/" target="_blank" rel="noopener">Compose 生命周期钩子</a></h2><h3 id="启动后"><a href="#启动后" class="headerlink" title="启动后"></a>启动后</h3><p>在容器启动后运行，但具体执行时间没有固定。在容器入口点执行期间，钩子的执行时间无法确定。</p>
+<p>例子：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  app:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"><span class="attr">    user:</span> <span class="number">1001</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="attr">      - data:</span><span class="string">/data</span>    </span><br><span class="line"><span class="attr">    post_start:</span></span><br><span class="line"><span class="attr">      - command:</span> <span class="string">chown</span> <span class="bullet">-R</span> <span class="string">/data</span> <span class="number">1001</span><span class="string">:1001</span></span><br><span class="line"><span class="attr">        user:</span> <span class="string">root</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="attr">  data:</span> <span class="string">{}</span> <span class="comment"># a Docker volume is created with root ownership</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>该钩子用于将卷的所有权更改为非 root 用户（因为卷默认以 root 所有权创建）。</p>
+</li>
+<li><p>容器启动后， chown 命令会将 /data 目录的所有权更改为用户 1001。</p>
+</li>
+</ul>
+<h3 id="结束前"><a href="#结束前" class="headerlink" title="结束前"></a>结束前</h3><p>在容器被特定命令（例如 docker compose down 或使用 Ctrl+C 手动停止）停止之前运行的命令。如果容器自行停止或被突然终止，这些钩子将不会运行</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  app:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"><span class="attr">    pre_stop:</span></span><br><span class="line"><span class="attr">      - command:</span> <span class="string">./data_flush.sh</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在容器停止之前，将运行 ./data_flush.sh 脚本来执行任何必要的清理</p>
+<h2 id="在-Compose-中使用-profiles"><a href="#在-Compose-中使用-profiles" class="headerlink" title="在 Compose 中使用 profiles"></a><a href="https://docs.docker.com/compose/how-tos/profiles/" target="_blank" rel="noopener">在 Compose 中使用 profiles</a></h2><p>在 compose.yaml 中配置 profiles 可以用来方便切换到不同的环境或者用例中。服务可以被标注一个或多个 profiles。未标注的服务默认为 default 。</p>
+<h3 id="给服务标注环境-profiles"><a href="#给服务标注环境-profiles" class="headerlink" title="给服务标注环境 profiles"></a>给服务标注环境 profiles</h3><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  frontend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">frontend</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[frontend]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  phpmyadmin:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">phpmyadmin</span></span><br><span class="line"><span class="attr">    depends_on:</span> <span class="string">[db]</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[debug]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  backend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">mysql</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>frontend 服务被标注为 frontend 环境</li>
+<li>phpmyadmin 服务标注为 debug 环境</li>
+</ul>
+<p>启动对应的配置，使用提供 —profile 命令行选项或使用 COMPOSE_PROFILES 环境变量</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --profile</span></span><br><span class="line">docker compose --profile debug up</span><br><span class="line"></span><br><span class="line"><span class="comment"># -- env</span></span><br><span class="line">COMPOSE_PROFILES=debug docker compose up</span><br></pre></td></tr></tbody></table></figure>
+<p>会启动 phpmyadmin , backend , db 这3个服务</p>
+<h3 id="多个-profiles"><a href="#多个-profiles" class="headerlink" title="多个 profiles"></a>多个 profiles</h3><p>通过传递多个 —profile 标志或 COMPOSE_PROFILES 环境变量的逗号分隔列表来指定多个配置文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker compose --profile frontend --profile debug up</span><br><span class="line"></span><br><span class="line">COMPOSE_PROFILES=frontend,debug docker compose up</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用所有配置文件，可以运行</span></span><br><span class="line">docker compose --profile <span class="string">"*"</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="自动启动的-profiles-和-依赖关系解析"><a href="#自动启动的-profiles-和-依赖关系解析" class="headerlink" title="自动启动的 profiles 和 依赖关系解析"></a>自动启动的 profiles 和 依赖关系解析</h3><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  backend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">mysql</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db-migrations:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">myapp</span> <span class="string">migrate</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">db</span></span><br><span class="line"><span class="attr">    profiles:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">tools</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可以用于一次性服务和调试工具 </p>
+<p>命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只会启动 backend 和 db</span></span><br><span class="line">docker compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 db-migrations (并且，如有必要，启动 db)</span></span><br><span class="line"><span class="comment"># 通过隐式启用配置文件 profiles `tools`</span></span><br><span class="line">docker compose run db-migrations</span><br></pre></td></tr></tbody></table></figure>
+<p>db 服务 profiles 需要为空或者和 db-migrations 是同一个 profiles</p>
+<h3 id="关闭一些配置"><a href="#关闭一些配置" class="headerlink" title="关闭一些配置"></a>关闭一些配置</h3><p>与启动特定配置文件一样，您可以使用 —profile 命令行选项或使用 COMPOSE_PROFILES 环境变量：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker compose --profile debug down</span><br><span class="line"></span><br><span class="line">COMPOSE_PROFILES=debug docker compose down</span><br></pre></td></tr></tbody></table></figure>
+<p>在该配置中</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  frontend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">frontend</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[frontend]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  phpmyadmin:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">phpmyadmin</span></span><br><span class="line"><span class="attr">    depends_on:</span> <span class="string">[db]</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[debug]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  backend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">mysql</span></span><br></pre></td></tr></tbody></table></figure>
+<p>会停止 db、backend 和 phpmyadmin </p>
+<p>停止并移除带有 debug 配置文件的服务以及不带该配置文件的服务，如果只想停止 phpmyadmin</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker compose down phpmyadmin</span><br><span class="line"></span><br><span class="line">docker compose stop phpmyadmin</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="在-Compose-中控制启动和关闭顺序"><a href="#在-Compose-中控制启动和关闭顺序" class="headerlink" title="在 Compose 中控制启动和关闭顺序"></a><a href="https://docs.docker.com/compose/how-tos/startup-order/" target="_blank" rel="noopener">在 Compose 中控制启动和关闭顺序</a></h3><p>通过 depends_one 来控制服务启动和关闭的顺序。compose 按照依赖顺序启动和停止容器服务，其中依赖关系由 depends_on，links，volumes_from 和 network_mode：”service:…” 决定。</p>
+<p>比如在应用服务启动前，启动数据库，缓存等</p>
+<p>在启动时，Compose 不会等到容器“准备好”，而只会等到它运行</p>
+<p>检测服务就绪状态的解决方案是使用带有以下选项之一的条件属性</p>
+<ul>
+<li>service_started</li>
+<li>service_headlthy</li>
+<li>service_completed_successfully</li>
+</ul>
+<p>例子</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="attr">      db:</span></span><br><span class="line"><span class="attr">        condition:</span> <span class="string">service_healthy</span></span><br><span class="line"><span class="attr">        restart:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">      redis:</span></span><br><span class="line"><span class="attr">        condition:</span> <span class="string">service_started</span></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">postgres</span></span><br><span class="line"><span class="attr">    healthcheck:</span></span><br><span class="line"><span class="attr">      test:</span> <span class="string">["CMD-SHELL",</span> <span class="string">"pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"</span><span class="string">]</span></span><br><span class="line"><span class="attr">      interval:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">      retries:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">      start_period:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">      timeout:</span> <span class="number">10</span><span class="string">s</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Compose 按照依赖顺序创建服务。数据库（db）和 Redis 在 web 之前创建。</p>
+<p>Compose 等待标记为 service_healthy 的依赖项的健康检查通过。数据库（db）需在健康检查显示“healthy”后，web 才会创建。</p>
+<p>restart: true 确保如果数据库（db）因显式的 Compose 操作（例如 docker compose restart）被更新或重启，web 服务也会自动重启，以确保正确重新建立连接或依赖关系。</p>
+<p>数据库（db）服务的健康检查使用 <code>pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}</code> 命令检查 PostgreSQL 数据库是否准备就绪。服务每 10 秒重试一次，最多重试 5 次。</p>
+<p>Compose 也按照依赖顺序删除服务。web 在数据库（db）和 Redis 之前被删除。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #686868;font-size: 17px;font-weight: bold;"> - the End - </div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    ZRoger
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zroger.top/posts/docker_how_tos.html" title="Docker How-tos">https://zroger.top/posts/docker_how_tos.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/docker_compose_quick_start.html" rel="next" title="Docker Compose - Quick Start">
+                <i class="fa fa-chevron-left"></i> Docker Compose - Quick Start
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/jvm_heap.html" rel="prev" title="JVM 堆内存回顾">
+                JVM 堆内存回顾 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/logo.jpg" alt="ZRoger">
+            
+              <p class="site-author-name" itemprop="name">ZRoger</p>
+              <p class="site-description motion-element" itemprop="description">一分耕耘一分收获</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                神奇的链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.artstation.com/" title="ArtStation" target="_blank">ArtStation</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dribbble.com/" title="Dribbble" target="_blank">Dribbble</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义项目名称"><span class="nav-number">1.</span> <span class="nav-text">自定义项目名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compose-生命周期钩子"><span class="nav-number">2.</span> <span class="nav-text">Compose 生命周期钩子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动后"><span class="nav-number">2.1.</span> <span class="nav-text">启动后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束前"><span class="nav-number">2.2.</span> <span class="nav-text">结束前</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Compose-中使用-profiles"><span class="nav-number">3.</span> <span class="nav-text">在 Compose 中使用 profiles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#给服务标注环境-profiles"><span class="nav-number">3.1.</span> <span class="nav-text">给服务标注环境 profiles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个-profiles"><span class="nav-number">3.2.</span> <span class="nav-text">多个 profiles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动启动的-profiles-和-依赖关系解析"><span class="nav-number">3.3.</span> <span class="nav-text">自动启动的 profiles 和 依赖关系解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭一些配置"><span class="nav-number">3.4.</span> <span class="nav-text">关闭一些配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Compose-中控制启动和关闭顺序"><span class="nav-number">3.5.</span> <span class="nav-text">在 Compose 中控制启动和关闭顺序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer" style="background-color: white;">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-rocket"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZRoger</span>
+
+  
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/fastclick/0.1.0/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

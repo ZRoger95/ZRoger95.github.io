@@ -288,12 +288,12 @@
   <entry>
     <title>你好,Hexo（01）</title>
     <url>/posts/Hello-Hexo.html</url>
-    <content><![CDATA[<p>Hi,米娜桑。这里是ZRoger的博客。由<code>GitHub Page</code>和<code>Hexo</code>构成。<br>所以在这篇文章中，我记录了关于一些<code>Hexo</code>的东西。</p>
-<h2 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2><p><em>什么是Hexo</em>：</p>
+    <content><![CDATA[<p>Hi,米娜桑。这里是 ZRoger 的博客。由<code>GitHub Page</code>和<code>Hexo</code>构成。<br>所以在这篇文章中，我记录了关于一些<code>Hexo</code>的东西。</p>
+<h2 id="关于-Hexo"><a href="#关于-Hexo" class="headerlink" title="关于 Hexo"></a>关于 Hexo</h2><p><em>什么是 Hexo</em>：</p>
 <p>让我们看下<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方</a>的回答：<code>Hexo</code>是一个快速，简洁且高效的博客框架。<code>Hexo</code>使用<code>Markdown</code>(或者其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态页面。</p>
 <p>我觉得它还是比较受欢迎，当你想记录生活中的事情，无论是琐碎的日志，技术分享，或者其他。都可以使用<code>Hexo</code>创建你的静态博客。但是在文章管理方面并不是很好，但我觉得还是可以一试的。</p>
 <a id="more"></a>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><blockquote>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><blockquote>
 <p><em>注意</em><br>目前只记录了在<code>window</code>系统下的过程。其他系统暂时没有办法涉及，以后有机会再补上。</p>
 </blockquote>
 <ol>
@@ -329,7 +329,7 @@
 <p>接着生成密钥，用于关联到你的<code>GitHub</code>账号中：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"你的邮箱"</span></span><br></pre></td></tr></tbody></table></figure>
 <ol>
-<li>在连续回车3次，就生成密钥和公钥。将<code>id_rsa.pub</code>填到<code>GitHub</code>账户上。然后使用添加密钥到<code>ssh-agent</code>:</li>
+<li>在连续回车 3 次，就生成密钥和公钥。将<code>id_rsa.pub</code>填到<code>GitHub</code>账户上。然后使用添加密钥到<code>ssh-agent</code>:</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></tbody></table></figure>
 <p>添加生成的<code>ssh key</code>到<code>ssh-agent</code>中</p>
@@ -344,7 +344,7 @@
 <ol>
 <li>修改<code>blog</code>文件夹下面的<code>_config.yml</code>文件，添加远程仓库</li>
 </ol>
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git </span><br><span class="line">  repository: 你的仓库的ssh</span><br><span class="line">  branch: master</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: 你的仓库的ssh</span><br><span class="line">  branch: master</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="生成和部署文章"><a href="#生成和部署文章" class="headerlink" title="生成和部署文章"></a>生成和部署文章</h3><p><em>新建一篇文章</em></p>
 <ol>
 <li>在<code>git bash</code>中输入：</li>
@@ -358,7 +358,7 @@
 <li>生成静态文件，然后在本地上先看下效果</li>
 </ol>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></tbody></table></figure>
-<p>启动Hexo服务器，默认的端口<code>4000</code>：</p>
+<p>启动 Hexo 服务器，默认的端口<code>4000</code>：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></tbody></table></figure>
 <ol>
 <li>部署文章到服务器上，查看的地址格式：<code>github用户名.github.io</code></li>
@@ -388,37 +388,6 @@
       </script>]]></content>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NexT&amp;第三方服务</title>
-    <url>/posts/Next&amp;ThirdPartyServices.html</url>
-    <content><![CDATA[<h1 id="文章阅读数量记录"><a href="#文章阅读数量记录" class="headerlink" title="文章阅读数量记录"></a>文章阅读数量记录</h1><p>关于文章阅读数量，可以使用<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>，还有<a href="https://console.firebase.google.com/u/0/" target="_blank" rel="noopener">Google</a>的，或者是<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">不蒜子统计</a></p>
-<p>这里选用的<strong>LeanCloud</strong>，可以看doublemine这篇<a href="https://notes.doublemine.me/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html" target="_blank" rel="noopener">文章</a></p>
-<p>时间：2020年4月5日</p>
-<p>如果LeanCloud的服务长时间不用，会被停掉并且归档，所以还是需要时不时上去看看~</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
@@ -487,38 +456,12 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript浮点计算</title>
-    <url>/posts/JavaScript&amp;Calculation.html</url>
-    <content><![CDATA[<h2 id="0-30000000000000004"><a href="#0-30000000000000004" class="headerlink" title="0.30000000000000004"></a>0.30000000000000004</h2><p>在前端进行业务的计算时，出现了一点错误：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">console.log(a+b);</span><br><span class="line"></span><br><span class="line">// 结果</span><br><span class="line">0.30000000000000004</span><br></pre></td></tr></tbody></table></figure>
-<p>很奇怪，为什么不直接等于<code>0.3</code></p>
-<h3 id="JavaScript中的数字"><a href="#JavaScript中的数字" class="headerlink" title="JavaScript中的数字"></a>JavaScript中的数字</h3><p>数值始终是64位的双精度浮点数，0到51存储数字（片段），52 到 62 存储指数，63 位存储符号。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值(aka Fraction/Mantissa)</th>
-<th style="text-align:left">指数</th>
-<th style="text-align:left">符号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">52 bits(0 - 51)</td>
-<td style="text-align:left">11 bits (52 - 62)</td>
-<td style="text-align:left">1 bit (63)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p> 整数会被精确到15位、小数最大数是17位。</p>
-<h4 id="对于小数的二进制"><a href="#对于小数的二进制" class="headerlink" title="对于小数的二进制"></a>对于小数的二进制</h4><p>系统是将10进制转为二进制再进行计算，<code>0.1</code>的二进制是<code>0001100110...</code>，后面就一直重复<code>0011</code>，<code>0.2</code>的二进制是<code>0011..</code>，也是重复<code>0011</code>。两个二进制再相加，再转为十进制就是<code>0.30000000000000004</code>。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>1、 先乘后除，缺点是 相乘的结果已经超过了 <strong>MAX_SAFE_INTEGER</strong> 会出现错误</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var x = (0.2 * 10 + 0.1 * 10) / 10;</span><br></pre></td></tr></tbody></table></figure>
-<p>2、指定精度的四舍五入，小数太多，也不是很理想</p>
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">var c = a+b ;</span><br><span class="line">console.log(parseFloat(c.toFixed(12)));</span><br></pre></td></tr></tbody></table></figure>
-<p>3、将浮点数转字符串，再模拟实际计算</p>
-<p> <a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">bignumber.js</a>，<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">decimal.js</a>，以及<a href="https://github.com/MikeMcl/big.js" target="_blank" rel="noopener">big.js</a>等</p>
+    <title>NexT&amp;第三方服务</title>
+    <url>/posts/Next&amp;ThirdPartyServices.html</url>
+    <content><![CDATA[<h1 id="文章阅读数量记录"><a href="#文章阅读数量记录" class="headerlink" title="文章阅读数量记录"></a>文章阅读数量记录</h1><p>关于文章阅读数量，可以使用<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>，还有<a href="https://console.firebase.google.com/u/0/" target="_blank" rel="noopener">Google</a>的，或者是<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">不蒜子统计</a></p>
+<p>这里选用的<strong>LeanCloud</strong>，可以看doublemine这篇<a href="https://notes.doublemine.me/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html" target="_blank" rel="noopener">文章</a></p>
+<p>时间：2020年4月5日</p>
+<p>如果LeanCloud的服务长时间不用，会被停掉并且归档，所以还是需要时不时上去看看~</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -539,7 +482,8 @@
           });
       </script>]]></content>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
@@ -897,31 +841,38 @@
       </tags>
   </entry>
   <entry>
-    <title>Dec. 18 blog (01)</title>
-    <url>/posts/Dec-18-blog-01.html</url>
-    <content><![CDATA[<h2 id="大雪之后"><a href="#大雪之后" class="headerlink" title="大雪之后"></a>大雪之后</h2><p>记于12月09日，距离新的一年还有22天。</p>
-<p><img src="/posts/./Dec-18-blog-01/dec.jpg" alt="开头"></p>
-<p>7号是大雪气节，是仲冬的开始。开始冷了起来，时不时会有些小雨飘在街上，让人忍不住拉了拉衣领，把脖子缩进去。终于可以看到呼出的白气。圣诞的气温已经准备好了，我看到有人排出了圣诞树，虽然时间还早的很。</p>
-<a id="more"></a>
-<h2 id="绘画"><a href="#绘画" class="headerlink" title="绘画"></a><strong>绘画</strong></h2><hr>
-
-<p>点击标题即可跳转相应的站点</p>
-<p>1、<strong><a href="http://www.nicholashelyhutchinson.com/" target="_blank" rel="noopener" class="imgPost-title-url">nicholashelyhutchinson</a></strong></p>
-<p><img src="/posts/./Dec-18-blog-01/nicholashelyhutchinson/The-Old-Fishing-Boat-Walberswick.jpg" alt="nicholashelyhutchinson"></p>
-<p><img src="/posts/./Dec-18-blog-01/nicholashelyhutchinson/The-Cold-Road-to-Dorchester-1000x753_c.jpg" alt="nicholashelyhutchinson">    </p>
-<p><img src="/posts/./Dec-18-blog-01/nicholashelyhutchinson/slider_img-1000x669_c.jpg" alt="nicholashelyhutchinson"></p>
-<p>​    Nicholas Hely Hutchinson出身于1955年，1984年首次举行个人绘画展览，一直在英国伦敦，都柏林还有香港展出。他和妻子住在英国的多塞特郡，从周围的海岸和乡村获得灵感，季节和乡村的变化是他灵感来源 。云层下的乡间和人，寒冬里的鸟儿，阳光照射笔直的路，这就他想要的画面。</p>
-<p>2、<strong><a href="https://danaradic.com" target="_blank" rel="noopener" class="imgPost-title-url">danaradic</a></strong></p>
-<p><img src="/posts/./Dec-18-blog-01/danaradic/play-doh-astronauta-ddb-chile-april-20151.jpg" alt="danaradic"></p>
-<p><img src="/posts/./Dec-18-blog-01/danaradic/the_shining_scene_repetition_-_video_on_demand2-2_aotw.jpg" alt="danaradic"></p>
-<p>​    这其实是一个创意广告的网站，可以看到许多非常有趣的东西，不得不说脑洞是真的大，里面还有大鲨鱼和闪灵的创意图片，你可以前往看看。</p>
-<p>3、<strong><a href="https://www.pandagun.com" target="_blank" rel="noopener" class="imgPost-title-url">pandagun</a></strong></p>
-<p><img src="/posts/./Dec-18-blog-01/pandagun/kenard_pak_chestnut_breasted_manniken_72dpi_v02_744.jpg" alt="pandagun"></p>
-<p>​    作者叫Catbird Agency，住在旧金山，喜欢画画，讲述安静，不寻常的故事。感觉他的画很有趣（我保证）。</p>
-<p>​    </p>
-<p><strong>小结：</strong></p>
-<p>​        本周就这样吧，在想有没有什么好玩的，其实是可以po出来的。让我再想想吧。</p>
-<p>​        以上。</p>
+    <title>JavaScript浮点计算</title>
+    <url>/posts/JavaScript&amp;Calculation.html</url>
+    <content><![CDATA[<h2 id="0-30000000000000004"><a href="#0-30000000000000004" class="headerlink" title="0.30000000000000004"></a>0.30000000000000004</h2><p>在前端进行业务的计算时，出现了一点错误：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">console.log(a+b);</span><br><span class="line"></span><br><span class="line">// 结果</span><br><span class="line">0.30000000000000004</span><br></pre></td></tr></tbody></table></figure>
+<p>很奇怪，为什么不直接等于<code>0.3</code></p>
+<h3 id="JavaScript中的数字"><a href="#JavaScript中的数字" class="headerlink" title="JavaScript中的数字"></a>JavaScript中的数字</h3><p>数值始终是64位的双精度浮点数，0到51存储数字（片段），52 到 62 存储指数，63 位存储符号。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值(aka Fraction/Mantissa)</th>
+<th style="text-align:left">指数</th>
+<th style="text-align:left">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">52 bits(0 - 51)</td>
+<td style="text-align:left">11 bits (52 - 62)</td>
+<td style="text-align:left">1 bit (63)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> 整数会被精确到15位、小数最大数是17位。</p>
+<h4 id="对于小数的二进制"><a href="#对于小数的二进制" class="headerlink" title="对于小数的二进制"></a>对于小数的二进制</h4><p>系统是将10进制转为二进制再进行计算，<code>0.1</code>的二进制是<code>0001100110...</code>，后面就一直重复<code>0011</code>，<code>0.2</code>的二进制是<code>0011..</code>，也是重复<code>0011</code>。两个二进制再相加，再转为十进制就是<code>0.30000000000000004</code>。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>1、 先乘后除，缺点是 相乘的结果已经超过了 <strong>MAX_SAFE_INTEGER</strong> 会出现错误</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var x = (0.2 * 10 + 0.1 * 10) / 10;</span><br></pre></td></tr></tbody></table></figure>
+<p>2、指定精度的四舍五入，小数太多，也不是很理想</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">var a = 0.1 ;</span><br><span class="line">var b = 0.2 ;</span><br><span class="line">var c = a+b ;</span><br><span class="line">console.log(parseFloat(c.toFixed(12)));</span><br></pre></td></tr></tbody></table></figure>
+<p>3、将浮点数转字符串，再模拟实际计算</p>
+<p> <a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">bignumber.js</a>，<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">decimal.js</a>，以及<a href="https://github.com/MikeMcl/big.js" target="_blank" rel="noopener">big.js</a>等</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -942,8 +893,7 @@
           });
       </script>]]></content>
       <tags>
-        <tag>绘画</tag>
-        <tag>日常</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1002,6 +952,109 @@
 <p><img src="/posts/./Dec-18-blog-02/other/2.jpg" alt="other-2"></p>
 <p>3、<strong><a href="https://crossoverjie.top/2018/12/12/java-senior/java-memary-allocation/" target="_blank" rel="noopener" class="imgPost-title-url">没错，老板让我写个 BUG！</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
 <p><img src="/posts/./Dec-18-blog-02/other/3.jpg" alt="other-3"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>绘画</tag>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dec. 18 blog (01)</title>
+    <url>/posts/Dec-18-blog-01.html</url>
+    <content><![CDATA[<h2 id="大雪之后"><a href="#大雪之后" class="headerlink" title="大雪之后"></a>大雪之后</h2><p>记于12月09日，距离新的一年还有22天。</p>
+<p><img src="/posts/./Dec-18-blog-01/dec.jpg" alt="开头"></p>
+<p>7号是大雪气节，是仲冬的开始。开始冷了起来，时不时会有些小雨飘在街上，让人忍不住拉了拉衣领，把脖子缩进去。终于可以看到呼出的白气。圣诞的气温已经准备好了，我看到有人排出了圣诞树，虽然时间还早的很。</p>
+<a id="more"></a>
+<h2 id="绘画"><a href="#绘画" class="headerlink" title="绘画"></a><strong>绘画</strong></h2><hr>
+
+<p>点击标题即可跳转相应的站点</p>
+<p>1、<strong><a href="http://www.nicholashelyhutchinson.com/" target="_blank" rel="noopener" class="imgPost-title-url">nicholashelyhutchinson</a></strong></p>
+<p><img src="/posts/./Dec-18-blog-01/nicholashelyhutchinson/The-Old-Fishing-Boat-Walberswick.jpg" alt="nicholashelyhutchinson"></p>
+<p><img src="/posts/./Dec-18-blog-01/nicholashelyhutchinson/The-Cold-Road-to-Dorchester-1000x753_c.jpg" alt="nicholashelyhutchinson">    </p>
+<p><img src="/posts/./Dec-18-blog-01/nicholashelyhutchinson/slider_img-1000x669_c.jpg" alt="nicholashelyhutchinson"></p>
+<p>​    Nicholas Hely Hutchinson出身于1955年，1984年首次举行个人绘画展览，一直在英国伦敦，都柏林还有香港展出。他和妻子住在英国的多塞特郡，从周围的海岸和乡村获得灵感，季节和乡村的变化是他灵感来源 。云层下的乡间和人，寒冬里的鸟儿，阳光照射笔直的路，这就他想要的画面。</p>
+<p>2、<strong><a href="https://danaradic.com" target="_blank" rel="noopener" class="imgPost-title-url">danaradic</a></strong></p>
+<p><img src="/posts/./Dec-18-blog-01/danaradic/play-doh-astronauta-ddb-chile-april-20151.jpg" alt="danaradic"></p>
+<p><img src="/posts/./Dec-18-blog-01/danaradic/the_shining_scene_repetition_-_video_on_demand2-2_aotw.jpg" alt="danaradic"></p>
+<p>​    这其实是一个创意广告的网站，可以看到许多非常有趣的东西，不得不说脑洞是真的大，里面还有大鲨鱼和闪灵的创意图片，你可以前往看看。</p>
+<p>3、<strong><a href="https://www.pandagun.com" target="_blank" rel="noopener" class="imgPost-title-url">pandagun</a></strong></p>
+<p><img src="/posts/./Dec-18-blog-01/pandagun/kenard_pak_chestnut_breasted_manniken_72dpi_v02_744.jpg" alt="pandagun"></p>
+<p>​    作者叫Catbird Agency，住在旧金山，喜欢画画，讲述安静，不寻常的故事。感觉他的画很有趣（我保证）。</p>
+<p>​    </p>
+<p><strong>小结：</strong></p>
+<p>​        本周就这样吧，在想有没有什么好玩的，其实是可以po出来的。让我再想想吧。</p>
+<p>​        以上。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>绘画</tag>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mar-19-blog-01</title>
+    <url>/posts/Mar-19-blog-01.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近几天，天空像是把双手插进装满云的蜜罐里，黏黏的，怎么抹都抹不掉。最后，跑到海边看日月贝。</p>
+<p><img src="/posts/./Mar-19-blog-01/header/1.jpg" alt="Chien Chung-Wei"></p>
+<a id="more"></a>
+<p><img src="/posts/./Mar-19-blog-01/header/2.jpg" alt="Chien Chung-Wei"></p>
+<p><img src="/posts/./Mar-19-blog-01/header/3.jpg" alt="Chien Chung-Wei"></p>
+<p><img src="/posts/./Mar-19-blog-01/header/4.jpg" alt="Chien Chung-Wei"></p>
+<h2 id="绘画"><a href="#绘画" class="headerlink" title="绘画"></a><strong>绘画</strong></h2><hr>
+
+<p>以下是最近几天收集的</p>
+<p>1、<strong><a href="#" target="_blank" class="imgPost-title-url">标题</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
+<p>​    Nicholas Hely Hutchinson出身于1955年xxxx</p>
+<p>2、<strong><a href="#" target="_blank" class="imgPost-title-url">标题</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
+<p>​    xxxxx</p>
+<p>3、<strong><a href="https://www.pandagun.com" target="_blank" rel="noopener" class="imgPost-title-url">标题</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
+<p>​    xxxx</p>
+<h2 id="博客画师"><a href="#博客画师" class="headerlink" title="博客画师"></a><strong>博客画师</strong></h2><hr>
+
+<p>点击标题即可跳转相应的站点</p>
+<h2 id="Dribble"><a href="#Dribble" class="headerlink" title="Dribble"></a><strong>Dribble</strong></h2><hr>
+
+<p>点击标题即可跳转相应的站点</p>
+<h2 id="有趣及清单"><a href="#有趣及清单" class="headerlink" title="有趣及清单"></a><strong>有趣及清单</strong></h2><hr>
+
+<p>点击标题即可跳转相应的站点</p>
+<p><strong>小结：</strong></p>
+<p>​     xxxx</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1090,59 +1143,6 @@
 <p>介绍：<code>GitNote</code> 基于 <code>Git</code> 的跨平台笔记软件,内置<code>Git</code>同步,支持 <code>todo</code> 管理,支持富文本,<code>markdown</code> 编辑,支持思维脑图,流程图,多图床等等功能。</p>
 <p>2、<strong><a href="https://zhuanlan.zhihu.com/p/56226189" target="_blank" class="imgPost-title-url">LeetCode for VS Code</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
 <p>可以刷<code>LeetCode</code>的插件</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>绘画</tag>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mar-19-blog-01</title>
-    <url>/posts/Mar-19-blog-01.html</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近几天，天空像是把双手插进装满云的蜜罐里，黏黏的，怎么抹都抹不掉。最后，跑到海边看日月贝。</p>
-<p><img src="/posts/./Mar-19-blog-01/header/1.jpg" alt="Chien Chung-Wei"></p>
-<a id="more"></a>
-<p><img src="/posts/./Mar-19-blog-01/header/2.jpg" alt="Chien Chung-Wei"></p>
-<p><img src="/posts/./Mar-19-blog-01/header/3.jpg" alt="Chien Chung-Wei"></p>
-<p><img src="/posts/./Mar-19-blog-01/header/4.jpg" alt="Chien Chung-Wei"></p>
-<h2 id="绘画"><a href="#绘画" class="headerlink" title="绘画"></a><strong>绘画</strong></h2><hr>
-
-<p>以下是最近几天收集的</p>
-<p>1、<strong><a href="#" target="_blank" class="imgPost-title-url">标题</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
-<p>​    Nicholas Hely Hutchinson出身于1955年xxxx</p>
-<p>2、<strong><a href="#" target="_blank" class="imgPost-title-url">标题</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
-<p>​    xxxxx</p>
-<p>3、<strong><a href="https://www.pandagun.com" target="_blank" rel="noopener" class="imgPost-title-url">标题</a></strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8">👈</span></p>
-<p>​    xxxx</p>
-<h2 id="博客画师"><a href="#博客画师" class="headerlink" title="博客画师"></a><strong>博客画师</strong></h2><hr>
-
-<p>点击标题即可跳转相应的站点</p>
-<h2 id="Dribble"><a href="#Dribble" class="headerlink" title="Dribble"></a><strong>Dribble</strong></h2><hr>
-
-<p>点击标题即可跳转相应的站点</p>
-<h2 id="有趣及清单"><a href="#有趣及清单" class="headerlink" title="有趣及清单"></a><strong>有趣及清单</strong></h2><hr>
-
-<p>点击标题即可跳转相应的站点</p>
-<p><strong>小结：</strong></p>
-<p>​     xxxx</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1452,6 +1452,68 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker Compose - Quick Start</title>
+    <url>/posts/docker_compose_quick_start.html</url>
+    <content><![CDATA[<h2 id="Docker-Compose-Quick-Start"><a href="#Docker-Compose-Quick-Start" class="headerlink" title="Docker Compose Quick Start"></a>Docker Compose Quick Start</h2><p>对 官网 <a href="https://docs.docker.com/compose/gettingstarted/" target="_blank" rel="noopener">Docker Compose Quick Start</a> 的一些简单记录         </p>
+<h3 id="用-Docker-Compose-来解决什么问题-？"><a href="#用-Docker-Compose-来解决什么问题-？" class="headerlink" title="用 Docker Compose 来解决什么问题   ？"></a>用 Docker Compose 来解决什么问题   ？</h3><p>比如：使用 docker 来构建 redis 哨兵模式来学习，构建 ELK ，或者提供一个当前系统的最小可用版本提供其他组测试对接用 </p>
+<a id="more"></a>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="创建测试用的项目"><a href="#创建测试用的项目" class="headerlink" title="创建测试用的项目"></a>创建测试用的项目</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">mkdir composetest</span><br><span class="line"><span class="built_in">cd</span> composetest</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="新建-app-py-到文件夹中"><a href="#新建-app-py-到文件夹中" class="headerlink" title="新建 app.py 到文件夹中"></a>新建 app.py 到文件夹中</h3><figure class="highlight python"><figcaption><span>文件位置：composetest/app.py</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">cache = redis.Redis(host=<span class="string">'redis'</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_hit_count</span><span class="params">()</span>:</span></span><br><span class="line">    retries = <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> cache.incr(<span class="string">'hits'</span>)</span><br><span class="line">        <span class="keyword">except</span> redis.exceptions.ConnectionError <span class="keyword">as</span> exc:</span><br><span class="line">            <span class="keyword">if</span> retries == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">raise</span> exc</span><br><span class="line">            retries -= <span class="number">1</span></span><br><span class="line">            time.sleep(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    count = get_hit_count()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f'Hello World! I have been seen <span class="subst">{count}</span> times.\n'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>连接同一个 network 环境下名为 redis 的redis容器服务，<code>git_hit_count()</code> 是对 redis 服务的重试连接</p>
+<h3 id="新建另外一个文件-requirements-txt"><a href="#新建另外一个文件-requirements-txt" class="headerlink" title="新建另外一个文件 requirements.txt"></a>新建另外一个文件 requirements.txt</h3><figure class="highlight plain"><figcaption><span>文件位置：composetest/requirements.txt</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">flask</span><br><span class="line">redis</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="新建-Dockerfile-文件"><a href="#新建-Dockerfile-文件" class="headerlink" title="新建 Dockerfile 文件"></a>新建 Dockerfile 文件</h3><figure class="highlight dockerfile"><figcaption><span>文件位置：composetest/Dockerfile </span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># syntax=docker/dockerfile:1</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.10</span>-alpine</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /code</span></span><br><span class="line"><span class="bash">ENV FLASK_APP=app.py</span></span><br><span class="line"><span class="bash">ENV FLASK_RUN_HOST=0.0.0.0</span></span><br><span class="line"><span class="bash">RUN apk add --no-cache gcc musl-dev linux-headers</span></span><br><span class="line"><span class="bash">COPY requirements.txt requirements.txt</span></span><br><span class="line"><span class="bash">RUN pip install -r requirements.txt</span></span><br><span class="line"><span class="bash">EXPOSE 5000</span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash">CMD [<span class="string">"flask"</span>, <span class="string">"run"</span>, <span class="string">"--debug"</span>]</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="新建-compose-yaml"><a href="#新建-compose-yaml" class="headerlink" title="新建 compose.yaml"></a>新建 compose.yaml</h3><figure class="highlight yml"><figcaption><span>文件位置：composetest/compose.yaml </span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8000:5000"</span></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"redis:alpine"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>以上定义了2个服务：</p>
+<ol>
+<li>web 服务来自由 Dockerfile 构建镜像。</li>
+<li>redis 服务</li>
+</ol>
+<h3 id="build-and-run-compose"><a href="#build-and-run-compose" class="headerlink" title="build and run compose"></a>build and run compose</h3><p>在当前目录下执行</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose up</span><br><span class="line"></span><br><span class="line">Creating network <span class="string">"composetest_default"</span> with the default driver</span><br><span class="line">Creating composetest_web_1 ...</span><br><span class="line">Creating composetest_redis_1 ...</span><br><span class="line">Creating composetest_web_1</span><br><span class="line">Creating composetest_redis_1 ... <span class="keyword">done</span></span><br><span class="line">Attaching to composetest_web_1, composetest_redis_1</span><br><span class="line">web_1    |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)</span><br><span class="line">redis_1  | 1:C 17 Aug 22:11:10.480 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">redis_1  | 1:C 17 Aug 22:11:10.480 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=1, just started</span></span><br><span class="line">redis_1  | 1:C 17 Aug 22:11:10.480 <span class="comment"># Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf</span></span><br><span class="line">web_1    |  * Restarting with <span class="built_in">stat</span></span><br><span class="line">redis_1  | 1:M 17 Aug 22:11:10.483 * Running mode=standalone, port=6379.</span><br><span class="line">redis_1  | 1:M 17 Aug 22:11:10.483 <span class="comment"># WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.</span></span><br><span class="line">web_1    |  * Debugger is active!</span><br><span class="line">redis_1  | 1:M 17 Aug 22:11:10.483 <span class="comment"># Server initialized</span></span><br><span class="line">redis_1  | 1:M 17 Aug 22:11:10.483 <span class="comment"># WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span></span><br><span class="line">web_1    |  * Debugger PIN: 330-787-903</span><br><span class="line">redis_1  | 1:M 17 Aug 22:11:10.483 * Ready to accept connections</span><br></pre></td></tr></tbody></table></figure>
+<p>检验服务情况，访问 localhost:8000 </p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line">Hello World! I have been seen 1 times.</span><br></pre></td></tr></tbody></table></figure>
+<p>停止应用程序，方法是在第二个终端中的项目目录中运行 <code>docker compose down</code>，或者在启动应用程序的原始终端中按 <code>CTRL+C</code> 停止应用程序。</p>
+<h3 id="使用-Compose-Watch"><a href="#使用-Compose-Watch" class="headerlink" title="使用 Compose Watch"></a>使用 Compose Watch</h3><p>修改 compose.yaml 文件，添加 watch 用来预览正在运行的 Compose 服务，在编辑和保存代码时会自动更新：</p>
+<figure class="highlight yml"><figcaption><span>文件位置：composetest/compose.yaml </span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8000:5000"</span></span><br><span class="line"><span class="attr">    develop:</span></span><br><span class="line"><span class="attr">      watch:</span></span><br><span class="line"><span class="attr">        - action:</span> <span class="string">sync</span></span><br><span class="line"><span class="attr">          path:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">          target:</span> <span class="string">/code</span></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"redis:alpine"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>每当文件发生更改时，Compose 都会将文件同步到容器内的相应位置。复制完成后，捆绑器会更新正在运行的应用程序，而无需重新启动。</p>
+<p>输入 <code>docker compose watch</code> 或 <code>docker compose up --watch</code> 来构建和启动应用程序并启动文件监视模式</p>
+<p>修改 app.py 并重新访问 localhost:8000</p>
+<figure class="highlight diff"><table><tbody><tr><td class="code"><pre><span class="line">@app.route('/')</span><br><span class="line">def hello():</span><br><span class="line">    count = get_hit_count()</span><br><span class="line"><span class="deletion">-    return f'Hello World! I have been seen {count} times.\n'</span></span><br><span class="line"><span class="addition">+    return f'Hello from Docker! I have been seen {count} times.\n'</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="拆分服务"><a href="#拆分服务" class="headerlink" title="拆分服务"></a>拆分服务</h3><p>将 redis 服务定义从 compose.yaml 中拆分出来</p>
+<p>新建 infra.yaml</p>
+<figure class="highlight yml"><figcaption><span>文件位置：composetest/infra.yaml </span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">"redis:alpine"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在 compose.yaml 中引入</p>
+<figure class="highlight diff"><table><tbody><tr><td class="code"><pre><span class="line"><span class="addition">+ include:</span></span><br><span class="line"><span class="addition">+    - infra.yaml</span></span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    ports:</span><br><span class="line">      - "8000:5000"</span><br><span class="line">    develop:</span><br><span class="line">      watch:</span><br><span class="line">        - action: sync</span><br><span class="line">          path: .</span><br><span class="line">          target: /code</span><br><span class="line"><span class="deletion">-  redis:</span></span><br><span class="line"><span class="deletion">-    image: "redis:alpine"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行 docker compose up 命令，使用更新后的 Compose 文件构建应用程序并运行它。你应该会在浏览器中看到 Hello world 消息</p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><p>运行 docker compose up 命令，使用更新后的 Compose 文件构建应用程序并运行它。你应该会在浏览器中看到 Hello world 消息</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose up -d</span><br><span class="line"></span><br><span class="line">Starting composetest_redis_1...</span><br><span class="line">Starting composetest_web_1...</span><br><span class="line"></span><br><span class="line">docker compose ps</span><br><span class="line"></span><br><span class="line">       Name                      Command               State           Ports         </span><br><span class="line">-------------------------------------------------------------------------------------</span><br><span class="line">composetest_redis_1   docker-entrypoint.sh redis ...   Up      6379/tcp              </span><br><span class="line">composetest_web_1     flask run                        Up      0.0.0.0:8000-&gt;5000/tcp</span><br></pre></td></tr></tbody></table></figure>
+<p>使用 <code>docker compose up -d</code> 启动了 Compose，请在使用完后停止服务</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose stop</span><br></pre></td></tr></tbody></table></figure>
+<p>可以使用 <code>docker compose down</code> 命令关闭所有内容，彻底删除容器</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker_Getting_Started</title>
     <url>/posts/Docker_Getting_Started.html</url>
     <content><![CDATA[<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>环境 <code>win10</code>，已开启 <code>Hyper-V</code>后，成功安装 <code>Docker Desktop</code>。打开后可以看到一个命令：</p>
@@ -1494,6 +1556,121 @@
 
 
 
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker How-tos</title>
+    <url>/posts/docker_how_tos.html</url>
+    <content><![CDATA[<h2 id="自定义项目名称"><a href="#自定义项目名称" class="headerlink" title="自定义项目名称"></a><a href="https://docs.docker.com/compose/how-tos/project-name/" target="_blank" rel="noopener">自定义项目名称</a></h2><p>默认会使用当前 compose.yaml 所处文件夹的名称作为 project name 。使用 project name 来隔离各个环境。</p>
+<ol>
+<li>在开发主机上：创建单个环境的多个副本，这对于为项目的每个功能分支运行稳定副本很有用<ul>
+<li>saas 化的场景</li>
+<li>私有定制化的场景</li>
+</ul>
+</li>
+<li>在 CI 服务器上：通过将项目名称设置为唯一的构建编号来防止构建之间的干扰</li>
+<li>在共享或开发主机上：避免可能共享相同服务名称的不同项目之间的干扰</li>
+</ol>
+<a id="more"></a>
+<p>项目名称只能包含 <em>小写字母、十进制数字、破折号 和 下划线</em>，并且<strong>必须</strong>以 小写字母 或 十进制数字 开头</p>
+<p>优先级如下 - 从高到低：</p>
+<ol>
+<li><p><code>-p</code> 命令行标志</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose -p demo_project up</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>设置 COMPOSE_PROJECT_NAME 环境变量</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> COMPOSE_PROJECT_NAME=demo_project</span><br><span class="line">docker compose up</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>在 Compose 文件中使用顶级的 name 属性</p>
+ <figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">my_custom_project</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nginx</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>使用多个 Compose 文件时的最后一个 name 属性，当通过 <code>-f</code> 标志指定多个 Compose 文件时，最后一个文件中定义的 name 属性生效</p>
+<ul>
+<li><p>文件 docker-compose.yml：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">project_a</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nginx</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>文件 docker-compose.override.yml：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">project_b</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8080:80"</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>运行命令：</p>
+ <figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose -f docker-compose.yml -f docker-compose.override.yml up</span><br></pre></td></tr></tbody></table></figure>
+<p> 由于 docker-compose.override.yml 是最后一个指定的文件，其 name: project_b 生效，项目名称为 project_b。由于 docker-compose.override.yml 是最后一个指定的文件，其 name: project_b 生效，项目名称为 project_b。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Compose-生命周期钩子"><a href="#Compose-生命周期钩子" class="headerlink" title="Compose 生命周期钩子"></a><a href="https://docs.docker.com/compose/how-tos/lifecycle/" target="_blank" rel="noopener">Compose 生命周期钩子</a></h2><h3 id="启动后"><a href="#启动后" class="headerlink" title="启动后"></a>启动后</h3><p>在容器启动后运行，但具体执行时间没有固定。在容器入口点执行期间，钩子的执行时间无法确定。</p>
+<p>例子：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  app:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"><span class="attr">    user:</span> <span class="number">1001</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="attr">      - data:</span><span class="string">/data</span>    </span><br><span class="line"><span class="attr">    post_start:</span></span><br><span class="line"><span class="attr">      - command:</span> <span class="string">chown</span> <span class="bullet">-R</span> <span class="string">/data</span> <span class="number">1001</span><span class="string">:1001</span></span><br><span class="line"><span class="attr">        user:</span> <span class="string">root</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="attr">  data:</span> <span class="string">{}</span> <span class="comment"># a Docker volume is created with root ownership</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>该钩子用于将卷的所有权更改为非 root 用户（因为卷默认以 root 所有权创建）。</p>
+</li>
+<li><p>容器启动后， chown 命令会将 /data 目录的所有权更改为用户 1001。</p>
+</li>
+</ul>
+<h3 id="结束前"><a href="#结束前" class="headerlink" title="结束前"></a>结束前</h3><p>在容器被特定命令（例如 docker compose down 或使用 Ctrl+C 手动停止）停止之前运行的命令。如果容器自行停止或被突然终止，这些钩子将不会运行</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  app:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"><span class="attr">    pre_stop:</span></span><br><span class="line"><span class="attr">      - command:</span> <span class="string">./data_flush.sh</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在容器停止之前，将运行 ./data_flush.sh 脚本来执行任何必要的清理</p>
+<h2 id="在-Compose-中使用-profiles"><a href="#在-Compose-中使用-profiles" class="headerlink" title="在 Compose 中使用 profiles"></a><a href="https://docs.docker.com/compose/how-tos/profiles/" target="_blank" rel="noopener">在 Compose 中使用 profiles</a></h2><p>在 compose.yaml 中配置 profiles 可以用来方便切换到不同的环境或者用例中。服务可以被标注一个或多个 profiles。未标注的服务默认为 default 。</p>
+<h3 id="给服务标注环境-profiles"><a href="#给服务标注环境-profiles" class="headerlink" title="给服务标注环境 profiles"></a>给服务标注环境 profiles</h3><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  frontend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">frontend</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[frontend]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  phpmyadmin:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">phpmyadmin</span></span><br><span class="line"><span class="attr">    depends_on:</span> <span class="string">[db]</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[debug]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  backend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">mysql</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>frontend 服务被标注为 frontend 环境</li>
+<li>phpmyadmin 服务标注为 debug 环境</li>
+</ul>
+<p>启动对应的配置，使用提供 —profile 命令行选项或使用 COMPOSE_PROFILES 环境变量</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># --profile</span></span><br><span class="line">docker compose --profile debug up</span><br><span class="line"></span><br><span class="line"><span class="comment"># -- env</span></span><br><span class="line">COMPOSE_PROFILES=debug docker compose up</span><br></pre></td></tr></tbody></table></figure>
+<p>会启动 phpmyadmin , backend , db 这3个服务</p>
+<h3 id="多个-profiles"><a href="#多个-profiles" class="headerlink" title="多个 profiles"></a>多个 profiles</h3><p>通过传递多个 —profile 标志或 COMPOSE_PROFILES 环境变量的逗号分隔列表来指定多个配置文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose --profile frontend --profile debug up</span><br><span class="line"></span><br><span class="line">COMPOSE_PROFILES=frontend,debug docker compose up</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用所有配置文件，可以运行</span></span><br><span class="line">docker compose --profile <span class="string">"*"</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="自动启动的-profiles-和-依赖关系解析"><a href="#自动启动的-profiles-和-依赖关系解析" class="headerlink" title="自动启动的 profiles 和 依赖关系解析"></a>自动启动的 profiles 和 依赖关系解析</h3><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  backend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">mysql</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db-migrations:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">myapp</span> <span class="string">migrate</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">db</span></span><br><span class="line"><span class="attr">    profiles:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">tools</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可以用于一次性服务和调试工具 </p>
+<p>命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 只会启动 backend 和 db</span></span><br><span class="line">docker compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 db-migrations (并且，如有必要，启动 db)</span></span><br><span class="line"><span class="comment"># 通过隐式启用配置文件 profiles `tools`</span></span><br><span class="line">docker compose run db-migrations</span><br></pre></td></tr></tbody></table></figure>
+<p>db 服务 profiles 需要为空或者和 db-migrations 是同一个 profiles</p>
+<h3 id="关闭一些配置"><a href="#关闭一些配置" class="headerlink" title="关闭一些配置"></a>关闭一些配置</h3><p>与启动特定配置文件一样，您可以使用 —profile 命令行选项或使用 COMPOSE_PROFILES 环境变量：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose --profile debug down</span><br><span class="line"></span><br><span class="line">COMPOSE_PROFILES=debug docker compose down</span><br></pre></td></tr></tbody></table></figure>
+<p>在该配置中</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  frontend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">frontend</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[frontend]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  phpmyadmin:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">phpmyadmin</span></span><br><span class="line"><span class="attr">    depends_on:</span> <span class="string">[db]</span></span><br><span class="line"><span class="attr">    profiles:</span> <span class="string">[debug]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  backend:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">backend</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">mysql</span></span><br></pre></td></tr></tbody></table></figure>
+<p>会停止 db、backend 和 phpmyadmin </p>
+<p>停止并移除带有 debug 配置文件的服务以及不带该配置文件的服务，如果只想停止 phpmyadmin</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker compose down phpmyadmin</span><br><span class="line"></span><br><span class="line">docker compose stop phpmyadmin</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="在-Compose-中控制启动和关闭顺序"><a href="#在-Compose-中控制启动和关闭顺序" class="headerlink" title="在 Compose 中控制启动和关闭顺序"></a><a href="https://docs.docker.com/compose/how-tos/startup-order/" target="_blank" rel="noopener">在 Compose 中控制启动和关闭顺序</a></h3><p>通过 depends_one 来控制服务启动和关闭的顺序。compose 按照依赖顺序启动和停止容器服务，其中依赖关系由 depends_on，links，volumes_from 和 network_mode：”service:…” 决定。</p>
+<p>比如在应用服务启动前，启动数据库，缓存等</p>
+<p>在启动时，Compose 不会等到容器“准备好”，而只会等到它运行</p>
+<p>检测服务就绪状态的解决方案是使用带有以下选项之一的条件属性</p>
+<ul>
+<li>service_started</li>
+<li>service_headlthy</li>
+<li>service_completed_successfully</li>
+</ul>
+<p>例子</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="attr">      db:</span></span><br><span class="line"><span class="attr">        condition:</span> <span class="string">service_healthy</span></span><br><span class="line"><span class="attr">        restart:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">      redis:</span></span><br><span class="line"><span class="attr">        condition:</span> <span class="string">service_started</span></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">postgres</span></span><br><span class="line"><span class="attr">    healthcheck:</span></span><br><span class="line"><span class="attr">      test:</span> <span class="string">["CMD-SHELL",</span> <span class="string">"pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"</span><span class="string">]</span></span><br><span class="line"><span class="attr">      interval:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"><span class="attr">      retries:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">      start_period:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">      timeout:</span> <span class="number">10</span><span class="string">s</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Compose 按照依赖顺序创建服务。数据库（db）和 Redis 在 web 之前创建。</p>
+<p>Compose 等待标记为 service_healthy 的依赖项的健康检查通过。数据库（db）需在健康检查显示“healthy”后，web 才会创建。</p>
+<p>restart: true 确保如果数据库（db）因显式的 Compose 操作（例如 docker compose restart）被更新或重启，web 服务也会自动重启，以确保正确重新建立连接或依赖关系。</p>
+<p>数据库（db）服务的健康检查使用 <code>pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}</code> 命令检查 PostgreSQL 数据库是否准备就绪。服务每 10 秒重试一次，最多重试 5 次。</p>
+<p>Compose 也按照依赖顺序删除服务。web 在数据库（db）和 Redis 之前被删除。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1683,47 +1860,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Go cibcyrrency	</title>
-    <url>/posts/Go_14.html</url>
-    <content><![CDATA[<h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
-<p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<a id="more"></a>
-<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>缓存</p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
-<p>有缓存时同步阻塞的，无缓是异步的</p>
-<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
-<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <tags>
-        <tag>Go</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Go interface</title>
     <url>/posts/Go_12.html</url>
     <content><![CDATA[<h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h2><p>接口是一个或多个方法签名的集合，只要某个类型拥有该接口的所有方法签名，即算实现该接口，无需显示声明了实现了哪个接口，这称为 Structural Typing</p>
@@ -1812,6 +1948,47 @@
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">if !f.IsValid() {</span><br><span class="line">    fmt.Println("not fund")</span><br><span class="line">    return</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>反射调用方法</p>
 <figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u User)</span> <span class="title">HelloSomeone</span><span class="params">(name <span class="keyword">string</span>)</span></span> {</span><br><span class="line">	fmt.Println(<span class="string">"Hello"</span>, name, <span class="string">", my name is "</span>, u.Name)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	u := User{<span class="number">1</span>, <span class="string">"OK"</span>, <span class="number">12</span>}</span><br><span class="line">	u.HelloSomeone(<span class="string">"Jack"</span>)</span><br><span class="line"></span><br><span class="line">	v := reflect.ValueOf(u)</span><br><span class="line">	mv := v.MethodByName(<span class="string">"HelloSomeone"</span>)</span><br><span class="line">	args := []reflect.Value{reflect.ValueOf(<span class="string">"Bob"</span>)}</span><br><span class="line">	mv.Call(args)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Go cibcyrrency	</title>
+    <url>/posts/Go_14.html</url>
+    <content><![CDATA[<h2 id="并发concurrency"><a href="#并发concurrency" class="headerlink" title="并发concurrency"></a>并发concurrency</h2><p>gorountine </p>
+<p>切换时间来实现“同时”运行，在并行则是利用多核实现多线程的运行，通过通信共享内存</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">()</span></span>{</span><br><span class="line">	fmt.Println(<span class="string">"Go go!"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">go</span> Go()</span><br><span class="line">	time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
+<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>channel 是 goroutine 沟通的桥梁，大都是阻塞同步的，通过 make 创建，close 关闭，channel 是引用类型，使用 for range 来迭代不断操作 channel ，可设置单向或双向通道，缓存大小，在未被填满之前不会发生阻塞</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>{</span><br><span class="line">		fmt.Println(<span class="string">"123"</span>)</span><br><span class="line">		c &lt;- <span class="literal">true</span></span><br><span class="line">	}()</span><br><span class="line">	&lt;- c </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="for-range"><a href="#for-range" class="headerlink" title="for range"></a>for range</h4><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func main() {</span><br><span class="line">	c := make(chan bool)</span><br><span class="line">	go func() {</span><br><span class="line">		fmt.Println("123")</span><br><span class="line">		c &lt;- true</span><br><span class="line">		close(c)</span><br><span class="line">	}()</span><br><span class="line">	for v := range c {</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>缓存</p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>有缓存时同步阻塞的，无缓是异步的</p>
+<h4 id="多核运行"><a href="#多核运行" class="headerlink" title="多核运行"></a>多核运行</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(c <span class="keyword">chan</span> <span class="keyword">bool</span>, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	c &lt;- <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(c, i)</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span> ; i  &lt; <span class="number">10</span> ; i++ {</span><br><span class="line">		&lt;- c</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="同步-sync-WaitGroup"><a href="#同步-sync-WaitGroup" class="headerlink" title="同步 sync.WaitGroup"></a>同步 sync.WaitGroup</h4><figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Go</span><span class="params">(wg *sync.WaitGroup, index <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++ {</span><br><span class="line">		a += i</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(index, a)</span><br><span class="line">	wg.Done()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line"></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU())</span><br><span class="line">	wg := sync.WaitGroup{}</span><br><span class="line">	wg.Add(<span class="number">10</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">		<span class="keyword">go</span> Go(&amp;wg, i)</span><br><span class="line">	}</span><br><span class="line">	wg.Wait()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>可处理一个或多个 channel 的发生与接收，同时有多个可用的 channel 时按随机顺序处理，可用空的select来阻塞 main 函数，可设置超时 </p>
+<figure class="highlight go"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	c1, c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</span><br><span class="line">	o := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">		<span class="keyword">for</span> {</span><br><span class="line">			<span class="keyword">select</span> {</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c1:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c1"</span>, v)</span><br><span class="line">			<span class="keyword">case</span> v, ok := &lt;-c2:</span><br><span class="line">				<span class="keyword">if</span> !ok {</span><br><span class="line">					o &lt;- <span class="literal">true</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				}</span><br><span class="line">				fmt.Println(<span class="string">"c2"</span>, v)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}()</span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">1</span></span><br><span class="line">	c2 &lt;- <span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line">	c1 &lt;- <span class="number">3</span></span><br><span class="line">	c2 &lt;- <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">close</span>(c1)</span><br><span class="line">	<span class="built_in">close</span>(c2)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="互相发送"><a href="#互相发送" class="headerlink" title="互相发送"></a>互相发送</h3><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">func Pingpong() {</span><br><span class="line">	i := 0</span><br><span class="line">	for {</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">		c &lt;- fmt.Sprintf("From Pingpong: Hi, #%d", i)</span><br><span class="line">		i++</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">func main() {</span><br><span class="line">	c = make(chan string)</span><br><span class="line">	go Pingpong()</span><br><span class="line">	for i := 0; i &lt; 10; i++ {</span><br><span class="line">		c &lt;- fmt.Sprintf("From main: Hello, #%d", i)</span><br><span class="line">		fmt.Println(&lt;-c)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2841,6 +3018,273 @@
       <tags>
         <tag>Go</tag>
         <tag>Plan 9</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM G1</title>
+    <url>/posts/jvm_g1.html</url>
+    <content><![CDATA[<h2 id="在新项目使用到了G1"><a href="#在新项目使用到了G1" class="headerlink" title="在新项目使用到了G1"></a>在新项目使用到了G1</h2><p>为什么使用 G1 , 在JDK8之后的版本中，G1 将会成为默认的 GC ,  那么了解和使用 G1 是个不错的学习方向。在当前时间点：2025年5月20日时，JDK 版本已经来到了以下这个阶段</p>
+<ul>
+<li>25 in development</li>
+<li>24 GA 2025/03/18</li>
+</ul>
+<p>那么在后续的版本中还有 ZGC / Shenandoah / Epsilon GC  ， 其中 CMS 在 JDK9 中弃用，在 14 中移除</p>
+<a id="more"></a>   
+<h2 id="为什么要有-G1"><a href="#为什么要有-G1" class="headerlink" title="为什么要有 G1"></a>为什么要有 G1</h2><p>G1 的主要解决两个关键点：</p>
+<ol>
+<li>可预测的暂停时间 </li>
+<li>软目标</li>
+</ol>
+<h3 id="可预测的暂停时间"><a href="#可预测的暂停时间" class="headerlink" title="可预测的暂停时间"></a>可预测的暂停时间</h3><p>之前的 GC : CMS / Parallel GC 在执行 标记-清扫 / 标记-复制 时，需要一次性扫描大量的对象，导致 STW 的时长不可控，波动大。</p>
+<p>G1 的处理方案是：</p>
+<ul>
+<li>将堆分割为大量大小相同的块 Region ，每个大小在 [1,32] MB 之间，可根据堆大小自动调整</li>
+<li>按 Region 为单位进行收集，在一次 GC 暂停周期内，只收集一部分最值钱的 Region 而不是全部堆</li>
+<li>增量式完成老年代回收，将一次完整的老年代回收拆分成多次小规模的 Region 回收，每次都尽量控制在设定的时间窗口内</li>
+<li><strong>历史预测模型</strong>：G1 会根据前几次 GC 的耗时，动态估算 “回收 N 个 Region” 大致需要多长时间，从而在每次 GC 之前决定这次回收多少 Region，才能逼近设定的暂停时间目标。</li>
+</ul>
+<p>好处：每次 GC 暂停时只处理有限的 Region , 能够较准确估算清理大约需要的耗时，从而让暂停时间可预测。也更容易达到 用户在启动参数中通过 <code>-XX:MaxGCPauseMillis=</code> 指定的最大暂停时间目标 </p>
+<p>G1 会“预演”——根据历史数据预测这次 GC 的停顿耗时，并据此调整本次 GC 的工作量，使得每次停顿都尽可能接近我们想要的那个值。</p>
+<h3 id="软目标"><a href="#软目标" class="headerlink" title="软目标"></a>软目标</h3><p>尽最大努力去满足，但在内存压力，对象分配速率极高或堆碎片严重时，也可能超出目标</p>
+<p>因此，G1 对暂停时间的管控是一种“努力达成但不绝对保证”的方式——这就是“软目标（Soft-Goal）”的含义</p>
+<h2 id="切割"><a href="#切割" class="headerlink" title="切割"></a>切割</h2><p>Region 区域大小是在 JVM 启动时计算和定义的。它基于尽可能接近 2048 个区域的原则，每个区域的大小为 2 的幂，介于 1 到 64 MB 之间。更简单地说，对于一个 12 GB 的堆：</p>
+<ul>
+<li>12288 MB / 2048 个区域 = 6 MB - 这不是 2 的幂</li>
+<li>12288 MB / 8 MB = 1536 个区域 - 通常太低</li>
+<li>12288 MB / 4 MB = 3072 个区域 - 可接受</li>
+</ul>
+<p><img src="https://www.redhat.com/rhdc/managed-files/heap-empty-regions.png" alt="img"></p>
+<p>也可以选择通过 -XX:G1HeapRegionSize 显式指定区域大小。设置区域大小时，务必了解堆大小比将创建的区域数量，因为区域数量越少，G1 的灵活性就越低，扫描、标记和收集每个区域所需的时间也就越长。在所有情况下，空区域都会被添加到一个无序链表中，也称为“空闲列表”。</p>
+<p>The flags are: 这些标志是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>-Xloggc:/path/to/gc.log -Xloggc:/路径/到/gc.log</th>
+<th>Path where the GC logs are written GC 日志写入的路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-XX:+UseGCLogFileRotation</td>
+<td>Enable GC log file rotation 启用 GC 日志文件轮换</td>
+</tr>
+<tr>
+<td>-XX:NumberOfGCLogFiles=<value></value></td>
+<td>Number of rotated GC logs files to retain 要保留的轮换 GC 日志文件数量</td>
+</tr>
+<tr>
+<td>-XX:GCLogFileSize=<size> -XX：GCLogFileSize =<size></size></size></td>
+<td>Size of each GC logs file to initiate rotation 启动轮换的每个 GC 日志文件的大小</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDetails</td>
+<td>Detailed GC log 详细的 GC 日志</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDateStamps -XX:+打印 GCDateStamps</td>
+<td>Actual date and timestamp of the collection 收集的实际日期和时间戳</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCApplicationStoppedTime</td>
+<td>Amount of time the application stopped during GC 应用程序在 GC 期间停止的时间量</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCApplicationConcurrentTime</td>
+<td>Amount of time the application ran between GCs 应用程序在 GC 之间运行的时间量</td>
+</tr>
+<tr>
+<td>-XX:-PrintCommandLineFlags</td>
+<td>Prints all the command line flags in the GC log 在 GC 日志中打印所有命令行标志</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The flags are: 这些标志是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>-XX:+PrintAdaptiveSizePolicy</th>
+<th>Details about the collector ergonomics 关于收集器人体工程学的详细信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-XX:+PrintTenuringDistribution</td>
+<td>Survivor space usage and distribution Survivor 空间使用及分配</td>
+</tr>
+<tr>
+<td>-XX:+PrintReferenceGC -XX:+打印参考 GC</td>
+<td>Time spent processing references 处理参考文献所花的时间</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> 最后，我们还有诊断和实验标志。这些标志可以添加大量日志记录，应仅在必要时以及尝试调试特定问题时使用。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>-XX:+UnlockDiagnosticVMOptions -XX:+解锁诊断虚拟机选项</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-XX:+G1SummarizeConcMark</td>
+<td>Summarizes Concurrent Mark at JVM exit 总结 JVM 退出时的并发标记</td>
+</tr>
+<tr>
+<td>-XX:+G1PrintHeapRegions</td>
+<td>Print the heap regions selected for allocation, cleanup, reuse, compact, cset, commit, failure, etc… 打印选择用于分配、清理、重用、压缩、cset、提交、失败等的堆区域…</td>
+</tr>
+<tr>
+<td>-XX:+G1PrintRegionLivenessInfo</td>
+<td>Prints previous and next liveness data per Old region before and after every concurrent mark cycle 在每个并发标记周期之前和之后打印每个旧区域的上一个和下一个活跃度数据</td>
+</tr>
+<tr>
+<td>-XX:+G1SummarizeRSetStats -XX:G1SummarizeRSetStatsPeriod=1</td>
+<td>Print RSet processing information every X, where X is measured in GC cycles 每 X 次打印 RSet 处理信息，其中 X 以 GC 周期为单位</td>
+</tr>
+<tr>
+<td>-XX:+PrintSafepointStatistics -XX:PrintSafepointStatisticsCount=1 -XX:+打印安全点统计信息 -XX:打印安全点统计信息计数=1-XX:+LogVMOutput-XX:LogFile=/path/to/gc.log -XX：LogFile = /路径/到/gc.log</td>
+<td>Prints the reason and some details about safepoint synchronization. Can control how many events to collect before printing. By default, logs to STDOut - LogVMOutput can push it to a file 打印原因以及有关安全点同步的一些详细信息。可以控制打印前收集的事件数量。默认情况下，日志记录到 STDOut - LogVMOutput 可以将其推送到文件</td>
+</tr>
+<tr>
+<td>-XX:+UnlockExperimentalVMOptions -XX:+解锁实验虚拟机选项</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:G1LogLevel=fine, finer, finest -XX:G1LogLevel=fine，更精细，最精细</td>
+<td>Increases logging verbosity on collections 增加集合的日志详细程度</td>
+</tr>
+<tr>
+<td>-XX:+G1TraceEagerReclaimHumongousObjects</td>
+<td>Prints details about live and dead Humongous objects during each collection 打印每次收集期间存活和死亡的 Humongous 对象的详细信息</td>
+</tr>
+<tr>
+<td>-XX:+G1ConcRegionFreeingVerbose</td>
+<td>Debug JVM 调试 JVM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> 最后，我们还有诊断和实验标志。这些标志可以添加大量日志记录，应仅在必要时以及尝试调试特定问题时使用。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>-XX:+UnlockDiagnosticVMOptions -XX:+解锁诊断虚拟机选项</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-XX:+G1SummarizeConcMark</td>
+<td>Summarizes Concurrent Mark at JVM exit 总结 JVM 退出时的并发标记</td>
+</tr>
+<tr>
+<td>-XX:+G1PrintHeapRegions</td>
+<td>Print the heap regions selected for allocation, cleanup, reuse, compact, cset, commit, failure, etc… 打印选择用于分配、清理、重用、压缩、cset、提交、失败等的堆区域…</td>
+</tr>
+<tr>
+<td>-XX:+G1PrintRegionLivenessInfo</td>
+<td>Prints previous and next liveness data per Old region before and after every concurrent mark cycle 在每个并发标记周期之前和之后打印每个旧区域的上一个和下一个活跃度数据</td>
+</tr>
+<tr>
+<td>-XX:+G1SummarizeRSetStats -XX:G1SummarizeRSetStatsPeriod=1</td>
+<td>Print RSet processing information every X, where X is measured in GC cycles 每 X 次打印 RSet 处理信息，其中 X 以 GC 周期为单位</td>
+</tr>
+<tr>
+<td>-XX:+PrintSafepointStatistics -XX:PrintSafepointStatisticsCount=1 -XX:+打印安全点统计信息 -XX:打印安全点统计信息计数=1-XX:+LogVMOutput-XX:LogFile=/path/to/gc.log -XX：LogFile = /路径/到/gc.log</td>
+<td>Prints the reason and some details about safepoint synchronization. Can control how many events to collect before printing. By default, logs to STDOut - LogVMOutput can push it to a file 打印原因以及有关安全点同步的一些详细信息。可以控制打印前收集的事件数量。默认情况下，日志记录到 STDOut - LogVMOutput 可以将其推送到文件</td>
+</tr>
+<tr>
+<td>-XX:+UnlockExperimentalVMOptions -XX:+解锁实验虚拟机选项</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:G1LogLevel=fine, finer, finest -XX:G1LogLevel=fine，更精细，最精细</td>
+<td>Increases logging verbosity on collections 增加集合的日志详细程度</td>
+</tr>
+<tr>
+<td>-XX:+G1TraceEagerReclaimHumongousObjects</td>
+<td>Prints details about live and dead Humongous objects during each collection 打印每次收集期间存活和死亡的 Humongous 对象的详细信息</td>
+</tr>
+<tr>
+<td>-XX:+G1ConcRegionFreeingVerbose</td>
+<td>Debug JVM 调试 JVM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>jvm</tag>
+        <tag>g1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM 堆内存回顾</title>
+    <url>/posts/jvm_heap.html</url>
+    <content><![CDATA[<blockquote>
+<p>有一天被负责 BI 的同事问道，为什么应用设置了 -Xms128m -Xmx128m 后，应用还是要占用 300 mb 左右的内存大小<br>想当然回答到：因为还有其他东西占用，这个只是用来约束栈堆的。<br>但是事后想了下，回答得不够好，就有以下这个文章重新梳理下这个答案</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="JVM-由哪些东西构成-？"><a href="#JVM-由哪些东西构成-？" class="headerlink" title="JVM 由哪些东西构成 ？"></a>JVM 由哪些东西构成 ？</h2><p>核心组件包括：</p>
+<ul>
+<li>类加载器子系统</li>
+<li>运行时数据区</li>
+<li>执行引擎</li>
+<li>本地方法接口</li>
+</ul>
+<p><img src="/posts/./jvm_heap/jvm_heap.png" alt="jvm_heap"></p>
+<p>其中 <code>-Xms128m -Xmx128m</code>用来控制 堆 的起始和最大的限制。由于还有其他组件也需要运行，所以总体大小应该是超过 128 mb 的。</p>
+<p>在非堆中有：</p>
+<ul>
+<li>元空间 - 方法区：用来存储加载类的信息，方法元数据，常量池等。 -XX:MaxMetaspaceSize 来控制它的限制</li>
+<li>通过 -Xss 来控制 Thread Stacks , 每个线程在创建时都会分配一个私有的栈内存，用于存储局部变量、方法调用栈帧等。默认大小在大多数 64 位 JVM 上是 1MB . 即使是一个简单的应用，通常也有多个线程（主线程、GC 线程、Finalizer 线程、可能的应用线程等）。10 个线程就需要大约 10MB 的栈内存。</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>jvm</tag>
       </tags>
   </entry>
   <entry>
