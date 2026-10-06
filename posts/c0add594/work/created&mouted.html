@@ -1,8 +1,0 @@
-<hr>
-<h2 id="abbrlink-‘0’"><a href="#abbrlink-‘0’" class="headerlink" title="abbrlink: ‘0’"></a>abbrlink: ‘0’</h2><h1 id="created-amp-mounted"><a href="#created-amp-mounted" class="headerlink" title="created &amp; mounted"></a>created &amp; mounted</h1><p>我经常在 <code>created</code>中放入初始化页面的请求，比如先获得表单数据，或者一些页面的权限点。从生命周期中看 <code>created</code> 在 <code>mounted</code> 之前。</p>
-<p>在 <code>created</code> 阶段时，<code>$el</code> 属性是不可见的，拿不到页面元素。</p>
-<p>在 <code>mounted</code> 阶段时，在当前组件挂载完成以后（模板渲染完成以后）被调用，向后端发送请求做一些业务处理。</p>
-<p>之间的区别，我觉得是 在数据加载到<code>dom</code>后，是否需要用到<code>dom</code>对象，并做操作。</p>
-<p>比如：在 <code>created</code> 阶段获得了初始化数据，在 <code>mounted</code> 中的获得该对象，然后设置全选，禁用，或者隐藏等等一些操作。</p>
-<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt=""></p>
-<p style="text-align:center">来自官网 - Vue 实例的生命周期</p>
